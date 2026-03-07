@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Sidebar } from "@/components/layout/sidebar";
+import { Header } from "@/components/layout/header";
+import { Toaster } from "@/components/ui/sonner";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Docker Manager",
+  description: "Webbasierte Docker-Verwaltungsanwendung",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="de" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex overflow-hidden`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {/* Futuristic Glassmorphism Background Elements */}
+          <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-slate-50 via-white to-cyan-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-slate-900" />
+          <div className="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vh] rounded-full bg-purple-500/20 dark:bg-purple-600/15 blur-[120px] z-[-1] animate-pulse duration-[10000ms]" />
+          <div className="fixed bottom-[-20%] right-[-10%] w-[50vw] h-[50vh] rounded-full bg-cyan-500/20 dark:bg-cyan-600/15 blur-[120px] z-[-1] animate-pulse duration-[12000ms]" />
+
+          <Sidebar />
+          <div className="flex flex-col flex-1 overflow-hidden">
+            <Header />
+            <main className="flex-1 overflow-auto p-4 lg:p-6 bg-transparent relative z-10">
+              {children}
+            </main>
+          </div>
+          <Toaster position="bottom-right" />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
