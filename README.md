@@ -4,7 +4,7 @@
 
 A powerful, modern, and futuristic web interface for managing your local Docker environment. Built with Next.js, Tailwind CSS (Glassmorphism design), and Shadcn UI.
 
-![Dashboard Preview](docs/dashboard.png) *(Placeholder for screenshot)*
+![Dashboard Preview](docs/dashboard.png)
 
 ## ✨ Features
 
