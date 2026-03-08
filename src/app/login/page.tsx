@@ -7,8 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Box, Lock, User } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function LoginPage() {
+    const { t } = useLanguage();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -55,13 +57,13 @@ export default function LoginPage() {
                         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg">
                             <Box className="w-8 h-8 text-white" />
                         </div>
-                        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">Docker Manager</h1>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Bitte logge dich ein, um fortzufahren</p>
+                        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50">{t.login.title}</h1>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{t.login.subtitle}</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-5">
                         <div className="space-y-2 relative">
-                            <Label htmlFor="username" className="text-zinc-700 dark:text-zinc-300 ml-1">Benutzername</Label>
+                            <Label htmlFor="username" className="text-zinc-700 dark:text-zinc-300 ml-1">{t.login.username}</Label>
                             <div className="relative">
                                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
                                 <Input
@@ -78,7 +80,7 @@ export default function LoginPage() {
                         </div>
 
                         <div className="space-y-2 relative">
-                            <Label htmlFor="password" className="text-zinc-700 dark:text-zinc-300 ml-1">Passwort</Label>
+                            <Label htmlFor="password" className="text-zinc-700 dark:text-zinc-300 ml-1">{t.login.password}</Label>
                             <div className="relative">
                                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
                                 <Input
@@ -98,13 +100,13 @@ export default function LoginPage() {
                             className="w-full h-11 mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg transition-all hover:shadow-blue-500/25"
                             disabled={loading}
                         >
-                            {loading ? "Wird angemeldet..." : "Login"}
+                            {loading ? t.common.loading : t.login.button}
                         </Button>
                     </form>
                 </div>
 
                 <p className="text-center text-sm text-zinc-500 dark:text-zinc-500 mt-6 bg-white/20 dark:bg-black/20 backdrop-blur-sm py-2 px-4 rounded-full mx-auto w-fit">
-                    Standard-Login: <strong>admin</strong> / <strong>admin</strong>
+                    {t.login.defaultText} <strong>admin</strong> / <strong>admin</strong>
                 </p>
             </div>
         </div>

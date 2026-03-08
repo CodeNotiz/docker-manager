@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { de } from "date-fns/locale";
+import { de, enUS, es, fr } from "date-fns/locale";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow
 } from "@/components/ui/table";
@@ -18,11 +19,15 @@ import { ContainerLogs } from "./container-logs";
 import { ContainerTerminal } from "./container-terminal";
 
 export function ContainerList() {
+    const { t, locale } = useLanguage();
     const [containers, setContainers] = useState<ContainerInfo[]>([]);
     const [loading, setLoading] = useState(true);
     const [logsOpen, setLogsOpen] = useState(false);
     const [terminalOpen, setTerminalOpen] = useState(false);
     const [selectedContainer, setSelectedContainer] = useState<{ id: string, name: string } | null>(null);
+
+    const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+    const dateLocale = dateLocales[locale] || de;
 
     const fetchContainers = async () => {
         try {
@@ -73,7 +78,7 @@ export function ContainerList() {
         setTerminalOpen(true);
     };
 
-    if (loading) return <div>Lade Container...</div>;
+    if (loading) return <div>{t.common.loading}</div>;
 
     return (
         <>
@@ -81,12 +86,12 @@ export function ContainerList() {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Name</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead>Image</TableHead>
-                            <TableHead>Ports</TableHead>
-                            <TableHead>Erstellt</TableHead>
-                            <TableHead className="text-right">Aktionen</TableHead>
+                            <TableHead>{t.common.name}</TableHead>
+                            <TableHead>{t.containers.state}</TableHead>
+                            <TableHead>{t.containers.image}</TableHead>
+                            <TableHead>{t.containers.ports}</TableHead>
+                            <TableHead>{t.images.created}</TableHead>
+                            <TableHead className="text-right">{t.common.actions}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -109,30 +114,30 @@ export function ContainerList() {
                                         {container.Ports.filter(p => p.PublicPort).map(p => `${p.PublicPort}:${p.PrivatePort}`).join(', ') || '-'}
                                     </TableCell>
                                     <TableCell>
-                                        {formatDistanceToNow(new Date(container.Created * 1000), { addSuffix: true, locale: de })}
+                                        {formatDistanceToNow(new Date(container.Created * 1000), { addSuffix: true, locale: dateLocale })}
                                     </TableCell>
                                     <TableCell className="text-right">
                                         <div className="flex justify-end gap-2">
                                             {isRunning ? (
-                                                <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'stop')} title="Stoppen">
+                                                <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'stop')} title={t.containers.stop}>
                                                     <Square className="h-4 w-4" />
                                                 </Button>
                                             ) : (
-                                                <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'start')} title="Starten">
+                                                <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'start')} title={t.containers.start}>
                                                     <Play className="h-4 w-4" />
                                                 </Button>
                                             )}
-                                            <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'restart')} title="Neustarten">
+                                            <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'restart')} title={t.containers.restart}>
                                                 <RotateCcw className="h-4 w-4" />
                                             </Button>
-                                            <Button variant="destructive" size="icon" onClick={() => handleAction(container.Id, 'delete')} title="Löschen">
+                                            <Button variant="destructive" size="icon" onClick={() => handleAction(container.Id, 'delete')} title={t.containers.remove}>
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>
                                             <div className="w-px h-8 bg-border mx-1"></div>
-                                            <Button variant="secondary" size="icon" onClick={() => openLogs(container.Id, name)} title="Logs anzeigen">
+                                            <Button variant="secondary" size="icon" onClick={() => openLogs(container.Id, name)} title={t.containers.logs}>
                                                 <FileText className="h-4 w-4" />
                                             </Button>
-                                            <Button variant="secondary" size="icon" onClick={() => openTerminal(container.Id, name)} title="Terminal öffnen" disabled={!isRunning}>
+                                            <Button variant="secondary" size="icon" onClick={() => openTerminal(container.Id, name)} title={t.containers.terminal} disabled={!isRunning}>
                                                 <Terminal className="h-4 w-4" />
                                             </Button>
                                         </div>
@@ -143,7 +148,7 @@ export function ContainerList() {
                         {containers.length === 0 && (
                             <TableRow>
                                 <TableCell colSpan={6} className="text-center py-6 text-muted-foreground">
-                                    Keine Container gefunden.
+                                    {t.containers.noContainers}
                                 </TableCell>
                             </TableRow>
                         )}

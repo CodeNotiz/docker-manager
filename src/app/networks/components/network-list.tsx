@@ -12,8 +12,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Network } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { de } from "date-fns/locale";
+import { de, enUS, es, fr } from "date-fns/locale";
 import { toast } from "sonner";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
     Dialog,
     DialogContent,
@@ -44,10 +45,14 @@ interface DockerNetwork {
 }
 
 export function NetworkList() {
+    const { t, locale } = useLanguage();
     const [networks, setNetworks] = useState<DockerNetwork[]>([]);
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [isCreateOpen, setIsCreateOpen] = useState(false);
+
+    const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+    const dateLocale = dateLocales[locale] || de;
 
     // Create Network form state
     const [newNetworkName, setNewNetworkName] = useState("");
@@ -160,20 +165,20 @@ export function NetworkList() {
                 <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
                     <DialogTrigger render={<Button className="flex items-center gap-2" />}>
                         <Plus className="w-4 h-4" />
-                        Netzwerk erstellen
+                        {t.networks.create}
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-[500px]">
                         <form onSubmit={handleCreateNetwork}>
                             <DialogHeader>
-                                <DialogTitle>Neues Netzwerk erstellen</DialogTitle>
+                                <DialogTitle>{t.networks.createDialog.title}</DialogTitle>
                                 <DialogDescription>
-                                    Legen Sie ein neues Docker-Netzwerk an. Optional können Sie detaillierte IPv4-Einstellungen vornehmen.
+                                    {t.networks.createDialog.desc}
                                 </DialogDescription>
                             </DialogHeader>
                             <div className="grid gap-4 py-4 max-h-[60vh] overflow-y-auto px-1">
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="name" className="text-right">
-                                        Name *
+                                        {t.common.name} *
                                     </Label>
                                     <Input
                                         id="name"
@@ -186,7 +191,7 @@ export function NetworkList() {
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="driver" className="text-right">
-                                        Treiber *
+                                        {t.networks.driver} *
                                     </Label>
                                     <div className="col-span-3">
                                         <Select
@@ -301,7 +306,7 @@ export function NetworkList() {
                             </div>
                             <DialogFooter>
                                 <Button type="submit" disabled={isCreating}>
-                                    {isCreating ? "Wird erstellt..." : "Erstellen"}
+                                    {isCreating ? t.common.loading : t.common.create}
                                 </Button>
                             </DialogFooter>
                         </form>
@@ -309,7 +314,7 @@ export function NetworkList() {
                 </Dialog>
 
                 <Button variant="outline" onClick={fetchNetworks} disabled={loading}>
-                    Aktualisieren
+                    {t.common.refresh}
                 </Button>
             </div>
 
@@ -317,25 +322,25 @@ export function NetworkList() {
                 <Table>
                     <TableHeader>
                         <TableRow className="border-zinc-200 dark:border-zinc-800">
-                            <TableHead>Name</TableHead>
-                            <TableHead>Treiber</TableHead>
+                            <TableHead>{t.common.name}</TableHead>
+                            <TableHead>{t.networks.driver}</TableHead>
                             <TableHead>Scope</TableHead>
-                            <TableHead>Erstellt am</TableHead>
-                            <TableHead>Container</TableHead>
-                            <TableHead className="text-right">Aktionen</TableHead>
+                            <TableHead>{t.images.created}</TableHead>
+                            <TableHead>{t.networks.containers}</TableHead>
+                            <TableHead className="text-right">{t.common.actions}</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {loading ? (
                             <TableRow>
                                 <TableCell colSpan={6} className="text-center h-24 text-zinc-500">
-                                    Lade Netzwerke...
+                                    {t.common.loading}
                                 </TableCell>
                             </TableRow>
                         ) : networks.length === 0 ? (
                             <TableRow>
                                 <TableCell colSpan={6} className="text-center h-24 text-zinc-500">
-                                    Keine Netzwerke gefunden.
+                                    {t.networks.noNetworks}
                                 </TableCell>
                             </TableRow>
                         ) : (
@@ -356,7 +361,7 @@ export function NetworkList() {
                                         {net.Scope}
                                     </TableCell>
                                     <TableCell className="text-zinc-500 text-sm">
-                                        {net.Created && net.Created !== "0001-01-01T00:00:00Z" ? formatDistanceToNow(new Date(net.Created), { addSuffix: true, locale: de }) : 'Unbekannt'}
+                                        {net.Created && net.Created !== "0001-01-01T00:00:00Z" ? formatDistanceToNow(new Date(net.Created), { addSuffix: true, locale: dateLocale }) : '-'}
                                     </TableCell>
                                     <TableCell>
                                         <div className="flex items-center gap-1.5">
@@ -373,7 +378,7 @@ export function NetworkList() {
                                                 className="h-8 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/50"
                                                 onClick={() => handleDelete(net.Id, net.Name)}
                                                 disabled={actionLoading === net.Id || isSystemNetwork(net.Name)}
-                                                title={isSystemNetwork(net.Name) ? "System-Netzwerk kann nicht gelöscht werden" : "Löschen"}
+                                                title={isSystemNetwork(net.Name) ? t.networks.systemNetworkDesc : t.networks.remove}
                                             >
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>

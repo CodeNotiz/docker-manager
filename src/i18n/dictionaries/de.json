@@ -1,0 +1,106 @@
+{
+    "common": {
+        "loading": "Laden...",
+        "error": "Fehler",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "delete": "Löschen",
+        "refresh": "Aktualisieren",
+        "create": "Erstellen",
+        "edit": "Bearbeiten",
+        "actions": "Aktionen",
+        "name": "Name",
+        "status": "Status",
+        "search": "Suchen..."
+    },
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "containers": "Container",
+        "images": "Images",
+        "networks": "Netzwerke",
+        "stacks": "Stacks",
+        "settings": "Einstellungen",
+        "logout": "Abmelden"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Willkommen bei deiner futuristischen Docker-Zentrale.",
+        "containers": "Container",
+        "images": "Images",
+        "networks": "Netzwerke",
+        "stacks": "Stacks"
+    },
+    "containers": {
+        "title": "Container Übersicht",
+        "subtitle": "Verwalte deine aktiven und gestoppten Container.",
+        "image": "Image",
+        "state": "Zustand",
+        "ports": "Ports",
+        "start": "Starten",
+        "stop": "Stoppen",
+        "restart": "Neustarten",
+        "remove": "Entfernen",
+        "terminal": "Terminal",
+        "logs": "Logs",
+        "noContainers": "Keine Container gefunden."
+    },
+    "images": {
+        "title": "Docker Images",
+        "subtitle": "Verwalte deine heruntergeladenen Images.",
+        "repository": "Repository",
+        "tag": "Tag",
+        "id": "Image ID",
+        "size": "Größe",
+        "created": "Erstellt",
+        "pruneDangling": "Dangling Images bereinigen",
+        "pruneAll": "Alle unbenutzten Images bereinigen",
+        "unusedImage": "Unbenutztes Image",
+        "danglingImage": "Dangling Image (Ohne Tag)",
+        "remove": "Löschen",
+        "noImages": "Keine Images gefunden."
+    },
+    "networks": {
+        "title": "Docker Netzwerke",
+        "subtitle": "Verwalte deine Netzwerke.",
+        "driver": "Treiber",
+        "scope": "Scope",
+        "subnet": "Subnetz",
+        "gateway": "Gateway",
+        "containers": "Container",
+        "create": "Netzwerk erstellen",
+        "createNetwork": "Neues Netzwerk",
+        "createDialog": {
+            "title": "Neues Netzwerk erstellen",
+            "desc": "Legen Sie ein neues Docker-Netzwerk an. Optional können Sie detaillierte IPv4-Einstellungen vornehmen."
+        },
+        "systemNetworkDesc": "System-Netzwerk kann nicht gelöscht werden",
+        "remove": "Löschen",
+        "noNetworks": "Keine Netzwerke gefunden."
+    },
+    "stacks": {
+        "title": "Lokale Stacks",
+        "subtitle": "Stacks werden als Ordner unter /stacks_data gespeichert.",
+        "createStack": "Neuen Stack anlegen",
+        "deploy": "Deploy (Up)",
+        "stop": "Stop (Down)",
+        "noStacks": "Noch keine Stacks vorhanden",
+        "emptyStateDesc": "Erstelle deinen ersten Docker Compose Stack."
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "subtitle": "Passe hier deine Zugangsdaten und die Sprache für den Docker Manager an.",
+        "language": "Sprache",
+        "newUsername": "Neuer Benutzername",
+        "newPassword": "Neues Passwort",
+        "currentPassword": "Aktuelles Passwort (Pflichtfeld)",
+        "saveChanges": "Änderungen speichern"
+    },
+    "login": {
+        "title": "Docker Manager",
+        "subtitle": "Bitte logge dich ein, um fortzufahren",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "button": "Login",
+        "defaultText": "Standard-Login:"
+    }
+}

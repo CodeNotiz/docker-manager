@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Play, Square, Edit, Layers } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/i18n/LanguageContext";
 import {
     Dialog,
     DialogContent,
@@ -27,6 +28,7 @@ interface DockerStack {
 }
 
 export function StackList() {
+    const { t } = useLanguage();
     const [stacks, setStacks] = useState<DockerStack[]>([]);
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
@@ -168,18 +170,18 @@ export function StackList() {
                     <div>
                         <h3 className="text-lg font-medium flex items-center gap-2">
                             <Layers className="w-5 h-5" />
-                            Lokale Stacks
+                            {t.stacks.title}
                         </h3>
                         <p className="text-sm text-zinc-500">
-                            Stacks werden als Ordner unter <code>/stacks_data</code> auf dem Server gespeichert.
+                            {t.stacks.subtitle}
                         </p>
                     </div>
 
                     <div className="flex gap-2">
-                        <Button onClick={fetchStacks} variant="outline" disabled={loading}>Aktualisieren</Button>
+                        <Button onClick={fetchStacks} variant="outline" disabled={loading}>{t.common.refresh}</Button>
                         <Button onClick={openCreateEditor} className="gap-2">
                             <Plus className="w-4 h-4" />
-                            Neuen Stack anlegen
+                            {t.stacks.createStack}
                         </Button>
                     </div>
                 </div>
@@ -187,7 +189,7 @@ export function StackList() {
                 <Dialog open={isEditorOpen} onOpenChange={setIsEditorOpen}>
                     <DialogContent className="sm:max-w-[800px] h-[80vh] flex flex-col">
                         <DialogHeader>
-                            <DialogTitle>{editorMode === 'create' ? 'Neuen Stack erstellen' : 'Stack bearbeiten'}</DialogTitle>
+                            <DialogTitle>{editorMode === 'create' ? t.stacks.createStack : t.common.edit}</DialogTitle>
                             <DialogDescription>
                                 Schreibe oder paste hier deine <code>docker-compose.yml</code> Konfiguration.
                             </DialogDescription>
@@ -196,7 +198,7 @@ export function StackList() {
                         <div className="flex flex-col gap-4 py-4 flex-1 min-h-0">
                             <div className="flex items-center gap-4">
                                 <Label htmlFor="name" className="whitespace-nowrap w-24">
-                                    Stack Name
+                                    Stack {t.common.name}
                                 </Label>
                                 <Input
                                     id="name"
@@ -252,9 +254,9 @@ export function StackList() {
                         </div>
 
                         <DialogFooter>
-                            <Button variant="outline" onClick={() => setIsEditorOpen(false)}>Abbrechen</Button>
+                            <Button variant="outline" onClick={() => setIsEditorOpen(false)}>{t.common.cancel}</Button>
                             <Button onClick={(e) => handleSaveStack(e as any)} disabled={isSaving}>
-                                {isSaving ? "Speichere..." : "Speichern"}
+                                {isSaving ? t.common.loading : t.common.save}
                             </Button>
                         </DialogFooter>
                     </DialogContent>
@@ -263,13 +265,13 @@ export function StackList() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {loading ? (
-                    <div className="col-span-full text-center py-12 text-zinc-500">Lade Stacks...</div>
+                    <div className="col-span-full text-center py-12 text-zinc-500">{t.common.loading}</div>
                 ) : stacks.length === 0 ? (
                     <div className="col-span-full border-2 border-dashed rounded-lg border-zinc-300 dark:border-zinc-800 p-12 text-center">
                         <Layers className="w-12 h-12 mx-auto text-zinc-400 mb-4" />
-                        <h3 className="text-lg font-medium mb-2">Noch keine Stacks vorhanden</h3>
-                        <p className="text-zinc-500 mb-4">Erstelle deinen ersten Docker Compose Stack.</p>
-                        <Button onClick={openCreateEditor}>Stack erstellen</Button>
+                        <h3 className="text-lg font-medium mb-2">{t.stacks.noStacks}</h3>
+                        <p className="text-zinc-500 mb-4">{t.stacks.emptyStateDesc}</p>
+                        <Button onClick={openCreateEditor}>{t.stacks.createStack}</Button>
                     </div>
                 ) : (
                     stacks.map((stack) => (
@@ -292,7 +294,7 @@ export function StackList() {
                                         variant="outline"
                                         size="icon"
                                         onClick={() => openEditEditor(stack)}
-                                        title="Bearbeiten"
+                                        title={t.common.edit}
                                     >
                                         <Edit className="h-4 w-4" />
                                     </Button>
@@ -302,7 +304,7 @@ export function StackList() {
                                         className="text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50"
                                         onClick={() => handleDelete(stack.name)}
                                         disabled={actionLoading === `delete-${stack.name}`}
-                                        title="Stack löschen"
+                                        title={t.common.delete}
                                     >
                                         <Trash2 className="h-4 w-4" />
                                     </Button>
@@ -317,7 +319,7 @@ export function StackList() {
                                     onClick={() => handleAction(stack.name, 'up')}
                                 >
                                     <Play className="w-4 h-4 mr-2" />
-                                    Deploy (Up)
+                                    {t.stacks.deploy}
                                 </Button>
                                 <Button
                                     variant={stack.status === 'stopped' ? 'outline' : 'default'}
@@ -326,7 +328,7 @@ export function StackList() {
                                     onClick={() => handleAction(stack.name, 'down')}
                                 >
                                     <Square className="w-4 h-4 mr-2" />
-                                    Stop (Down)
+                                    {t.stacks.stop}
                                 </Button>
                             </div>
                         </div>

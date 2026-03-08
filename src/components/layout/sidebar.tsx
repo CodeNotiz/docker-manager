@@ -5,18 +5,20 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Box, Layers, Network, Server, HardDrive, Settings, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-const navigation = [
-    { name: 'Dashboard', href: '/', icon: Server },
-    { name: 'Containers', href: '/containers', icon: Box },
-    { name: 'Images', href: '/images', icon: HardDrive },
-    { name: 'Networks', href: '/networks', icon: Network },
-    { name: 'Stacks', href: '/stacks', icon: Layers },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Sidebar() {
     const pathname = usePathname();
     const router = useRouter();
+    const { t } = useLanguage();
+
+    const navigation = [
+        { name: t.sidebar.dashboard, href: '/', icon: Server },
+        { name: t.sidebar.containers, href: '/containers', icon: Box },
+        { name: t.sidebar.images, href: '/images', icon: HardDrive },
+        { name: t.sidebar.networks, href: '/networks', icon: Network },
+        { name: t.sidebar.stacks, href: '/stacks', icon: Layers },
+    ];
 
     const handleLogout = async () => {
         try {
@@ -66,14 +68,14 @@ export function Sidebar() {
                     )}
                 >
                     <Settings className="h-4 w-4" />
-                    Einstellungen
+                    {t.sidebar.settings}
                 </Link>
                 <button
                     onClick={handleLogout}
                     className="w-full flex items-center gap-3 rounded-xl px-3 py-2.5 text-red-500/80 transition-all hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50"
                 >
                     <LogOut className="h-4 w-4" />
-                    Abmelden
+                    {t.sidebar.logout}
                 </button>
             </div>
         </div>
