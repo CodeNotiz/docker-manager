@@ -30,30 +30,31 @@ Ein leistungsstarkes, modernes und futuristisches Web-Interface zur Verwaltung d
 
 ## 🚀 Installation & Start
 
-### Voraussetzungen
-1. Ein Linux/macOS System mit installiertem Docker (Der Daemon-Socket muss unter `/var/run/docker.sock` erreichbar sein).
-2. Node.js (v18 oder neuer) und npm.
+Die Anwendung ist offiziell **Docker-Ready** und liefert alles mit, was du brauchst (inklusive Alpine Linux, Docker-CLI und Node.js Server). Du brauchst auf deinem Host-System also nicht einmal mehr Node.js zu installieren!
 
-### Setup
+### Variante 1: Start via Docker Compose (Empfohlen)
 
-1. **Repository klonen / Source Code herunterladen**
-   Gehe in das Projektverzeichnis.
+Es wird eine fertige `docker-compose.yml` Vorlage mitgeliefert. Diese bindet deinen lokalen Docker-Socket (`/var/run/docker.sock`) im Container ein und mountet SQLite-Datenbank sowie User-Stacks sicher ins Dateisystem.
 
-2. **Abhängigkeiten installieren**
-   ```bash
-   npm install
-   # oder falls legacy-peer-deps benötigt wird:
-   npm install --legacy-peer-deps
-   ```
+```bash
+# 1. Repository klonen
+git clone https://github.com/CodeNotiz/docker-manager.git
+cd docker-manager
 
-3. **Entwicklungsserver starten**
-   ```bash
-   npm run dev
-   ```
-   *Beim ersten Start wird im Hintergrund automatisch der Ordner `data/` mitsamt der SQLite-Datenbank `docker-manager.db` erstellt.*
+# 2. Container im Hintergrund bauen und starten
+docker compose up -d --build
+```
+Die App ist nun unter **`http://localhost:3000`** erreichbar.
 
-4. **App aufrufen**
-   Öffne deinen Browser und navigiere zu: **`http://localhost:3000`**
+### Variante 2: Klassisches Setup via Node.js (Für Entwicklung)
+
+Voraussetzung: Node.js (v18+) und Docker sind auf dem Host installiert.
+
+```bash
+npm install
+npm run dev
+```
+Der Entwicklungsserver startet auf Port 3000. *Tipp: Beim ersten Start wird im Hintergrund automatisch der Ordner `data/` mitsamt der SQLite-Datenbank `docker-manager.db` erstellt.*
 
 ---
 
@@ -101,5 +102,11 @@ Zusätzlich zum Code erzeugt der Server zur Laufzeit zwei wichtige Verzeichnisse
   Führe ggf. `sudo usermod -aG docker $USER` aus und logge dich neu ein.
 
 ---
+
+## 📬 Kontakt & Autor
+
+Entwickelt von **CodeNotiz** 
+- ✉️ E-Mail: info@codenotiz.de
+- 🌐 GitHub: [github.com/CodeNotiz/docker-manager](https://github.com/CodeNotiz/docker-manager)
 
 *Entwickelt mit ❤️ für eine schönere Docker-Erfahrung.*

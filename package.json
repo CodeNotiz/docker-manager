@@ -46,5 +46,6 @@
     "typescript": "^5"
   },
   "license": "GPL-3.0",
-  "author": "CodeNotiz"
+  "author": "CodeNotiz <info@codenotiz.de>",
+  "homepage": "https://github.com/CodeNotiz/docker-manager"
 }
