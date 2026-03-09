@@ -11,7 +11,9 @@
         "actions": "Actions",
         "name": "Nom",
         "status": "Statut",
-        "search": "Rechercher..."
+        "search": "Rechercher...",
+        "welcome": "Bienvenue, {name}",
+        "pleaseLogin": "Veuillez vous connecter"
     },
     "sidebar": {
         "dashboard": "Tableau de bord",

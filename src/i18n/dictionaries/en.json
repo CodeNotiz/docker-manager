@@ -11,7 +11,9 @@
         "actions": "Actions",
         "name": "Name",
         "status": "Status",
-        "search": "Search..."
+        "search": "Search...",
+        "welcome": "Welcome, {name}",
+        "pleaseLogin": "Please sign in"
     },
     "sidebar": {
         "dashboard": "Dashboard",

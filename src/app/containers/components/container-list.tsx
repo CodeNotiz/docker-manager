@@ -17,6 +17,7 @@ import { ContainerInfo } from "dockerode";
 
 import { ContainerLogs } from "./container-logs";
 import { ContainerTerminal } from "./container-terminal";
+import { ContainerDetails } from "./container-details";
 
 export function ContainerList() {
     const { t, locale } = useLanguage();
@@ -24,6 +25,7 @@ export function ContainerList() {
     const [loading, setLoading] = useState(true);
     const [logsOpen, setLogsOpen] = useState(false);
     const [terminalOpen, setTerminalOpen] = useState(false);
+    const [detailsOpen, setDetailsOpen] = useState(false);
     const [selectedContainer, setSelectedContainer] = useState<{ id: string, name: string } | null>(null);
 
     const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
@@ -78,6 +80,11 @@ export function ContainerList() {
         setTerminalOpen(true);
     };
 
+    const openDetails = (id: string, name: string) => {
+        setSelectedContainer({ id, name });
+        setDetailsOpen(true);
+    };
+
     if (loading) return <div>{t.common.loading}</div>;
 
     return (
@@ -101,7 +108,14 @@ export function ContainerList() {
 
                             return (
                                 <TableRow key={container.Id}>
-                                    <TableCell className="font-medium">{name}</TableCell>
+                                    <TableCell className="font-medium">
+                                        <button
+                                            onClick={() => openDetails(container.Id, name)}
+                                            className="hover:underline hover:text-blue-500 transition-colors text-left"
+                                        >
+                                            {name}
+                                        </button>
+                                    </TableCell>
                                     <TableCell>
                                         <Badge variant={isRunning ? "default" : "secondary"} className={isRunning ? "bg-green-500 hover:bg-green-600" : ""}>
                                             {container.State}
@@ -111,7 +125,20 @@ export function ContainerList() {
                                         {container.Image}
                                     </TableCell>
                                     <TableCell>
-                                        {container.Ports.filter(p => p.PublicPort).map(p => `${p.PublicPort}:${p.PrivatePort}`).join(', ') || '-'}
+                                        {Array.from(new Set(container.Ports.filter(p => p.PublicPort).map(p => p.PublicPort))).map((port, i, arr) => (
+                                            <span key={port}>
+                                                <a
+                                                    href={`http://${window.location.hostname}:${port}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-blue-500 hover:text-blue-600 hover:underline hover:underline-offset-2 transition-colors"
+                                                >
+                                                    {port}:{container.Ports.find(p => p.PublicPort === port)?.PrivatePort}
+                                                </a>
+                                                {i < arr.length - 1 ? ", " : ""}
+                                            </span>
+                                        ))}
+                                        {container.Ports.filter(p => p.PublicPort).length === 0 && "-"}
                                     </TableCell>
                                     <TableCell>
                                         {formatDistanceToNow(new Date(container.Created * 1000), { addSuffix: true, locale: dateLocale })}
@@ -166,6 +193,12 @@ export function ContainerList() {
                 containerName={selectedContainer?.name || null}
                 isOpen={terminalOpen}
                 onOpenChange={setTerminalOpen}
+            />
+            <ContainerDetails
+                open={detailsOpen}
+                onOpenChange={setDetailsOpen}
+                containerId={selectedContainer?.id || null}
+                containerName={selectedContainer?.name || ''}
             />
         </>
     );

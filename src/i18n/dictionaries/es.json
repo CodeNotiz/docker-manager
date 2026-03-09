@@ -11,7 +11,9 @@
         "actions": "Acciones",
         "name": "Nombre",
         "status": "Estado",
-        "search": "Buscar..."
+        "search": "Buscar...",
+        "welcome": "Bienvenido, {name}",
+        "pleaseLogin": "Iniciar sesión"
     },
     "sidebar": {
         "dashboard": "Panel inicial",

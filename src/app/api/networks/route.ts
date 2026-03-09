@@ -8,10 +8,24 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
     try {
         const networks = await docker.listNetworks();
+        const containers = await docker.listContainers({ all: true });
+
+        // Count containers per network
+        const networkContainerCounts: Record<string, number> = {};
+
+        containers.forEach(container => {
+            if (container.NetworkSettings && container.NetworkSettings.Networks) {
+                Object.values(container.NetworkSettings.Networks).forEach((net: any) => {
+                    if (net.NetworkID) {
+                        networkContainerCounts[net.NetworkID] = (networkContainerCounts[net.NetworkID] || 0) + 1;
+                    }
+                });
+            }
+        });
 
         // Add container count to each network for better overview
         const formattedNetworks = networks.map(net => {
-            const containersCount = net.Containers ? Object.keys(net.Containers).length : 0;
+            const containersCount = networkContainerCounts[net.Id] || 0;
             return {
                 Id: net.Id,
                 Name: net.Name,

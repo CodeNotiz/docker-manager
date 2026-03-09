@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,15 @@ export default function LoginPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    const [isDefaultLoginActive, setIsDefaultLoginActive] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        fetch("/api/auth/status")
+            .then((res) => res.json())
+            .then((data) => setIsDefaultLoginActive(data.isDefaultLoginActive))
+            .catch(console.error);
+    }, []);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -105,9 +113,11 @@ export default function LoginPage() {
                     </form>
                 </div>
 
-                <p className="text-center text-sm text-zinc-500 dark:text-zinc-500 mt-6 bg-white/20 dark:bg-black/20 backdrop-blur-sm py-2 px-4 rounded-full mx-auto w-fit">
-                    {t.login.defaultText} <strong>admin</strong> / <strong>admin</strong>
-                </p>
+                {isDefaultLoginActive && (
+                    <p className="text-center text-sm text-zinc-500 dark:text-zinc-500 mt-6 bg-white/20 dark:bg-black/20 backdrop-blur-sm py-2 px-4 rounded-full mx-auto w-fit">
+                        {t.login.defaultText} <strong>admin</strong> / <strong>admin</strong>
+                    </p>
+                )}
             </div>
         </div>
     );
