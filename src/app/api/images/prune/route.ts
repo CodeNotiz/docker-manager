@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import Docker from 'dockerode';
-
-const docker = new Docker({ socketPath: '/var/run/docker.sock' });
+import docker from '@/lib/docker';
 
 export async function POST(request: Request) {
     try {

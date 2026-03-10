@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import Docker from 'dockerode';
 import fs from 'fs/promises';
 import path from 'path';
+import docker from '@/lib/docker';
 
-const docker = new Docker({ socketPath: '/var/run/docker.sock' });
 const STACKS_DIR = path.join(process.cwd(), 'stacks_data');
 
 export const dynamic = 'force-dynamic';
