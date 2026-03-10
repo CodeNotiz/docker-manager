@@ -76,7 +76,7 @@ export function StackList() {
         setIsEditorOpen(true);
     };
 
-    const handleSaveStack = async (e?: React.FormEvent) => {
+    const handleSaveStack = async (deployAfter: boolean = false, e?: React.FormEvent) => {
         if (e) e.preventDefault();
 
         if (!currentStackName.trim()) {
@@ -109,6 +109,10 @@ export function StackList() {
             toast.success(`Stack "${currentStackName}" gespeichert.`);
             setIsEditorOpen(false);
             await fetchStacks();
+            
+            if (deployAfter) {
+                handleAction(currentStackName, 'up');
+            }
         } catch (error: any) {
             toast.error(`Fehler: ${error.message}`);
         } finally {
@@ -253,11 +257,17 @@ export function StackList() {
                             </div>
                         </div>
 
-                        <DialogFooter>
+                        <DialogFooter className="gap-2 sm:gap-0 mt-4">
                             <Button variant="outline" onClick={() => setIsEditorOpen(false)}>{t.common.cancel}</Button>
-                            <Button onClick={(e) => handleSaveStack(e as any)} disabled={isSaving}>
-                                {isSaving ? t.common.loading : t.common.save}
-                            </Button>
+                            <div className="flex flex-col sm:flex-row gap-2">
+                                <Button variant="secondary" onClick={() => handleSaveStack(false)} disabled={isSaving}>
+                                    {isSaving ? t.common.loading : t.common.save}
+                                </Button>
+                                <Button onClick={() => handleSaveStack(true)} disabled={isSaving} className="bg-blue-600 hover:bg-blue-700 text-white">
+                                    <Play className="w-4 h-4 mr-2" />
+                                    {isSaving ? t.common.loading : t.stacks.deploy}
+                                </Button>
+                            </div>
                         </DialogFooter>
                     </DialogContent>
                 </Dialog>
