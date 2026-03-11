@@ -63,7 +63,7 @@ export function StackList() {
     const openCreateEditor = () => {
         setEditorMode('create');
         setCurrentStackName("");
-        setCurrentComposeContent("version: '3.8'\nservices:\n  web:\n    image: nginx:alpine\n    ports:\n      - \"8080:80\"\n");
+        setCurrentComposeContent("services:\n  web:\n    image: nginx:alpine\n    ports:\n      - \"8080:80\"\n");
         setCurrentEnvContent("");
         setIsEditorOpen(true);
     };
@@ -109,7 +109,7 @@ export function StackList() {
             toast.success(`Stack "${currentStackName}" gespeichert.`);
             setIsEditorOpen(false);
             await fetchStacks();
-            
+
             if (deployAfter) {
                 handleAction(currentStackName, 'up');
             }
