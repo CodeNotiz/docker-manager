@@ -20,6 +20,12 @@ export async function POST(
             case 'restart':
                 await container.restart();
                 break;
+            case 'pause':
+                await container.pause();
+                break;
+            case 'unpause':
+                await container.unpause();
+                break;
             case 'delete':
                 await container.remove({ force: true });
                 break;

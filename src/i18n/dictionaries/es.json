@@ -43,6 +43,8 @@
         "restart": "Reiniciar",
         "remove": "Eliminar",
         "terminal": "Terminal",
+        "pause": "Pausar",
+        "resume": "Reanudar",
         "logs": "Registros",
         "noContainers": "No se encontraron contenedores."
     },

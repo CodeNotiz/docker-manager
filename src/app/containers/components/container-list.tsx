@@ -10,23 +10,17 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-    Play, Square, RotateCcw, Trash2, Terminal, FileText
+    Play, Square, RotateCcw, Trash2, Terminal, FileText, Pause
 } from "lucide-react";
 import { toast } from "sonner";
 import { ContainerInfo } from "dockerode";
 
-import { ContainerLogs } from "./container-logs";
-import { ContainerTerminal } from "./container-terminal";
-import { ContainerDetails } from "./container-details";
+import Link from "next/link";
 
 export function ContainerList() {
     const { t, locale } = useLanguage();
     const [containers, setContainers] = useState<ContainerInfo[]>([]);
     const [loading, setLoading] = useState(true);
-    const [logsOpen, setLogsOpen] = useState(false);
-    const [terminalOpen, setTerminalOpen] = useState(false);
-    const [detailsOpen, setDetailsOpen] = useState(false);
-    const [selectedContainer, setSelectedContainer] = useState<{ id: string, name: string } | null>(null);
 
     const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
     const dateLocale = dateLocales[locale] || de;
@@ -70,21 +64,6 @@ export function ContainerList() {
         );
     };
 
-    const openLogs = (id: string, name: string) => {
-        setSelectedContainer({ id, name });
-        setLogsOpen(true);
-    };
-
-    const openTerminal = (id: string, name: string) => {
-        setSelectedContainer({ id, name });
-        setTerminalOpen(true);
-    };
-
-    const openDetails = (id: string, name: string) => {
-        setSelectedContainer({ id, name });
-        setDetailsOpen(true);
-    };
-
     if (loading) return <div>{t.common.loading}</div>;
 
     return (
@@ -105,16 +84,14 @@ export function ContainerList() {
                         {containers.map((container) => {
                             const name = container.Names[0].replace(/^\//, '');
                             const isRunning = container.State === 'running';
+                            const isPaused = container.State === 'paused';
 
                             return (
                                 <TableRow key={container.Id}>
                                     <TableCell className="font-medium">
-                                        <button
-                                            onClick={() => openDetails(container.Id, name)}
-                                            className="hover:underline hover:text-blue-500 transition-colors text-left"
-                                        >
+                                        <Link href={`/containers/${container.Id}`} className="hover:underline hover:text-blue-500 transition-colors text-left">
                                             {name}
-                                        </button>
+                                        </Link>
                                     </TableCell>
                                     <TableCell>
                                         <Badge variant={isRunning ? "default" : "secondary"} className={isRunning ? "bg-green-500 hover:bg-green-600" : ""}>
@@ -146,9 +123,23 @@ export function ContainerList() {
                                     <TableCell className="text-right">
                                         <div className="flex justify-end gap-2">
                                             {isRunning ? (
-                                                <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'stop')} title={t.containers.stop}>
-                                                    <Square className="h-4 w-4" />
-                                                </Button>
+                                                <>
+                                                    <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'pause')} title={t.containers.pause}>
+                                                        <Pause className="h-4 w-4" />
+                                                    </Button>
+                                                    <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'stop')} title={t.containers.stop}>
+                                                        <Square className="h-4 w-4" />
+                                                    </Button>
+                                                </>
+                                            ) : isPaused ? (
+                                                <>
+                                                    <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'unpause')} title={t.containers.resume}>
+                                                        <Play className="h-4 w-4" />
+                                                    </Button>
+                                                    <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'stop')} title={t.containers.stop}>
+                                                        <Square className="h-4 w-4" />
+                                                    </Button>
+                                                </>
                                             ) : (
                                                 <Button variant="outline" size="icon" onClick={() => handleAction(container.Id, 'start')} title={t.containers.start}>
                                                     <Play className="h-4 w-4" />
@@ -161,12 +152,16 @@ export function ContainerList() {
                                                 <Trash2 className="h-4 w-4" />
                                             </Button>
                                             <div className="w-px h-8 bg-border mx-1"></div>
-                                            <Button variant="secondary" size="icon" onClick={() => openLogs(container.Id, name)} title={t.containers.logs}>
-                                                <FileText className="h-4 w-4" />
-                                            </Button>
-                                            <Button variant="secondary" size="icon" onClick={() => openTerminal(container.Id, name)} title={t.containers.terminal} disabled={!isRunning}>
-                                                <Terminal className="h-4 w-4" />
-                                            </Button>
+                                            <Link href={`/containers/${container.Id}/logs`} passHref>
+                                                <Button variant="secondary" size="icon" title={t.containers.logs}>
+                                                    <FileText className="h-4 w-4" />
+                                                </Button>
+                                            </Link>
+                                            <Link href={`/containers/${container.Id}/terminal`} className={!isRunning ? 'pointer-events-none opacity-50' : ''} passHref>
+                                                <Button variant="secondary" size="icon" title={t.containers.terminal} disabled={!isRunning}>
+                                                    <Terminal className="h-4 w-4" />
+                                                </Button>
+                                            </Link>
                                         </div>
                                     </TableCell>
                                 </TableRow>
@@ -182,24 +177,6 @@ export function ContainerList() {
                     </TableBody>
                 </Table>
             </div>
-            <ContainerLogs
-                containerId={selectedContainer?.id || null}
-                containerName={selectedContainer?.name || null}
-                isOpen={logsOpen}
-                onOpenChange={setLogsOpen}
-            />
-            <ContainerTerminal
-                containerId={selectedContainer?.id || null}
-                containerName={selectedContainer?.name || null}
-                isOpen={terminalOpen}
-                onOpenChange={setTerminalOpen}
-            />
-            <ContainerDetails
-                open={detailsOpen}
-                onOpenChange={setDetailsOpen}
-                containerId={selectedContainer?.id || null}
-                containerName={selectedContainer?.name || ''}
-            />
         </>
     );
 }

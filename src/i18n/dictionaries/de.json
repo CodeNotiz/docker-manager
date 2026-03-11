@@ -43,7 +43,9 @@
         "restart": "Neustarten",
         "remove": "Entfernen",
         "terminal": "Terminal",
-        "logs": "Logs",
+        "pause": "Pausieren",
+        "resume": "Fortsetzen",
+        "logs": "Protokolle",
         "noContainers": "Keine Container gefunden."
     },
     "images": {
