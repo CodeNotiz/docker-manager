@@ -1,110 +1,110 @@
 {
-    "common": {
-        "loading": "Chargement...",
-        "error": "Erreur",
-        "save": "Enregistrer",
-        "cancel": "Annuler",
-        "delete": "Supprimer",
-        "refresh": "Actualiser",
-        "create": "Créer",
-        "edit": "Modifier",
-        "actions": "Actions",
-        "name": "Nom",
-        "status": "Statut",
-        "search": "Rechercher...",
-        "welcome": "Bienvenue, {name}",
-        "pleaseLogin": "Veuillez vous connecter"
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "refresh": "Actualiser",
+    "create": "Créer",
+    "edit": "Modifier",
+    "actions": "Actions",
+    "name": "Nom",
+    "status": "Statut",
+    "search": "Rechercher...",
+    "welcome": "Bienvenue, {name}",
+    "pleaseLogin": "Veuillez vous connecter"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "containers": "Conteneurs",
+    "images": "Images",
+    "networks": "Réseaux",
+    "stacks": "Piles (Stacks)",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "subtitle": "Bienvenue dans votre centrale Docker futuriste.",
+    "containers": "Conteneurs",
+    "images": "Images",
+    "networks": "Réseaux",
+    "stacks": "Piles"
+  },
+  "containers": {
+    "title": "Aperçu des Conteneurs",
+    "subtitle": "Gérez vos conteneurs actifs et arrêtés.",
+    "image": "Image",
+    "state": "État",
+    "ports": "Ports",
+    "start": "Démarrer",
+    "stop": "Arrêter",
+    "restart": "Redémarrer",
+    "remove": "Supprimer",
+    "terminal": "Terminal",
+    "pause": "Mettre en pause",
+    "resume": "Reprendre",
+    "logs": "Journaux",
+    "noContainers": "Aucun conteneur trouvé."
+  },
+  "images": {
+    "title": "Images Docker",
+    "subtitle": "Gérez vos images téléchargées.",
+    "repository": "Dépôt",
+    "tag": "Balise",
+    "id": "ID de l'image",
+    "size": "Taille",
+    "created": "Créé",
+    "pruneDangling": "Purger les images orphelines",
+    "pruneAll": "Purger toutes les inutilisées",
+    "unusedImage": "Image inutilisée",
+    "danglingImage": "Image orpheline (Sans balise)",
+    "remove": "Supprimer",
+    "noImages": "Aucune image trouvée."
+  },
+  "networks": {
+    "title": "Réseaux Docker",
+    "subtitle": "Gérez les configurations réseau.",
+    "driver": "Pilote",
+    "scope": "Portée",
+    "subnet": "Sous-réseau",
+    "gateway": "Passerelle",
+    "containers": "Conteneurs",
+    "create": "Créer un réseau",
+    "createNetwork": "Créer un réseau",
+    "createDialog": {
+      "title": "Créer un Nouveau Réseau",
+      "desc": "Créez un nouveau réseau Docker. En option, vous pouvez configurer les paramètres IPv4."
     },
-    "sidebar": {
-        "dashboard": "Tableau de bord",
-        "containers": "Conteneurs",
-        "images": "Images",
-        "networks": "Réseaux",
-        "stacks": "Piles (Stacks)",
-        "settings": "Paramètres",
-        "logout": "Déconnexion"
-    },
-    "dashboard": {
-        "title": "Tableau de bord",
-        "subtitle": "Bienvenue dans votre centrale Docker futuriste.",
-        "containers": "Conteneurs",
-        "images": "Images",
-        "networks": "Réseaux",
-        "stacks": "Piles"
-    },
-    "containers": {
-        "title": "Aperçu des Conteneurs",
-        "subtitle": "Gérez vos conteneurs actifs et arrêtés.",
-        "image": "Image",
-        "state": "État",
-        "ports": "Ports",
-        "start": "Démarrer",
-        "stop": "Arrêter",
-        "restart": "Redémarrer",
-        "remove": "Supprimer",
-        "terminal": "Terminal",
-        "pause": "Mettre en pause",
-        "resume": "Reprendre",
-        "logs": "Journaux",
-        "noContainers": "Aucun conteneur trouvé."
-    },
-    "images": {
-        "title": "Images Docker",
-        "subtitle": "Gérez vos images téléchargées.",
-        "repository": "Dépôt",
-        "tag": "Balise",
-        "id": "ID de l'image",
-        "size": "Taille",
-        "created": "Créé",
-        "pruneDangling": "Purger les images orphelines",
-        "pruneAll": "Purger toutes les inutilisées",
-        "unusedImage": "Image inutilisée",
-        "danglingImage": "Image orpheline (Sans balise)",
-        "remove": "Supprimer",
-        "noImages": "Aucune image trouvée."
-    },
-    "networks": {
-        "title": "Réseaux Docker",
-        "subtitle": "Gérez les configurations réseau.",
-        "driver": "Pilote",
-        "scope": "Portée",
-        "subnet": "Sous-réseau",
-        "gateway": "Passerelle",
-        "containers": "Conteneurs",
-        "create": "Créer un réseau",
-        "createNetwork": "Créer un réseau",
-        "createDialog": {
-            "title": "Créer un Nouveau Réseau",
-            "desc": "Créez un nouveau réseau Docker. En option, vous pouvez configurer les paramètres IPv4."
-        },
-        "systemNetworkDesc": "Le réseau système ne peut pas être supprimé",
-        "remove": "Supprimer",
-        "noNetworks": "Aucun réseau trouvé."
-    },
-    "stacks": {
-        "title": "Piles locales",
-        "subtitle": "Les piles sont sauvegardées comme dossiers dans /stacks_data.",
-        "createStack": "Créer une nouvelle Pile",
-        "deploy": "Déployer (Up)",
-        "stop": "Arrêter (Down)",
-        "noStacks": "Aucune pile disponible pour l'instant",
-        "emptyStateDesc": "Créez votre première pile Docker Compose."
-    },
-    "settings": {
-        "title": "Paramètres",
-        "subtitle": "Ajustez vos informations d'identification et la langue ici.",
-        "language": "Langue",
-        "newUsername": "Nouveau nom d'utilisateur",
-        "newPassword": "Nouveau mot de passe",
-        "currentPassword": "Mot de passe actuel (Requis)",
-        "saveChanges": "Enregistrer les modifications"
-    },
-    "login": {
-        "title": "Gestionnaire Docker",
-        "subtitle": "Veuillez vous connecter pour continuer",
-        "username": "Nom d'utilisateur",
-        "password": "Mot de passe",
-        "button": "Connexion",
-        "defaultText": "Accès par défaut :"
-    }
+    "systemNetworkDesc": "Le réseau système ne peut pas être supprimé",
+    "remove": "Supprimer",
+    "noNetworks": "Aucun réseau trouvé."
+  },
+  "stacks": {
+    "title": "Piles locales",
+    "subtitle": "Les piles sont sauvegardées comme dossiers dans /stacks_data.",
+    "createStack": "Créer une nouvelle Pile",
+    "deploy": "Déployer (Up)",
+    "stop": "Arrêter (Down)",
+    "noStacks": "Aucune pile disponible pour l'instant",
+    "emptyStateDesc": "Créez votre première pile Docker Compose."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Ajustez vos informations d'identification et la langue ici.",
+    "language": "Langue",
+    "newUsername": "Nouveau nom d'utilisateur",
+    "newPassword": "Nouveau mot de passe",
+    "currentPassword": "Mot de passe actuel (Requis)",
+    "saveChanges": "Enregistrer les modifications"
+  },
+  "login": {
+    "title": "Gestionnaire Docker",
+    "subtitle": "Veuillez vous connecter pour continuer",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "button": "Connexion",
+    "defaultText": "Accès par défaut :"
+  }
 }

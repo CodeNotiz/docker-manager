@@ -31,8 +31,14 @@ export default async function RootLayout({
 }>) {
   // Extract Locale Cookie Serverside
   const cookieStore = await cookies();
-  const localeCookie = cookieStore.get('NEXT_LOCALE')?.value as Locale | undefined;
-  const initialLocale: Locale = ['de', 'en', 'es', 'fr'].includes(localeCookie as string) ? localeCookie! : 'de';
+  const localeCookie = cookieStore.get("NEXT_LOCALE")?.value as
+    | Locale
+    | undefined;
+  const initialLocale: Locale = ["de", "en", "es", "fr"].includes(
+    localeCookie as string,
+  )
+    ? localeCookie!
+    : "de";
 
   return (
     <html lang={initialLocale} suppressHydrationWarning>
@@ -41,22 +47,32 @@ export default async function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark" // Force dark mode aesthetic
+          enableSystem={false} // Disable auto-switching for this aesthetic
           disableTransitionOnChange
         >
           <LanguageProvider initialLocale={initialLocale}>
-            {/* Futuristic Glassmorphism Background Elements */}
-            <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-slate-50 via-white to-cyan-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-slate-900" />
-            <div className="fixed top-[-20%] left-[-10%] w-[50vw] h-[50vh] rounded-full bg-purple-500/20 dark:bg-purple-600/15 blur-[120px] z-[-1] animate-pulse duration-[10000ms]" />
-            <div className="fixed bottom-[-20%] right-[-10%] w-[50vw] h-[50vh] rounded-full bg-cyan-500/20 dark:bg-cyan-600/15 blur-[120px] z-[-1] animate-pulse duration-[12000ms]" />
+            {/* Raw Industrial Background - Deep Black with subtle grid */}
+            <div className="fixed inset-0 z-[-2] bg-black" />
 
-            <Sidebar />
-            <div className="flex flex-col flex-1 overflow-hidden">
-              <Header />
-              <main className="flex-1 overflow-auto p-4 lg:p-6 bg-transparent">
-                {children}
-              </main>
+            {/* Very faint terminal grid background */}
+            <div
+              className="fixed inset-0 z-[-1] opacity-5 mix-blend-screen pointer-events-none"
+              style={{
+                backgroundImage:
+                  "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+              }}
+            />
+
+            <div className="flex w-full h-full relative">
+              <Sidebar />
+              <div className="flex flex-col flex-1 overflow-hidden relative border-l border-zinc-800">
+                <Header />
+                <main className="flex-1 overflow-auto p-4 lg:p-6 bg-zinc-950/20">
+                  {children}
+                </main>
+              </div>
             </div>
             <Toaster position="bottom-right" />
           </LanguageProvider>

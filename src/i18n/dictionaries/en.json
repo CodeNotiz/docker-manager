@@ -1,110 +1,110 @@
 {
-    "common": {
-        "loading": "Loading...",
-        "error": "Error",
-        "save": "Save",
-        "cancel": "Cancel",
-        "delete": "Delete",
-        "refresh": "Refresh",
-        "create": "Create",
-        "edit": "Edit",
-        "actions": "Actions",
-        "name": "Name",
-        "status": "Status",
-        "search": "Search...",
-        "welcome": "Welcome, {name}",
-        "pleaseLogin": "Please sign in"
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "refresh": "Refresh",
+    "create": "Create",
+    "edit": "Edit",
+    "actions": "Actions",
+    "name": "Name",
+    "status": "Status",
+    "search": "Search...",
+    "welcome": "Welcome, {name}",
+    "pleaseLogin": "Please sign in"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "containers": "Containers",
+    "images": "Images",
+    "networks": "Networks",
+    "stacks": "Stacks",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welcome to your futuristic Docker central.",
+    "containers": "Containers",
+    "images": "Images",
+    "networks": "Networks",
+    "stacks": "Stacks"
+  },
+  "containers": {
+    "title": "Container Overview",
+    "subtitle": "Manage your running and stopped containers.",
+    "image": "Image",
+    "state": "State",
+    "ports": "Ports",
+    "start": "Start",
+    "stop": "Stop",
+    "restart": "Restart",
+    "remove": "Remove",
+    "terminal": "Terminal",
+    "pause": "Pause",
+    "resume": "Resume",
+    "logs": "Logs",
+    "noContainers": "No containers found."
+  },
+  "images": {
+    "title": "Docker Images",
+    "subtitle": "Manage your downloaded images.",
+    "repository": "Repository",
+    "tag": "Tag",
+    "id": "Image ID",
+    "size": "Size",
+    "created": "Created",
+    "pruneDangling": "Prune Dangling Images",
+    "pruneAll": "Prune All Unused",
+    "unusedImage": "Unused Image",
+    "danglingImage": "Dangling Image (No Tag)",
+    "remove": "Delete",
+    "noImages": "No images found."
+  },
+  "networks": {
+    "title": "Docker Networks",
+    "subtitle": "Manage your networking configurations.",
+    "driver": "Driver",
+    "scope": "Scope",
+    "subnet": "Subnet",
+    "gateway": "Gateway",
+    "containers": "Containers",
+    "create": "Create Network",
+    "createNetwork": "Create Network",
+    "createDialog": {
+      "title": "Create New Network",
+      "desc": "Create a new Docker network. Optionally, you can configure detailed IPv4 settings."
     },
-    "sidebar": {
-        "dashboard": "Dashboard",
-        "containers": "Containers",
-        "images": "Images",
-        "networks": "Networks",
-        "stacks": "Stacks",
-        "settings": "Settings",
-        "logout": "Logout"
-    },
-    "dashboard": {
-        "title": "Dashboard",
-        "subtitle": "Welcome to your futuristic Docker central.",
-        "containers": "Containers",
-        "images": "Images",
-        "networks": "Networks",
-        "stacks": "Stacks"
-    },
-    "containers": {
-        "title": "Container Overview",
-        "subtitle": "Manage your running and stopped containers.",
-        "image": "Image",
-        "state": "State",
-        "ports": "Ports",
-        "start": "Start",
-        "stop": "Stop",
-        "restart": "Restart",
-        "remove": "Remove",
-        "terminal": "Terminal",
-        "pause": "Pause",
-        "resume": "Resume",
-        "logs": "Logs",
-        "noContainers": "No containers found."
-    },
-    "images": {
-        "title": "Docker Images",
-        "subtitle": "Manage your downloaded images.",
-        "repository": "Repository",
-        "tag": "Tag",
-        "id": "Image ID",
-        "size": "Size",
-        "created": "Created",
-        "pruneDangling": "Prune Dangling Images",
-        "pruneAll": "Prune All Unused",
-        "unusedImage": "Unused Image",
-        "danglingImage": "Dangling Image (No Tag)",
-        "remove": "Delete",
-        "noImages": "No images found."
-    },
-    "networks": {
-        "title": "Docker Networks",
-        "subtitle": "Manage your networking configurations.",
-        "driver": "Driver",
-        "scope": "Scope",
-        "subnet": "Subnet",
-        "gateway": "Gateway",
-        "containers": "Containers",
-        "create": "Create Network",
-        "createNetwork": "Create Network",
-        "createDialog": {
-            "title": "Create New Network",
-            "desc": "Create a new Docker network. Optionally, you can configure detailed IPv4 settings."
-        },
-        "systemNetworkDesc": "System network cannot be deleted",
-        "remove": "Delete",
-        "noNetworks": "No networks found."
-    },
-    "stacks": {
-        "title": "Local Stacks",
-        "subtitle": "Stacks are saved as folders in /stacks_data.",
-        "createStack": "Create New Stack",
-        "deploy": "Deploy (Up)",
-        "stop": "Stop (Down)",
-        "noStacks": "No stacks available yet",
-        "emptyStateDesc": "Create your first Docker Compose Stack."
-    },
-    "settings": {
-        "title": "Settings",
-        "subtitle": "Adjust your credentials and language for Docker Manager here.",
-        "language": "Language",
-        "newUsername": "New Username",
-        "newPassword": "New Password",
-        "currentPassword": "Current Password (Required)",
-        "saveChanges": "Save Changes"
-    },
-    "login": {
-        "title": "Docker Manager",
-        "subtitle": "Please log in to continue",
-        "username": "Username",
-        "password": "Password",
-        "button": "Login",
-        "defaultText": "Default Login:"
-    }
+    "systemNetworkDesc": "System network cannot be deleted",
+    "remove": "Delete",
+    "noNetworks": "No networks found."
+  },
+  "stacks": {
+    "title": "Local Stacks",
+    "subtitle": "Stacks are saved as folders in /stacks_data.",
+    "createStack": "Create New Stack",
+    "deploy": "Deploy (Up)",
+    "stop": "Stop (Down)",
+    "noStacks": "No stacks available yet",
+    "emptyStateDesc": "Create your first Docker Compose Stack."
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Adjust your credentials and language for Docker Manager here.",
+    "language": "Language",
+    "newUsername": "New Username",
+    "newPassword": "New Password",
+    "currentPassword": "Current Password (Required)",
+    "saveChanges": "Save Changes"
+  },
+  "login": {
+    "title": "Docker Manager",
+    "subtitle": "Please log in to continue",
+    "username": "Username",
+    "password": "Password",
+    "button": "Login",
+    "defaultText": "Default Login:"
+  }
 }

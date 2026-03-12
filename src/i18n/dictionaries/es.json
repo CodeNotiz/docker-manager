@@ -1,110 +1,110 @@
 {
-    "common": {
-        "loading": "Cargando...",
-        "error": "Error",
-        "save": "Guardar",
-        "cancel": "Cancelar",
-        "delete": "Eliminar",
-        "refresh": "Actualizar",
-        "create": "Crear",
-        "edit": "Editar",
-        "actions": "Acciones",
-        "name": "Nombre",
-        "status": "Estado",
-        "search": "Buscar...",
-        "welcome": "Bienvenido, {name}",
-        "pleaseLogin": "Iniciar sesión"
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "refresh": "Actualizar",
+    "create": "Crear",
+    "edit": "Editar",
+    "actions": "Acciones",
+    "name": "Nombre",
+    "status": "Estado",
+    "search": "Buscar...",
+    "welcome": "Bienvenido, {name}",
+    "pleaseLogin": "Iniciar sesión"
+  },
+  "sidebar": {
+    "dashboard": "Panel inicial",
+    "containers": "Contenedores",
+    "images": "Imágenes",
+    "networks": "Redes",
+    "stacks": "Pilas (Stacks)",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión"
+  },
+  "dashboard": {
+    "title": "Panel inicial",
+    "subtitle": "Bienvenido a tu estación central futurista de Docker.",
+    "containers": "Contenedores",
+    "images": "Imágenes",
+    "networks": "Redes",
+    "stacks": "Pilas"
+  },
+  "containers": {
+    "title": "Vista general de Contenedores",
+    "subtitle": "Gestiona tus contenedores activos y detenidos.",
+    "image": "Imagen",
+    "state": "Estado",
+    "ports": "Puertos",
+    "start": "Iniciar",
+    "stop": "Detener",
+    "restart": "Reiniciar",
+    "remove": "Eliminar",
+    "terminal": "Terminal",
+    "pause": "Pausar",
+    "resume": "Reanudar",
+    "logs": "Registros",
+    "noContainers": "No se encontraron contenedores."
+  },
+  "images": {
+    "title": "Imágenes Docker",
+    "subtitle": "Gestiona tus imágenes descargadas.",
+    "repository": "Repositorio",
+    "tag": "Etiqueta",
+    "id": "ID de Imagen",
+    "size": "Tamaño",
+    "created": "Creado",
+    "pruneDangling": "Limpiar imágenes huérfanas",
+    "pruneAll": "Limpiar todas no usadas",
+    "unusedImage": "Imagen no usada",
+    "danglingImage": "Imagen huérfana (Sin etiqueta)",
+    "remove": "Eliminar",
+    "noImages": "No se encontraron imágenes."
+  },
+  "networks": {
+    "title": "Redes Docker",
+    "subtitle": "Gestiona las configuraciones de red.",
+    "driver": "Controlador",
+    "scope": "Ámbito",
+    "subnet": "Subred",
+    "gateway": "Puerta de enlace",
+    "containers": "Contenedores",
+    "create": "Crear Red",
+    "createNetwork": "Crear red",
+    "createDialog": {
+      "title": "Crear Nueva Red",
+      "desc": "Crea una nueva red de Docker. Opcionalmente, puedes configurar los ajustes de IPv4."
     },
-    "sidebar": {
-        "dashboard": "Panel inicial",
-        "containers": "Contenedores",
-        "images": "Imágenes",
-        "networks": "Redes",
-        "stacks": "Pilas (Stacks)",
-        "settings": "Ajustes",
-        "logout": "Cerrar sesión"
-    },
-    "dashboard": {
-        "title": "Panel inicial",
-        "subtitle": "Bienvenido a tu estación central futurista de Docker.",
-        "containers": "Contenedores",
-        "images": "Imágenes",
-        "networks": "Redes",
-        "stacks": "Pilas"
-    },
-    "containers": {
-        "title": "Vista general de Contenedores",
-        "subtitle": "Gestiona tus contenedores activos y detenidos.",
-        "image": "Imagen",
-        "state": "Estado",
-        "ports": "Puertos",
-        "start": "Iniciar",
-        "stop": "Detener",
-        "restart": "Reiniciar",
-        "remove": "Eliminar",
-        "terminal": "Terminal",
-        "pause": "Pausar",
-        "resume": "Reanudar",
-        "logs": "Registros",
-        "noContainers": "No se encontraron contenedores."
-    },
-    "images": {
-        "title": "Imágenes Docker",
-        "subtitle": "Gestiona tus imágenes descargadas.",
-        "repository": "Repositorio",
-        "tag": "Etiqueta",
-        "id": "ID de Imagen",
-        "size": "Tamaño",
-        "created": "Creado",
-        "pruneDangling": "Limpiar imágenes huérfanas",
-        "pruneAll": "Limpiar todas no usadas",
-        "unusedImage": "Imagen no usada",
-        "danglingImage": "Imagen huérfana (Sin etiqueta)",
-        "remove": "Eliminar",
-        "noImages": "No se encontraron imágenes."
-    },
-    "networks": {
-        "title": "Redes Docker",
-        "subtitle": "Gestiona las configuraciones de red.",
-        "driver": "Controlador",
-        "scope": "Ámbito",
-        "subnet": "Subred",
-        "gateway": "Puerta de enlace",
-        "containers": "Contenedores",
-        "create": "Crear Red",
-        "createNetwork": "Crear red",
-        "createDialog": {
-            "title": "Crear Nueva Red",
-            "desc": "Crea una nueva red de Docker. Opcionalmente, puedes configurar los ajustes de IPv4."
-        },
-        "systemNetworkDesc": "La red del sistema no se puede eliminar",
-        "remove": "Eliminar",
-        "noNetworks": "No se encontraron redes."
-    },
-    "stacks": {
-        "title": "Pilas Locales",
-        "subtitle": "Las pilas se guardan como carpetas en /stacks_data.",
-        "createStack": "Crear nueva Pila",
-        "deploy": "Desplegar (Up)",
-        "stop": "Detener (Down)",
-        "noStacks": "No hay pilas disponibles aún",
-        "emptyStateDesc": "Crea tu primera pila (Stack) con Docker Compose."
-    },
-    "settings": {
-        "title": "Ajustes",
-        "subtitle": "Configura tus credenciales y el idioma del Gestor Docker aquí.",
-        "language": "Idioma",
-        "newUsername": "Nuevo usuario",
-        "newPassword": "Nueva contraseña",
-        "currentPassword": "Contraseña actual (Requerido)",
-        "saveChanges": "Guardar cambios"
-    },
-    "login": {
-        "title": "Gestor Docker",
-        "subtitle": "Por favor inicia sesión para continuar",
-        "username": "Usuario",
-        "password": "Contraseña",
-        "button": "Iniciar sesión",
-        "defaultText": "Acceso por defecto:"
-    }
+    "systemNetworkDesc": "La red del sistema no se puede eliminar",
+    "remove": "Eliminar",
+    "noNetworks": "No se encontraron redes."
+  },
+  "stacks": {
+    "title": "Pilas Locales",
+    "subtitle": "Las pilas se guardan como carpetas en /stacks_data.",
+    "createStack": "Crear nueva Pila",
+    "deploy": "Desplegar (Up)",
+    "stop": "Detener (Down)",
+    "noStacks": "No hay pilas disponibles aún",
+    "emptyStateDesc": "Crea tu primera pila (Stack) con Docker Compose."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "subtitle": "Configura tus credenciales y el idioma del Gestor Docker aquí.",
+    "language": "Idioma",
+    "newUsername": "Nuevo usuario",
+    "newPassword": "Nueva contraseña",
+    "currentPassword": "Contraseña actual (Requerido)",
+    "saveChanges": "Guardar cambios"
+  },
+  "login": {
+    "title": "Gestor Docker",
+    "subtitle": "Por favor inicia sesión para continuar",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "button": "Iniciar sesión",
+    "defaultText": "Acceso por defecto:"
+  }
 }
