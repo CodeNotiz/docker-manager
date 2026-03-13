@@ -1,3 +1,7 @@
+LABEL org.opencontainers.image.source=https://github.com/CodeNotiz/docker-manager
+LABEL org.opencontainers.image.description="Node.js/Next.js-based Docker Management Application with direct Docker-Daemon connection."
+LABEL org.opencontainers.image.licenses=GPL-3.0
+
 # Phase 1: Dependencies
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
