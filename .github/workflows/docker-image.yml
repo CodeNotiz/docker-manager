@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image CI/CD
 
 on:
   push:
@@ -6,13 +6,35 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Berechtigungen, damit GitHub das Image in deine Registry schreiben darf
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-
-  build:
-
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker-manager:$(date +%s)
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      - name: Login bei GitHub Container Registry
+        # Nur beim Push auf Main einloggen, nicht bei Pull Requests von anderen
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          # Push nur bei Änderungen am Main-Branch
+          push: ${{ github.event_name != 'pull_request' }}
+          # Das Image bekommt zwei Tags: 'latest' und die aktuelle Commit-Nummer (SHA)
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/docker-manager:latest
+            ghcr.io/${{ github.repository_owner }}/docker-manager:${{ github.sha }}
