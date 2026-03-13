@@ -16,6 +16,11 @@ RUN npm run build
 
 # Phase 3: Runner
 FROM node:20-alpine AS runner
+
+LABEL org.opencontainers.image.source=https://github.com/CodeNotiz/docker-manager
+LABEL org.opencontainers.image.description="A modern, web-based Docker management dashboard featuring an interactive terminal, live logs, container lifecycle controls, image and network management."
+LABEL org.opencontainers.image.licenses=GPL-3.0
+
 WORKDIR /app
 
 ENV NODE_ENV=production
