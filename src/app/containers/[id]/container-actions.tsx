@@ -45,12 +45,12 @@ export function ContainerActions({
   };
 
   return (
-    <div className="flex flex-col gap-2 font-mono text-sm">
+    <div className="flex flex-col gap-2">
       {isRunning ? (
         <>
           <Button
             variant="outline"
-            className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-none uppercase font-bold tracking-widest"
+            className="w-full justify-start"
             onClick={() => handleAction("pause")}
             title={t.containers.pause}
           >
@@ -59,7 +59,7 @@ export function ContainerActions({
           </Button>
           <Button
             variant="outline"
-            className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-red-500 hover:text-black hover:border-red-500 transition-none uppercase font-bold tracking-widest"
+            className="w-full justify-start"
             onClick={() => handleAction("stop")}
             title={t.containers.stop}
           >
@@ -71,7 +71,7 @@ export function ContainerActions({
         <>
           <Button
             variant="outline"
-            className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-green-500 hover:text-black hover:border-green-500 transition-none uppercase font-bold tracking-widest"
+            className="w-full justify-start"
             onClick={() => handleAction("unpause")}
             title={t.containers.resume}
           >
@@ -80,7 +80,7 @@ export function ContainerActions({
           </Button>
           <Button
             variant="outline"
-            className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-red-500 hover:text-black hover:border-red-500 transition-none uppercase font-bold tracking-widest"
+            className="w-full justify-start"
             onClick={() => handleAction("stop")}
             title={t.containers.stop}
           >
@@ -91,7 +91,7 @@ export function ContainerActions({
       ) : (
         <Button
           variant="outline"
-          className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-green-500 hover:text-black hover:border-green-500 transition-none uppercase font-bold tracking-widest"
+          className="w-full justify-start"
           onClick={() => handleAction("start")}
           title={t.containers.start}
         >
@@ -101,7 +101,7 @@ export function ContainerActions({
       )}
       <Button
         variant="outline"
-        className="w-full justify-start rounded-none border-zinc-800 text-zinc-400 hover:bg-blue-500 hover:text-black hover:border-blue-500 transition-none uppercase font-bold tracking-widest"
+        className="w-full justify-start"
         onClick={() => handleAction("restart")}
         title={t.containers.restart}
       >
@@ -109,8 +109,8 @@ export function ContainerActions({
         Neustart
       </Button>
       <Button
-        variant="outline"
-        className="w-full justify-start rounded-none border-zinc-800 text-red-500 hover:bg-red-500 hover:text-black hover:border-red-500 transition-none uppercase font-bold tracking-widest mt-4"
+        variant="destructive"
+        className="w-full justify-start"
         onClick={() => handleAction("delete")}
         title={t.containers.remove}
       >

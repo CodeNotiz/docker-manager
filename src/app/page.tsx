@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -7,18 +7,13 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Home() {
   const { t } = useLanguage();
-  const [data, setData] = useState({
-    containers: 0,
-    images: 0,
-    networks: 0,
-    stacks: 0,
-  });
+  const [data, setData] = useState({ containers: 0, images: 0, networks: 0, stacks: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch("/api/stats");
+        const res = await fetch('/api/stats');
         if (res.ok) {
           const stats = await res.json();
           setData(stats);
@@ -37,74 +32,36 @@ export default function Home() {
   }, []);
 
   const statsProps = [
-    {
-      title: t.dashboard.containers,
-      value: data.containers,
-      icon: Box,
-      gradient: "from-blue-500 to-cyan-500",
-      href: "/containers",
-    },
-    {
-      title: t.dashboard.images,
-      value: data.images,
-      icon: HardDrive,
-      gradient: "from-purple-500 to-pink-500",
-      href: "/images",
-    },
-    {
-      title: t.dashboard.networks,
-      value: data.networks,
-      icon: Network,
-      gradient: "from-orange-500 to-red-500",
-      href: "/networks",
-    },
-    {
-      title: t.dashboard.stacks,
-      value: data.stacks,
-      icon: Layers,
-      gradient: "from-emerald-500 to-teal-500",
-      href: "/stacks",
-    },
+    { title: t.dashboard.containers, value: data.containers, icon: Box, gradient: "from-blue-500 to-cyan-500", href: "/containers" },
+    { title: t.dashboard.images, value: data.images, icon: HardDrive, gradient: "from-purple-500 to-pink-500", href: "/images" },
+    { title: t.dashboard.networks, value: data.networks, icon: Network, gradient: "from-orange-500 to-red-500", href: "/networks" },
+    { title: t.dashboard.stacks, value: data.stacks, icon: Layers, gradient: "from-emerald-500 to-teal-500", href: "/stacks" },
   ];
 
   return (
-    <div className="flex flex-col gap-8 relative font-mono mt-4">
-      <div className="relative z-10 border-l-[3px] border-primary pl-4 py-1">
-        <h1 className="text-3xl font-bold tracking-widest text-white uppercase">
+    <div className="flex flex-col gap-8 relative">
+      <div className="relative z-10">
+        <h1 className="text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-400">
           {t.dashboard.title}
         </h1>
-        <p className="text-zinc-500 mt-1 text-xs uppercase tracking-widest">
-          {t.dashboard.subtitle.toLowerCase()}
-        </p>
+        <p className="text-zinc-500 dark:text-zinc-400 mt-2 text-lg">{t.dashboard.subtitle}</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 relative z-10">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
         {statsProps.map((stat, i) => (
-          <Link
-            href={stat.href}
-            key={i}
-            className="group relative overflow-hidden border border-zinc-800 bg-black p-5 transition-none block cursor-pointer hover:bg-zinc-900/50"
-          >
-            {/* Hover Glitch Effect Line */}
-            <div
-              className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r ${stat.gradient} opacity-50 group-hover:opacity-100 transition-none`}
-            />
+          <Link href={stat.href} key={i} className="group relative overflow-hidden rounded-2xl border border-white/20 dark:border-zinc-800/50 bg-white/40 dark:bg-zinc-950/40 p-6 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 block cursor-pointer">
+            <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br ${stat.gradient}`} />
 
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-[10px] tracking-widest uppercase text-zinc-500 group-hover:text-white transition-none">
-                {stat.title}
-              </h3>
-              <stat.icon className="w-4 h-4 text-zinc-600 transition-none group-hover:animate-pulse" />
+              <h3 className="font-semibold text-lg text-zinc-700 dark:text-zinc-300">{stat.title}</h3>
+              <div className={`p-2 rounded-xl bg-gradient-to-br ${stat.gradient} shadow-inner`}>
+                <stat.icon className="w-5 h-5 text-white" />
+              </div>
             </div>
 
-            <div className="mt-2 flex items-baseline gap-2">
-              <span className="text-4xl font-bold tracking-tighter text-white">
+            <div className="mt-4">
+              <span className="text-3xl font-bold tracking-tight">
                 {loading ? "..." : stat.value}
-              </span>
-              <span
-                className={`text-[10px] uppercase font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r ${stat.gradient}`}
-              >
-                TOTAL
               </span>
             </div>
           </Link>

@@ -3,100 +3,81 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import {
-  Box,
-  Layers,
-  Network,
-  Server,
-  HardDrive,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { Box, Layers, Network, Server, HardDrive, Settings, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export function Sidebar() {
-  const pathname = usePathname();
-  const router = useRouter();
-  const { t } = useLanguage();
+    const pathname = usePathname();
+    const router = useRouter();
+    const { t } = useLanguage();
 
-  const navigation = [
-    { name: t.sidebar.dashboard, href: "/", icon: Server },
-    { name: t.sidebar.containers, href: "/containers", icon: Box },
-    { name: t.sidebar.images, href: "/images", icon: HardDrive },
-    { name: t.sidebar.networks, href: "/networks", icon: Network },
-    { name: t.sidebar.stacks, href: "/stacks", icon: Layers },
-  ];
+    const navigation = [
+        { name: t.sidebar.dashboard, href: '/', icon: Server },
+        { name: t.sidebar.containers, href: '/containers', icon: Box },
+        { name: t.sidebar.images, href: '/images', icon: HardDrive },
+        { name: t.sidebar.networks, href: '/networks', icon: Network },
+        { name: t.sidebar.stacks, href: '/stacks', icon: Layers },
+    ];
 
-  const handleLogout = async () => {
-    try {
-      await fetch("/api/auth/logout", { method: "POST" });
-      router.push("/login");
-      router.refresh();
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
+    const handleLogout = async () => {
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+            router.push('/login');
+            router.refresh();
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    };
 
-  return (
-    <div className="flex h-full w-64 flex-col border-r border-zinc-800 bg-black z-20 font-mono text-sm">
-      <div className="flex h-14 items-center border-b border-zinc-800 px-4 lg:h-[60px] lg:px-6">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-bold text-white hover:text-primary transition-colors"
-        >
-          <Box className="h-5 w-5 text-primary" />
-          <span className="tracking-widest uppercase text-xs">
-            DOCKER_MGR v1.0
-          </span>
-        </Link>
-      </div>
-      <div className="flex-1 overflow-auto">
-        <nav className="grid items-start px-3 py-4 gap-2">
-          {navigation.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname?.startsWith(item.href));
-            return (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-3 px-3 py-2 transition-none border",
-                  isActive
-                    ? "bg-primary text-black border-primary tracking-wide font-bold"
-                    : "text-zinc-400 border-transparent hover:border-zinc-700 hover:text-white",
-                )}
-              >
-                <item.icon className="h-4 w-4" />
-                {item.name.toUpperCase()}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
+    return (
+        <div className="flex h-full w-64 flex-col border-r border-white/20 dark:border-white/10 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl z-20">
+            <div className="flex h-14 items-center border-b border-white/20 dark:border-white/10 px-4 lg:h-[60px] lg:px-6">
+                <Link href="/" className="flex items-center gap-2 font-semibold">
+                    <Box className="h-6 w-6" />
+                    <span className="">Docker Manager</span>
+                </Link>
+            </div>
+            <div className="flex-1 overflow-auto">
+                <nav className="grid items-start px-2 text-sm font-medium lg:px-4 py-4 gap-1">
+                    {navigation.map((item) => {
+                        const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
+                        return (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={cn(
+                                    "flex items-center gap-3 rounded-xl px-3 py-2.5 text-muted-foreground transition-all hover:text-primary hover:bg-white/50 dark:hover:bg-zinc-800/50",
+                                    isActive ? "bg-white/70 dark:bg-zinc-800/70 shadow-sm border border-white/50 dark:border-white/10 text-primary backdrop-blur-md" : ""
+                                )}
+                            >
+                                <item.icon className="h-4 w-4" />
+                                {item.name}
+                            </Link>
+                        );
+                    })}
+                </nav>
+            </div>
 
-      <div className="border-t border-zinc-800 p-4 space-y-2">
-        <Link
-          href="/settings"
-          className={cn(
-            "flex items-center gap-3 px-3 py-2 transition-none border",
-            pathname === "/settings"
-              ? "bg-primary text-black border-primary tracking-wide font-bold"
-              : "text-zinc-400 border-transparent hover:border-zinc-700 hover:text-white",
-          )}
-        >
-          <Settings className="h-4 w-4" />
-          {t.sidebar.settings.toUpperCase()}
-        </Link>
-        <button
-          onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2 text-destructive border border-transparent transition-none hover:bg-destructive hover:text-black hover:font-bold"
-        >
-          <LogOut className="h-4 w-4" />
-          {t.sidebar.logout.toUpperCase()}
-        </button>
-      </div>
-    </div>
-  );
+            <div className="border-t border-white/20 dark:border-white/10 p-4 space-y-1">
+                <Link
+                    href="/settings"
+                    className={cn(
+                        "flex items-center gap-3 rounded-xl px-3 py-2.5 text-muted-foreground transition-all hover:text-primary hover:bg-white/50 dark:hover:bg-zinc-800/50",
+                        pathname === "/settings" ? "bg-white/70 dark:bg-zinc-800/70 shadow-sm border border-white/50 dark:border-white/10 text-primary backdrop-blur-md" : ""
+                    )}
+                >
+                    <Settings className="h-4 w-4" />
+                    {t.sidebar.settings}
+                </Link>
+                <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center gap-3 rounded-xl px-3 py-2.5 text-red-500/80 transition-all hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50"
+                >
+                    <LogOut className="h-4 w-4" />
+                    {t.sidebar.logout}
+                </button>
+            </div>
+        </div>
+    );
 }
