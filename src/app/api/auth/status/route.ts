@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import bcrypt from "bcrypt";
+import logger from "@/lib/logger";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +20,7 @@ export async function GET() {
 
     return NextResponse.json({ isDefaultLoginActive });
   } catch (error: any) {
-    console.error("Check status error:", error);
+    logger.error("Check auth status error:", error.message);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export const dynamic = "force-dynamic";
 
@@ -42,7 +43,7 @@ export async function GET() {
 
     return NextResponse.json(formattedNetworks);
   } catch (error: any) {
-    console.error("Failed to fetch networks:", error);
+    logger.error("Failed to fetch networks:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -103,7 +104,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, id: network.id });
   } catch (error: any) {
-    console.error("Failed to create network:", error);
+    logger.error("Failed to create network:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

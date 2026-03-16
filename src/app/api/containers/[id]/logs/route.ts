@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export const dynamic = "force-dynamic";
 
@@ -49,7 +50,7 @@ export async function GET(
       },
     });
   } catch (error: any) {
-    console.error(`Failed to fetch logs for container ${id}:`, error);
+    logger.error(`Failed to fetch logs for container '${id}':`, error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -3,6 +3,25 @@ import next from "next";
 import { Server } from "socket.io";
 import Docker from "dockerode";
 
+// ── Inline Logger (LOG_LEVEL env: DEBUG | INFO | WARN | ERROR | SILENT) ─────
+const LOG_LEVELS = { DEBUG: 0, INFO: 1, WARN: 2, ERROR: 3, SILENT: 4 };
+const COLORS     = { DEBUG: '\x1b[36m', INFO: '\x1b[32m', WARN: '\x1b[33m', ERROR: '\x1b[31m' };
+const RESET      = '\x1b[0m';
+const configuredLevel = LOG_LEVELS[(process.env.LOG_LEVEL ?? 'INFO').toUpperCase()] ?? LOG_LEVELS.INFO;
+function ts() { return new Date().toISOString().replace('T',' ').substring(0,19); }
+function log(level, ...args) {
+  if (LOG_LEVELS[level] < configuredLevel) return;
+  const prefix = `${COLORS[level]}[${ts()}] [${level.padEnd(5)}]${RESET}`;
+  (level === 'ERROR' || level === 'WARN' ? console.error : console.log)(prefix, ...args);
+}
+const srvLogger = {
+  debug: (...a) => log('DEBUG', ...a),
+  info:  (...a) => log('INFO',  ...a),
+  warn:  (...a) => log('WARN',  ...a),
+  error: (...a) => log('ERROR', ...a),
+};
+// ─────────────────────────────────────────────────────────────────────────────
+
 // Use the same dockerode setup
 const docker = new Docker({ socketPath: '/var/run/docker.sock' });
 
@@ -23,7 +42,7 @@ app.prepare().then(() => {
     });
 
     io.on('connection', (socket) => {
-        console.log('Client connected to terminal socket:', socket.id);
+        srvLogger.debug('Client connected to terminal socket:', socket.id);
         let execStream = null;
 
         socket.on('start-terminal', async ({ containerId, cmd = 'sh' }) => {
@@ -68,7 +87,7 @@ app.prepare().then(() => {
         });
 
         socket.on('disconnect', () => {
-            console.log('Client disconnected:', socket.id);
+            srvLogger.debug('Client disconnected:', socket.id);
             if (execStream) {
                 try {
                     execStream.end();
@@ -83,6 +102,7 @@ app.prepare().then(() => {
             process.exit(1);
         })
         .listen(port, hostname, () => {
-            console.log(`> Ready on http://${hostname === '0.0.0.0' ? 'localhost' : hostname}:${port} (accessible on all interfaces)`);
+            srvLogger.info(`> Ready on http://${hostname === '0.0.0.0' ? 'localhost' : hostname}:${port} (accessible on all interfaces)`);
+            srvLogger.info(`> Log level: ${(process.env.LOG_LEVEL ?? 'INFO').toUpperCase()}`);
         });
 });

@@ -78,6 +78,40 @@ npm run dev
 
 ---
 
+## ⚙️ 配置
+
+### 环境变量
+
+| 变量 | 默认值 | 说明 |
+|---|---|---|
+| `JWT_SECRET` | *(不安全的回退值)* | 用于签署 JWT 令牌的密钥。**生产环境中必须设置！** |
+| `LOG_LEVEL` | `INFO` | 控制服务器端日志输出的详细程度。 |
+| `PORT` | `3000` | Node.js 服务器监听的端口。 |
+| `HOST` | `0.0.0.0` | 服务器绑定的网络接口。 |
+
+### 日志级别 (`LOG_LEVEL`)
+
+| 值 | 说明 |
+|---|---|
+| `DEBUG` | 所有消息，包括 socket 连接和中间件重定向 |
+| `INFO` | 标准 – 服务器启动、数据库初始化、错误 *(默认)* |
+| `WARN` | 仅警告和错误（例如过期令牌） |
+| `ERROR` | 仅错误 |
+| `SILENT` | 无输出 |
+
+**在 `docker-compose.yml` 中的示例：**
+```yaml
+environment:
+  - LOG_LEVEL=DEBUG
+```
+
+**本地开发示例：**
+```bash
+LOG_LEVEL=DEBUG npm run dev
+```
+
+---
+
 ## 🛡️ 认证（登录）
 
 应用程序受 Edge Middleware 保护。没有有效的 JWT Cookie，将无法访问仪表板或 API。

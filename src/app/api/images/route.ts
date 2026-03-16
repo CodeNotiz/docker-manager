@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export const dynamic = "force-dynamic";
 
@@ -48,7 +49,7 @@ export async function GET() {
 
     return NextResponse.json(finalImages);
   } catch (error: any) {
-    console.error("Failed to fetch images:", error);
+    logger.error("Failed to fetch images:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

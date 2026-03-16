@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 const STACKS_DIR = path.join(process.cwd(), "stacks_data");
 
@@ -35,7 +36,7 @@ export async function GET() {
       stacks: stackCount,
     });
   } catch (error: any) {
-    console.error("Failed to fetch dashboard stats:", error);
+    logger.error("Failed to fetch dashboard stats:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

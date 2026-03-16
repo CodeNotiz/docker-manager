@@ -3,6 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 import { exec } from "child_process";
 import util from "util";
+import logger from "@/lib/logger";
 
 const execAsync = util.promisify(exec);
 const STACKS_DIR = path.join(process.cwd(), "stacks_data");
@@ -75,7 +76,7 @@ export async function GET() {
 
     return NextResponse.json(stacks);
   } catch (error: any) {
-    console.error("Failed to fetch stacks:", error);
+    logger.error("Failed to fetch stacks:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -116,7 +117,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, name });
   } catch (error: any) {
-    console.error("Failed to create/update stack:", error);
+    logger.error("Failed to create/update stack:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

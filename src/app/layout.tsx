@@ -32,7 +32,7 @@ export default async function RootLayout({
   // Extract Locale Cookie Serverside
   const cookieStore = await cookies();
   const localeCookie = cookieStore.get('NEXT_LOCALE')?.value as Locale | undefined;
-  const initialLocale: Locale = ['de', 'en', 'es', 'fr'].includes(localeCookie as string) ? localeCookie! : 'de';
+  const initialLocale: Locale = ['de', 'en', 'es', 'fr', 'uk', 'ru', 'ja', 'zh'].includes(localeCookie as string) ? localeCookie! : 'de';
 
   return (
     <html lang={initialLocale} suppressHydrationWarning>

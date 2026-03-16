@@ -3,6 +3,7 @@ import { open, Database } from "sqlite";
 import bcrypt from "bcrypt";
 import path from "path";
 import fs from "fs/promises";
+import logger from "@/lib/logger";
 
 const DB_DIR = path.join(process.cwd(), "data");
 const DB_PATH = path.join(DB_DIR, "docker-manager.db");
@@ -31,7 +32,7 @@ export async function getDb() {
             `);
 
       // Output info
-      console.log("Database initialized at", DB_PATH);
+      logger.info("Database initialized at", DB_PATH);
 
       // Check if any user exists, if not, create default admin:admin
       const userCount = await db.get("SELECT COUNT(*) as count FROM users");
@@ -44,7 +45,7 @@ export async function getDb() {
           "INSERT INTO users (username, password_hash) VALUES (?, ?)",
           [defaultUsername, hash],
         );
-        console.log("Default admin user created.");
+        logger.info("Default admin user created.");
       }
 
       return db;

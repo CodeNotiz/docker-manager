@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import bcrypt from "bcrypt";
 import { jwtVerify } from "jose";
+import logger from "@/lib/logger";
 
 const JWT_SECRET =
   process.env.JWT_SECRET ||
@@ -78,7 +79,7 @@ export async function POST(request: NextRequest) {
       message: "Settings updated successfully",
     });
   } catch (error: any) {
-    console.error("Settings update error:", error);
+    logger.error("Settings update error:", error.message);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import bcrypt from "bcrypt";
 import { SignJWT } from "jose";
+import logger from "@/lib/logger";
 
 const JWT_SECRET =
   process.env.JWT_SECRET ||
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
 
     return response;
   } catch (error: any) {
-    console.error("Login error:", error);
+    logger.error("Login error:", error.message);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

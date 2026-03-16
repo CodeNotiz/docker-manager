@@ -3,6 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 import { exec } from "child_process";
 import util from "util";
+import logger from "@/lib/logger";
 
 const execAsync = util.promisify(exec);
 const STACKS_DIR = path.join(process.cwd(), "stacks_data");
@@ -29,9 +30,7 @@ export async function DELETE(
         cwd: stackPath,
       });
     } catch (e) {
-      console.log(
-        `Note: 'docker compose down' failed for ${name}, maybe it wasn't running. Proceeding to delete folder.`,
-      );
+      logger.debug(`Note: 'docker compose down' failed for ${name} – may not have been running. Proceeding with folder deletion.`);
     }
 
     // Delete stack folder
@@ -39,7 +38,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error(`Failed to delete stack: ${error.message}`);
+    logger.error(`Failed to delete stack '${name}': ${error.message}`);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -74,7 +73,7 @@ export async function POST(
       );
     }
   } catch (error: any) {
-    console.error(`Failed to execute stack action: ${error.message}`);
+    logger.error(`Failed to execute stack action for '${name}': ${error.message}`);
     // Often docker compose prints errors to stderr, which is included in error.message from execAsync
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

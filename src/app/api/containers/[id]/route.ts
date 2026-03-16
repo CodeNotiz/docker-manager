@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export async function GET(
   request: Request,
@@ -11,7 +12,7 @@ export async function GET(
     const info = await container.inspect();
     return NextResponse.json(info);
   } catch (error: any) {
-    console.error("Failed to inspect container:", error);
+    logger.error("Failed to inspect container:", error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export async function DELETE(
   request: NextRequest,
@@ -13,7 +14,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error(`Failed to delete network: ${error.message}`);
+    logger.error(`Failed to delete network:`, error.message);
     const status = error.statusCode || 500;
     return NextResponse.json({ error: error.message }, { status });
   }

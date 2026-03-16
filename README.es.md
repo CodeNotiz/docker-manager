@@ -78,6 +78,40 @@ El servidor de desarrollo iniciará en el puerto 3000. *Sugerencia: Al iniciar p
 
 ---
 
+## ⚙️ Configuración
+
+### Variables de entorno
+
+| Variable | Valor predeterminado | Descripción |
+|---|---|---|
+| `JWT_SECRET` | *(fallback inseguro)* | Clave secreta para firmar los tokens JWT. **¡Siempre establécela en producción!** |
+| `LOG_LEVEL` | `INFO` | Controla el nivel de detalle de los registros del servidor. |
+| `PORT` | `3000` | Puerto en el que escucha el servidor Node.js. |
+| `HOST` | `0.0.0.0` | Interfaz de red a la que se enlaza el servidor. |
+
+### Niveles de registro (`LOG_LEVEL`)
+
+| Valor | Descripción |
+|---|---|
+| `DEBUG` | Todos los mensajes, incluidas conexiones de socket y redireccionamientos |
+| `INFO` | Estándar – inicio del servidor, inicio de la BD, errores *(predeterminado)* |
+| `WARN` | Solo advertencias y errores (p.ej. tokens vencidos) |
+| `ERROR` | Solo errores |
+| `SILENT` | Sin salida |
+
+**Ejemplo** en `docker-compose.yml`:
+```yaml
+environment:
+  - LOG_LEVEL=DEBUG
+```
+
+**Ejemplo** para desarrollo local:
+```bash
+LOG_LEVEL=DEBUG npm run dev
+```
+
+---
+
 ## 🛡️ Autenticación (Inicio de sesión)
 
 La aplicación está protegida por un Edge Middleware. Sin una cookie JWT válida, se bloqueará el acceso al panel y a la API.

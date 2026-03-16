@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import docker from "@/lib/docker";
+import logger from "@/lib/logger";
 
 export async function POST(
   request: NextRequest,
@@ -40,7 +41,7 @@ export async function POST(
       message: `Container ${id} successfully ${action}ed.`,
     });
   } catch (error: any) {
-    console.error(`Failed to execute ${action} on container ${id}:`, error);
+    logger.error(`Failed to execute '${action}' on container '${id}':`, error.message);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
