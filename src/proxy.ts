@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
+import logger from "@/lib/logger";
 
 const JWT_SECRET =
   process.env.JWT_SECRET ||
@@ -25,8 +26,10 @@ export default async function proxy(request: NextRequest) {
   if (!token) {
     // Redirect to login if accessing protected route without a token
     if (pathname.startsWith("/api/")) {
+      logger.debug(`[Proxy] Unauthorized API access: ${pathname}`);
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+    logger.debug(`[Proxy] No token – redirecting ${pathname} → /login`);
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
@@ -36,6 +39,7 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.next();
   } catch (err) {
     // Token invalid / expired -> redirect to login
+    logger.warn(`[Proxy] Invalid or expired token for: ${pathname}`);
     const response = pathname.startsWith("/api/")
       ? NextResponse.json(
           { error: "Token invalid or expired" },
@@ -50,6 +54,6 @@ export default async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Apply Middleware to every route EXCEPT static files/images/favicon
+  // Apply Proxy to every route EXCEPT static files/images/favicon
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
