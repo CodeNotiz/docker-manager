@@ -1,0 +1,110 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "refresh": "更新",
+    "create": "作成",
+    "edit": "編集",
+    "actions": "操作",
+    "name": "名前",
+    "status": "ステータス",
+    "search": "検索...",
+    "welcome": "ようこそ、{name}",
+    "pleaseLogin": "ログインしてください"
+  },
+  "sidebar": {
+    "dashboard": "ダッシュボード",
+    "containers": "コンテナ",
+    "images": "イメージ",
+    "networks": "ネットワーク",
+    "stacks": "スタック",
+    "settings": "設定",
+    "logout": "ログアウト"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "subtitle": "フューチャリスティックな Docker コントロールセンターへようこそ。",
+    "containers": "コンテナ",
+    "images": "イメージ",
+    "networks": "ネットワーク",
+    "stacks": "スタック"
+  },
+  "containers": {
+    "title": "コンテナ一覧",
+    "subtitle": "アクティブおよび停止中のコンテナを管理します。",
+    "image": "イメージ",
+    "state": "状態",
+    "ports": "ポート",
+    "start": "起動",
+    "stop": "停止",
+    "restart": "再起動",
+    "remove": "削除",
+    "terminal": "ターミナル",
+    "pause": "一時停止",
+    "resume": "再開",
+    "logs": "ログ",
+    "noContainers": "コンテナが見つかりません。"
+  },
+  "images": {
+    "title": "Docker イメージ",
+    "subtitle": "ダウンロードしたイメージを管理します。",
+    "repository": "リポジトリ",
+    "tag": "タグ",
+    "id": "イメージ ID",
+    "size": "サイズ",
+    "created": "作成日",
+    "pruneDangling": "ダングリングイメージを削除",
+    "pruneAll": "未使用イメージをすべて削除",
+    "unusedImage": "未使用イメージ",
+    "danglingImage": "ダングリングイメージ (タグなし)",
+    "remove": "削除",
+    "noImages": "イメージが見つかりません。"
+  },
+  "networks": {
+    "title": "Docker ネットワーク",
+    "subtitle": "ネットワークを管理します。",
+    "driver": "ドライバ",
+    "scope": "スコープ",
+    "subnet": "サブネット",
+    "gateway": "ゲートウェイ",
+    "containers": "コンテナ",
+    "create": "ネットワークを作成",
+    "createNetwork": "新しいネットワーク",
+    "createDialog": {
+      "title": "新しいネットワークを作成",
+      "desc": "新しい Docker ネットワークを作成します。オプションで詳細な IPv4 設定を行うことができます。"
+    },
+    "systemNetworkDesc": "システムネットワークは削除できません",
+    "remove": "削除",
+    "noNetworks": "ネットワークが見つかりません。"
+  },
+  "stacks": {
+    "title": "ローカルスタック",
+    "subtitle": "スタックは /stacks_data にフォルダとして保存されます。",
+    "createStack": "新しいスタックを作成",
+    "deploy": "デプロイ (Up)",
+    "stop": "停止 (Down)",
+    "noStacks": "スタックがまだありません",
+    "emptyStateDesc": "最初の Docker Compose スタックを作成してください。"
+  },
+  "settings": {
+    "title": "設定",
+    "subtitle": "Docker Manager の認証情報と言語を設定します。",
+    "language": "言語",
+    "newUsername": "新しいユーザー名",
+    "newPassword": "新しいパスワード",
+    "currentPassword": "現在のパスワード (必須)",
+    "saveChanges": "変更を保存"
+  },
+  "login": {
+    "title": "Docker Manager",
+    "subtitle": "続行するにはログインしてください",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "button": "ログイン",
+    "defaultText": "デフォルトログイン："
+  }
+}

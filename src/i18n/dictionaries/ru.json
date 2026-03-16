@@ -1,0 +1,110 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "refresh": "Обновить",
+    "create": "Создать",
+    "edit": "Редактировать",
+    "actions": "Действия",
+    "name": "Имя",
+    "status": "Статус",
+    "search": "Поиск...",
+    "welcome": "Добро пожаловать, {name}",
+    "pleaseLogin": "Пожалуйста, войдите"
+  },
+  "sidebar": {
+    "dashboard": "Панель",
+    "containers": "Контейнеры",
+    "images": "Образы",
+    "networks": "Сети",
+    "stacks": "Стеки",
+    "settings": "Настройки",
+    "logout": "Выйти"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "subtitle": "Добро пожаловать в ваш футуристический центр Docker.",
+    "containers": "Контейнеры",
+    "images": "Образы",
+    "networks": "Сети",
+    "stacks": "Стеки"
+  },
+  "containers": {
+    "title": "Обзор контейнеров",
+    "subtitle": "Управляйте активными и остановленными контейнерами.",
+    "image": "Образ",
+    "state": "Состояние",
+    "ports": "Порты",
+    "start": "Запустить",
+    "stop": "Остановить",
+    "restart": "Перезапустить",
+    "remove": "Удалить",
+    "terminal": "Терминал",
+    "pause": "Приостановить",
+    "resume": "Возобновить",
+    "logs": "Журналы",
+    "noContainers": "Контейнеры не найдены."
+  },
+  "images": {
+    "title": "Docker Образы",
+    "subtitle": "Управляйте загруженными образами.",
+    "repository": "Репозиторий",
+    "tag": "Тег",
+    "id": "ID образа",
+    "size": "Размер",
+    "created": "Создан",
+    "pruneDangling": "Очистить зависшие образы",
+    "pruneAll": "Очистить все неиспользуемые образы",
+    "unusedImage": "Неиспользуемый образ",
+    "danglingImage": "Зависший образ (без тега)",
+    "remove": "Удалить",
+    "noImages": "Образы не найдены."
+  },
+  "networks": {
+    "title": "Docker Сети",
+    "subtitle": "Управляйте своими сетями.",
+    "driver": "Драйвер",
+    "scope": "Область",
+    "subnet": "Подсеть",
+    "gateway": "Шлюз",
+    "containers": "Контейнеры",
+    "create": "Создать сеть",
+    "createNetwork": "Новая сеть",
+    "createDialog": {
+      "title": "Создать новую сеть",
+      "desc": "Создайте новую Docker-сеть. При необходимости можно задать подробные настройки IPv4."
+    },
+    "systemNetworkDesc": "Системную сеть нельзя удалить",
+    "remove": "Удалить",
+    "noNetworks": "Сети не найдены."
+  },
+  "stacks": {
+    "title": "Локальные стеки",
+    "subtitle": "Стеки хранятся в виде папок в /stacks_data.",
+    "createStack": "Создать новый стек",
+    "deploy": "Развернуть (Up)",
+    "stop": "Остановить (Down)",
+    "noStacks": "Стеков пока нет",
+    "emptyStateDesc": "Создайте свой первый стек Docker Compose."
+  },
+  "settings": {
+    "title": "Настройки",
+    "subtitle": "Настройте свои учётные данные и язык для Docker Manager.",
+    "language": "Язык",
+    "newUsername": "Новое имя пользователя",
+    "newPassword": "Новый пароль",
+    "currentPassword": "Текущий пароль (обязательно)",
+    "saveChanges": "Сохранить изменения"
+  },
+  "login": {
+    "title": "Docker Manager",
+    "subtitle": "Пожалуйста, войдите, чтобы продолжить",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "button": "Войти",
+    "defaultText": "Стандартный логин:"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "common": {
+    "loading": "Завантаження...",
+    "error": "Помилка",
+    "save": "Зберегти",
+    "cancel": "Скасувати",
+    "delete": "Видалити",
+    "refresh": "Оновити",
+    "create": "Створити",
+    "edit": "Редагувати",
+    "actions": "Дії",
+    "name": "Назва",
+    "status": "Статус",
+    "search": "Пошук...",
+    "welcome": "Ласкаво просимо, {name}",
+    "pleaseLogin": "Будь ласка, увійдіть"
+  },
+  "sidebar": {
+    "dashboard": "Панель",
+    "containers": "Контейнери",
+    "images": "Образи",
+    "networks": "Мережі",
+    "stacks": "Стеки",
+    "settings": "Налаштування",
+    "logout": "Вийти"
+  },
+  "dashboard": {
+    "title": "Панель керування",
+    "subtitle": "Ласкаво просимо до вашого футуристичного центру Docker.",
+    "containers": "Контейнери",
+    "images": "Образи",
+    "networks": "Мережі",
+    "stacks": "Стеки"
+  },
+  "containers": {
+    "title": "Огляд контейнерів",
+    "subtitle": "Керуйте активними та зупиненими контейнерами.",
+    "image": "Образ",
+    "state": "Стан",
+    "ports": "Порти",
+    "start": "Запустити",
+    "stop": "Зупинити",
+    "restart": "Перезапустити",
+    "remove": "Видалити",
+    "terminal": "Термінал",
+    "pause": "Призупинити",
+    "resume": "Поновити",
+    "logs": "Журнали",
+    "noContainers": "Контейнери не знайдено."
+  },
+  "images": {
+    "title": "Docker Образи",
+    "subtitle": "Керуйте завантаженими образами.",
+    "repository": "Репозиторій",
+    "tag": "Тег",
+    "id": "ID образу",
+    "size": "Розмір",
+    "created": "Створено",
+    "pruneDangling": "Очистити зависаючі образи",
+    "pruneAll": "Очистити всі невикористані образи",
+    "unusedImage": "Невикористаний образ",
+    "danglingImage": "Зависаючий образ (без тегу)",
+    "remove": "Видалити",
+    "noImages": "Образи не знайдено."
+  },
+  "networks": {
+    "title": "Docker Мережі",
+    "subtitle": "Керуйте своїми мережами.",
+    "driver": "Драйвер",
+    "scope": "Область",
+    "subnet": "Підмережа",
+    "gateway": "Шлюз",
+    "containers": "Контейнери",
+    "create": "Створити мережу",
+    "createNetwork": "Нова мережа",
+    "createDialog": {
+      "title": "Створити нову мережу",
+      "desc": "Створіть нову Docker-мережу. За бажанням можна вказати детальні налаштування IPv4."
+    },
+    "systemNetworkDesc": "Системну мережу не можна видалити",
+    "remove": "Видалити",
+    "noNetworks": "Мережі не знайдено."
+  },
+  "stacks": {
+    "title": "Локальні стеки",
+    "subtitle": "Стеки зберігаються у вигляді папок у /stacks_data.",
+    "createStack": "Створити новий стек",
+    "deploy": "Розгорнути (Up)",
+    "stop": "Зупинити (Down)",
+    "noStacks": "Стеки ще відсутні",
+    "emptyStateDesc": "Створіть свій перший стек Docker Compose."
+  },
+  "settings": {
+    "title": "Налаштування",
+    "subtitle": "Налаштуйте свої облікові дані та мову для Docker Manager.",
+    "language": "Мова",
+    "newUsername": "Новий логін",
+    "newPassword": "Новий пароль",
+    "currentPassword": "Поточний пароль (обов'язково)",
+    "saveChanges": "Зберегти зміни"
+  },
+  "login": {
+    "title": "Docker Manager",
+    "subtitle": "Будь ласка, увійдіть, щоб продовжити",
+    "username": "Логін",
+    "password": "Пароль",
+    "button": "Увійти",
+    "defaultText": "Стандартний логін:"
+  }
+}

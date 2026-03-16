@@ -57,16 +57,28 @@ export function Header() {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end" className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border-white/20">
                                 <DropdownMenuItem onClick={() => setLanguage('de')} className={locale === 'de' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
-                                    Deutsch
+                                    🇩🇪 Deutsch
                                 </DropdownMenuItem>
                                 <DropdownMenuItem onClick={() => setLanguage('en')} className={locale === 'en' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
-                                    English
+                                    🇬🇧 English
                                 </DropdownMenuItem>
                                 <DropdownMenuItem onClick={() => setLanguage('es')} className={locale === 'es' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
-                                    Español
+                                    🇪🇸 Español
                                 </DropdownMenuItem>
                                 <DropdownMenuItem onClick={() => setLanguage('fr')} className={locale === 'fr' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
-                                    Français
+                                    🇫🇷 Français
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLanguage('uk')} className={locale === 'uk' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
+                                    🇺🇦 Українська
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLanguage('ru')} className={locale === 'ru' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
+                                    🇷🇺 Русский
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLanguage('ja')} className={locale === 'ja' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
+                                    🇯🇵 日本語
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => setLanguage('zh')} className={locale === 'zh' ? 'bg-zinc-100 dark:bg-zinc-800' : ''}>
+                                    🇨🇳 中文
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

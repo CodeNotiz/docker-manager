@@ -1,0 +1,110 @@
+{
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "refresh": "刷新",
+    "create": "创建",
+    "edit": "编辑",
+    "actions": "操作",
+    "name": "名称",
+    "status": "状态",
+    "search": "搜索...",
+    "welcome": "欢迎，{name}",
+    "pleaseLogin": "请登录"
+  },
+  "sidebar": {
+    "dashboard": "仪表板",
+    "containers": "容器",
+    "images": "镜像",
+    "networks": "网络",
+    "stacks": "堆栈",
+    "settings": "设置",
+    "logout": "退出登录"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "subtitle": "欢迎来到您的未来主义 Docker 控制中心。",
+    "containers": "容器",
+    "images": "镜像",
+    "networks": "网络",
+    "stacks": "堆栈"
+  },
+  "containers": {
+    "title": "容器概览",
+    "subtitle": "管理您的运行中和已停止的容器。",
+    "image": "镜像",
+    "state": "状态",
+    "ports": "端口",
+    "start": "启动",
+    "stop": "停止",
+    "restart": "重启",
+    "remove": "删除",
+    "terminal": "终端",
+    "pause": "暂停",
+    "resume": "恢复",
+    "logs": "日志",
+    "noContainers": "未找到容器。"
+  },
+  "images": {
+    "title": "Docker 镜像",
+    "subtitle": "管理您已下载的镜像。",
+    "repository": "仓库",
+    "tag": "标签",
+    "id": "镜像 ID",
+    "size": "大小",
+    "created": "创建时间",
+    "pruneDangling": "清理悬空镜像",
+    "pruneAll": "清理所有未使用镜像",
+    "unusedImage": "未使用镜像",
+    "danglingImage": "悬空镜像（无标签）",
+    "remove": "删除",
+    "noImages": "未找到镜像。"
+  },
+  "networks": {
+    "title": "Docker 网络",
+    "subtitle": "管理您的网络。",
+    "driver": "驱动",
+    "scope": "范围",
+    "subnet": "子网",
+    "gateway": "网关",
+    "containers": "容器",
+    "create": "创建网络",
+    "createNetwork": "新建网络",
+    "createDialog": {
+      "title": "创建新网络",
+      "desc": "创建一个新的 Docker 网络。您可以选择配置详细的 IPv4 设置。"
+    },
+    "systemNetworkDesc": "系统网络不可删除",
+    "remove": "删除",
+    "noNetworks": "未找到网络。"
+  },
+  "stacks": {
+    "title": "本地堆栈",
+    "subtitle": "堆栈以文件夹形式存储在 /stacks_data 下。",
+    "createStack": "创建新堆栈",
+    "deploy": "部署 (Up)",
+    "stop": "停止 (Down)",
+    "noStacks": "暂无堆栈",
+    "emptyStateDesc": "创建您的第一个 Docker Compose 堆栈。"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "在此配置您的登录凭据和 Docker Manager 的语言。",
+    "language": "语言",
+    "newUsername": "新用户名",
+    "newPassword": "新密码",
+    "currentPassword": "当前密码（必填）",
+    "saveChanges": "保存更改"
+  },
+  "login": {
+    "title": "Docker Manager",
+    "subtitle": "请登录以继续",
+    "username": "用户名",
+    "password": "密码",
+    "button": "登录",
+    "defaultText": "默认登录："
+  }
+}
