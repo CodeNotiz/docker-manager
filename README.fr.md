@@ -1,6 +1,6 @@
 # 🐳 Interface Web du Gestionnaire Docker
 
-[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md)
+[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
 Une interface web puissante, moderne et futuriste pour gérer votre environnement Docker local. Construite avec Next.js, Tailwind CSS (Design Glassmorphism) et Shadcn UI.
 
@@ -9,7 +9,7 @@ Une interface web puissante, moderne et futuriste pour gérer votre environnemen
 ## ✨ Fonctionnalités
 
 - **Interface Futuriste :** Entièrement conçue dans le style "Glassmorphism", elle prend en charge les modes Sombre et Clair avec des dégradés de maille fluides en arrière-plan.
-- **🌍 Support Multilingue (i18n) :** L'interface est entièrement disponible en Français, Anglais, Allemand et Espagnol.
+- **🌍 Support Multilingue (i18n) :** L'interface est entièrement disponible en **8 langues** : Français, Anglais, Allemand, Espagnol, Ukrainien, Russe, Japonais et Chinois (Simplifié).
 - **🔐 Authentification Intégrée :** Zone d'accès sécurisée. L'application génère automatiquement une base de données SQLite et nécessite une connexion avec un nom d'utilisateur et un mot de passe (modifiables). Identifiants par défaut : `admin` / `admin`.
 - **📦 Gestion des Conteneurs :**
   - Vue d'ensemble de tous les conteneurs en cours d'exécution et arrêtés.

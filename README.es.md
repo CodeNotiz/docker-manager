@@ -1,6 +1,6 @@
 # 🐳 Interfaz Web del Gestor UI para Docker
 
-[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md)
+[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
 Una interfaz web potente, moderna y futurista para gestionar tu entorno local de Docker. Construida con Next.js, Tailwind CSS (diseño Glassmorphism) y Shadcn UI.
 
@@ -9,7 +9,7 @@ Una interfaz web potente, moderna y futurista para gestionar tu entorno local de
 ## ✨ Características
 
 - **Interfaz Futurista:** Diseñada completamente con un estilo "Glassmorphism", compatible con los modos oscuro y claro, y con degradados de malla fluidos como fondos.
-- **🌍 Soporte Multilingüe (i18n):** La interfaz está completamente disponible en Español, Inglés, Alemán y Francés.
+- **🌍 Soporte Multilingüe (i18n):** La interfaz está completamente disponible en **8 idiomas**: Español, Inglés, Alemán, Francés, Ucraniano, Ruso, Japonés y Chino (Simplificado).
 - **🔐 Autenticación Integrada:** Área de acceso seguro. La aplicación genera automáticamente una base de datos SQLite y requiere un inicio de sesión mediante un nombre de usuario y contraseña (modificables). Credenciales por defecto: `admin` / `admin`.
 - **📦 Gestión de Contenedores:**
   - Visión general de todos los contenedores en ejecución y detenidos.

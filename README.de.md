@@ -1,6 +1,6 @@
 # 🐳 Docker Manager Web-Interface
 
-[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md)
+[Deutsch](README.de.md) | [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Українська](README.uk.md) | [Русский](README.ru.md) | [日本語](README.ja.md) | [中文](README.zh.md)
 
 Ein leistungsstarkes, modernes und futuristisches Web-Interface zur Verwaltung deiner lokalen Docker-Umgebung. Gebaut mit Next.js, Tailwind CSS (Glassmorphismus-Design) und Shadcn UI.
 
@@ -9,7 +9,7 @@ Ein leistungsstarkes, modernes und futuristisches Web-Interface zur Verwaltung d
 ## ✨ Features
 
 - **Futuristisches UI:** Komplett im "Glassmorphismus"-Stil gehalten, unterstützt sowohl Dark- als auch Light-Mode mit fließenden Mesh-Gradients als Hintergrund.
-- **🌍 Mehrsprachigkeit (i18n):** Das Interface ist flexibel und vollständig auf Deutsch, Englisch, Spanisch und Französisch verfügbar.
+- **🌍 Mehrsprachigkeit (i18n):** Das Interface ist vollständig in **8 Sprachen** verfügbar: Deutsch, Englisch, Spanisch, Französisch, Ukrainisch, Russisch, Japanisch und Chinesisch (Vereinfacht).
 - **🔐 Integrierte Authentifizierung:** Abgesicherter Zugangsbereich. Die Anwendung generiert automatisch eine SQLite-Datenbank und erfordert einen Login via (änderbarem) Benutzernamen und Passwort. Standard-Login: `admin` / `admin`.
 - **📦 Container-Management:**
   - Übersicht aller laufenden und gestoppten Container.
