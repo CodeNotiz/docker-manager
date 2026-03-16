@@ -35,9 +35,26 @@ A powerful, modern, and futuristic web interface for managing your local Docker 
 
 The application is officially **Docker-Ready** and includes everything you need (Alpine Linux, Docker CLI, and Node.js server). You do not even need Node.js installed on your host system!
 
-### Option 1: Start via Docker Compose (Recommended)
+### Option 1: Pre-built Docker Image (Easiest – Recommended)
 
-A ready-to-use `docker-compose.yml` template is included. It mounts your local Docker socket (`/var/run/docker.sock`) into the container and securely mounts the SQLite database and user stacks into your file system.
+Pull the latest image directly from the GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/codenotiz/docker-manager:latest
+```
+
+Or use the included **`docker-compose.yml`** which pulls and starts the image automatically:
+
+```bash
+# 1. Download docker-compose.yml (or clone the repository)
+# 2. Start the container in the background
+docker compose up -d
+```
+The app is now accessible at **`http://localhost:3000`**.
+
+### Option 2: Build from Source via Docker Compose
+
+Use the included `docker-compose.build.yml` to build the image locally. Requires cloning the repository first.
 
 ```bash
 # 1. Clone repository
@@ -45,11 +62,11 @@ git clone https://github.com/CodeNotiz/docker-manager.git
 cd docker-manager
 
 # 2. Build and start the container in the background
-docker compose up -d --build
+docker compose -f docker-compose.build.yml up -d --build
 ```
 The app is now accessible at **`http://localhost:3000`**.
 
-### Option 2: Classic Setup via Node.js (For Development)
+### Option 3: Classic Setup via Node.js (For Development)
 
 Prerequisites: Node.js (v18+) and Docker are installed on the host.
 

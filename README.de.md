@@ -35,9 +35,26 @@ Ein leistungsstarkes, modernes und futuristisches Web-Interface zur Verwaltung d
 
 Die Anwendung ist offiziell **Docker-Ready** und liefert alles mit, was du brauchst (inklusive Alpine Linux, Docker-CLI und Node.js Server). Du brauchst auf deinem Host-System also nicht einmal mehr Node.js zu installieren!
 
-### Variante 1: Start via Docker Compose (Empfohlen)
+### Variante 1: Fertiges Docker-Image (Einfachste Methode – Empfohlen)
 
-Es wird eine fertige `docker-compose.yml` Vorlage mitgeliefert. Diese bindet deinen lokalen Docker-Socket (`/var/run/docker.sock`) im Container ein und mountet SQLite-Datenbank sowie User-Stacks sicher ins Dateisystem.
+Lade das fertige Image direkt aus der GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/codenotiz/docker-manager:latest
+```
+
+Oder nutze die mitgelieferte **`docker-compose.yml`**, die das Image automatisch herunterlädt und startet:
+
+```bash
+# 1. docker-compose.yml herunterladen (oder Repository klonen)
+# 2. Container im Hintergrund starten
+docker compose up -d
+```
+Die App ist nun unter **`http://localhost:3000`** erreichbar.
+
+### Variante 2: Selbst bauen via Docker Compose
+
+Nutze die mitgelieferte `docker-compose.build.yml`, um das Image lokal zu bauen. Das Repository muss zuerst geklont werden.
 
 ```bash
 # 1. Repository klonen
@@ -45,11 +62,11 @@ git clone https://github.com/CodeNotiz/docker-manager.git
 cd docker-manager
 
 # 2. Container im Hintergrund bauen und starten
-docker compose up -d --build
+docker compose -f docker-compose.build.yml up -d --build
 ```
 Die App ist nun unter **`http://localhost:3000`** erreichbar.
 
-### Variante 2: Klassisches Setup via Node.js (Für Entwicklung)
+### Variante 3: Klassisches Setup via Node.js (Für Entwicklung)
 
 Voraussetzung: Node.js (v18+) und Docker sind auf dem Host installiert.
 

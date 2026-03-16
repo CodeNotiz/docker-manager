@@ -35,9 +35,26 @@
 
 このアプリケーションは公式に **Docker 対応** であり、必要なすべてのもの（Alpine Linux、Docker CLI、Node.js サーバー）が含まれています。ホストシステムに Node.js をインストールする必要すらありません！
 
-### オプション 1: Docker Compose 経由で起動（推奨）
+### オプション 1: ビルド済み Docker イメージ（最も簡単 – 推奨）
 
-すぐに使える `docker-compose.yml` テンプレートが含まれています。ローカルの Docker ソケット (`/var/run/docker.sock`) をコンテナにマウントし、SQLite データベースとユーザースタックをファイルシステムに安全に保存します。
+GitHub Container Registry から最新イメージを直接プルします：
+
+```bash
+docker pull ghcr.io/codenotiz/docker-manager:latest
+```
+
+または、付属の **`docker-compose.yml`** を使用すると、イメージを自動的にダウンロードして起動します：
+
+```bash
+# 1. docker-compose.yml をダウンロード（またはリポジトリをクローン）
+# 2. バックグラウンドでコンテナを起動
+docker compose up -d
+```
+アプリは **`http://localhost:3000`** でアクセス可能になります。
+
+### オプション 2: ソースから Docker Compose でビルド
+
+付属の `docker-compose.build.yml` を使用してイメージをローカルでビルドします。先にリポジトリをクローンする必要があります。
 
 ```bash
 # 1. リポジトリをクローン
@@ -45,11 +62,11 @@ git clone https://github.com/CodeNotiz/docker-manager.git
 cd docker-manager
 
 # 2. バックグラウンドでコンテナをビルドして起動
-docker compose up -d --build
+docker compose -f docker-compose.build.yml up -d --build
 ```
 アプリは **`http://localhost:3000`** でアクセス可能になります。
 
-### オプション 2: Node.js 経由でのクラシックセットアップ（開発用）
+### オプション 3: Node.js 経由でのクラシックセットアップ（開発用）
 
 前提条件: Node.js (v18+) と Docker がホストにインストールされていること。
 

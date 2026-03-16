@@ -35,9 +35,26 @@
 
 该应用程序正式 **支持 Docker**，并包含所需的一切（Alpine Linux、Docker CLI 和 Node.js 服务器）。您甚至无需在主机系统上安装 Node.js！
 
-### 选项 1：通过 Docker Compose 启动（推荐）
+### 选项 1：预构建 Docker 镜像（最简单 – 推荐）
 
-已包含一个开箱即用的 `docker-compose.yml` 模板。它将本地 Docker Socket (`/var/run/docker.sock`) 挂载到容器中，并将 SQLite 数据库和用户堆栈安全地保存到文件系统。
+直接从 GitHub Container Registry 拉取最新镜像：
+
+```bash
+docker pull ghcr.io/codenotiz/docker-manager:latest
+```
+
+或使用附带的 **`docker-compose.yml`**，它会自动下载并启动镜像：
+
+```bash
+# 1. 下载 docker-compose.yml（或克隆仓库）
+# 2. 在后台启动容器
+docker compose up -d
+```
+应用现已可通过 **`http://localhost:3000`** 访问。
+
+### 选项 2：通过 Docker Compose 从源码构建
+
+使用附带的 `docker-compose.build.yml` 在本地构建镜像。需要先克隆仓库。
 
 ```bash
 # 1. 克隆仓库
@@ -45,11 +62,11 @@ git clone https://github.com/CodeNotiz/docker-manager.git
 cd docker-manager
 
 # 2. 在后台构建并启动容器
-docker compose up -d --build
+docker compose -f docker-compose.build.yml up -d --build
 ```
 应用现已可通过 **`http://localhost:3000`** 访问。
 
-### 选项 2：通过 Node.js 经典方式安装（用于开发）
+### 选项 3：通过 Node.js 经典方式安装（用于开发）
 
 前提条件：主机上已安装 Node.js (v18+) 和 Docker。
 

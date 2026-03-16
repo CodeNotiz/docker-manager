@@ -7,8 +7,8 @@ import Docker from "dockerode";
 const docker = new Docker({ socketPath: '/var/run/docker.sock' });
 
 const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
-const port = 3000;
+const hostname = process.env.HOST || "0.0.0.0";
+const port = parseInt(process.env.PORT || "3000", 10);
 
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });
@@ -27,6 +27,9 @@ app.prepare().then(() => {
         let execStream = null;
 
         socket.on('start-terminal', async ({ containerId, cmd = 'sh' }) => {
+            // Restrict cmd to allowed shells only
+            const allowedCmds = ['sh', 'bash'];
+            const safeCmd = allowedCmds.includes(cmd) ? cmd : 'sh';
             try {
                 const container = docker.getContainer(containerId);
 
@@ -35,7 +38,7 @@ app.prepare().then(() => {
                     AttachStdout: true,
                     AttachStderr: true,
                     Tty: true,
-                    Cmd: [cmd],
+                    Cmd: [safeCmd],
                     Env: ["TERM=xterm-256color"],
                 });
 
@@ -79,7 +82,7 @@ app.prepare().then(() => {
             console.error(err);
             process.exit(1);
         })
-        .listen(port, () => {
-            console.log(`> Ready on http://${hostname}:${port}`);
+        .listen(port, hostname, () => {
+            console.log(`> Ready on http://${hostname === '0.0.0.0' ? 'localhost' : hostname}:${port} (accessible on all interfaces)`);
         });
 });
