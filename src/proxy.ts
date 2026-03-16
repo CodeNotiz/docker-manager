@@ -16,7 +16,9 @@ export default async function proxy(request: NextRequest) {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/favicon.ico") ||
     pathname === "/login" ||
-    pathname === "/api/auth/login"
+    pathname === "/api/auth/login" ||
+    pathname === "/api/auth/status" ||
+    pathname === "/api/auth/me"
   ) {
     return NextResponse.next();
   }
