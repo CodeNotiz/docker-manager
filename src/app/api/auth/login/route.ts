@@ -52,12 +52,14 @@ export async function POST(request: Request) {
     const response = NextResponse.json({ success: true });
 
     // Set HTTP-only cookie
+    // COOKIE_SECURE=true only if you run behind HTTPS. Default: false (HTTP works out of the box)
+    const isSecure = process.env.COOKIE_SECURE === "true";
     response.cookies.set({
       name: "auth_token",
       value: token,
       httpOnly: true,
       path: "/",
-      secure: process.env.NODE_ENV === "production",
+      secure: isSecure,
       sameSite: "lax",
       maxAge: 60 * 60 * 24, // 24 hours
     });
