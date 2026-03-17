@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Network } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { de, enUS, es, fr } from "date-fns/locale";
+import { de, enUS, es, fr, ja, ru, uk, zhCN } from "date-fns/locale";
 import { toast } from "sonner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import {
@@ -51,7 +51,7 @@ export function NetworkList() {
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [isCreateOpen, setIsCreateOpen] = useState(false);
 
-    const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+    const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };
     const dateLocale = dateLocales[locale] || de;
 
     // Create Network form state

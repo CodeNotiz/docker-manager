@@ -30,7 +30,8 @@
     "containers": "Контейнери",
     "images": "Образи",
     "networks": "Мережі",
-    "stacks": "Стеки"
+    "stacks": "Стеки",
+    "fetchError": "Помилка завантаження статистики"
   },
   "containers": {
     "title": "Огляд контейнерів",
@@ -46,7 +47,23 @@
     "pause": "Призупинити",
     "resume": "Поновити",
     "logs": "Журнали",
-    "noContainers": "Контейнери не знайдено."
+    "noContainers": "Контейнери не знайдено.",
+    "pageSubtitle": "Керуйте локальними Docker-контейнерами.",
+    "detailsGeneral": "Загальні",
+    "detailsId": "ID",
+    "detailsImage": "Образ",
+    "detailsCreated": "Створено",
+    "detailsEntrypoint": "Точка входу",
+    "detailsNetworks": "Мережі",
+    "detailsIpAddress": "IP-адреса",
+    "detailsGateway": "Шлюз",
+    "detailsMacAddress": "MAC-адреса",
+    "detailsViews": "Перегляди",
+    "detailsViewLogs": "перегляд логів",
+    "detailsInteractiveTerminal": "Інтерактивний термінал",
+    "detailsControl": "Управління",
+    "detailsMounts": "Монтування",
+    "detailsEnvFilter": "Фільтр середовища (ENV)"
   },
   "images": {
     "title": "Docker Образи",
@@ -61,7 +78,8 @@
     "unusedImage": "Невикористаний образ",
     "danglingImage": "Зависаючий образ (без тегу)",
     "remove": "Видалити",
-    "noImages": "Образи не знайдено."
+    "noImages": "Образи не знайдено.",
+    "pageSubtitle": "Керуйте локальними Docker-образами, видаляйте невикористані образи або виконуйте очищення (prune)."
   },
   "networks": {
     "title": "Docker Мережі",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "Системну мережу не можна видалити",
     "remove": "Видалити",
-    "noNetworks": "Мережі не знайдено."
+    "noNetworks": "Мережі не знайдено.",
+    "pageSubtitle": "Керуйте Docker-мережами, створюйте нові або видаляйте невикористані мережі."
   },
   "stacks": {
     "title": "Локальні стеки",
@@ -88,7 +107,8 @@
     "deploy": "Розгорнути (Up)",
     "stop": "Зупинити (Down)",
     "noStacks": "Стеки ще відсутні",
-    "emptyStateDesc": "Створіть свій перший стек Docker Compose."
+    "emptyStateDesc": "Створіть свій перший стек Docker Compose.",
+    "pageSubtitle": "Створюйте та керуйте складними програмами за допомогою стеків Docker Compose."
   },
   "settings": {
     "title": "Налаштування",
@@ -106,5 +126,16 @@
     "password": "Пароль",
     "button": "Увійти",
     "defaultText": "Стандартний логін:"
+  },
+  "logs": {
+    "title": "Логи: ",
+    "clear": "Очистити",
+    "download": "Завантажити",
+    "waiting": "Очікування логів..."
+  },
+  "terminal": {
+    "connecting": "Підключення до ",
+    "connected": "[Підключено]",
+    "disconnected": "[Відключено від сервера]"
   }
 }

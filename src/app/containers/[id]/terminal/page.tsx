@@ -9,12 +9,14 @@ import { Maximize2, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function ContainerTerminalPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = use(props.params);
   const containerId = params.id;
+  const { t } = useLanguage();
 
   const [containerName, setContainerName] = useState<string>("Loading...");
   const terminalRef = useRef<HTMLDivElement>(null);
@@ -66,7 +68,7 @@ export default function ContainerTerminalPage(props: {
     // Delay initial fit slightly to ensure DOM is ready
     setTimeout(() => {
       fitAddon.fit();
-      term.writeln(`\x1b[1;36mConnecting to ${containerName}...\x1b[0m`);
+      term.writeln(`\x1b[1;36m${t.terminal.connecting}${containerName}...\x1b[0m`);
 
       // Connect to our custom Socket.io server
       const socket = io({
@@ -76,7 +78,7 @@ export default function ContainerTerminalPage(props: {
       socketRef.current = socket;
 
       socket.on("connect", () => {
-        term.writeln("\r\n\x1b[1;32m[Connected]\x1b[0m\r\n");
+        term.writeln(`\r\n\x1b[1;32m${t.terminal.connected}\x1b[0m\r\n`);
         socket.emit("start-terminal", { containerId, cmd: "sh" });
       });
 
@@ -89,7 +91,7 @@ export default function ContainerTerminalPage(props: {
       });
 
       socket.on("disconnect", () => {
-        term.writeln("\r\n\x1b[1;31m[Disconnected from server]\x1b[0m\r\n");
+        term.writeln(`\r\n\x1b[1;31m${t.terminal.disconnected}\x1b[0m\r\n`);
       });
     }, 100);
 

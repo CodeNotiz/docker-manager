@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { de, enUS, es, fr } from "date-fns/locale";
+import { de, enUS, es, fr, ja, ru, uk, zhCN } from "date-fns/locale";
 import { useLanguage } from "@/i18n/LanguageContext";
 import {
     Table, TableBody, TableCell, TableHead, TableHeader, TableRow
@@ -22,7 +22,7 @@ export function ContainerList() {
     const [containers, setContainers] = useState<ContainerInfo[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+    const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };
     const dateLocale = dateLocales[locale] || de;
 
     const fetchContainers = async () => {

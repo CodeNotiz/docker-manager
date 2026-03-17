@@ -19,7 +19,7 @@ export default function Home() {
           setData(stats);
         }
       } catch (err) {
-        console.error("Fehler beim Laden der Statistiken", err);
+        console.error(t.dashboard.fetchError, err);
       } finally {
         setLoading(false);
       }

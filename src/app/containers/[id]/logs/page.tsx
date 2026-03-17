@@ -7,11 +7,14 @@ import { Download, RefreshCw, Maximize2, X, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { useLanguage } from "@/i18n/LanguageContext";
+
 export default function ContainerLogsPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = use(props.params);
   const containerId = params.id;
+  const { t } = useLanguage();
 
   const [containerName, setContainerName] = useState<string>("Loading...");
   const [logs, setLogs] = useState<string>("");
@@ -124,7 +127,7 @@ export default function ContainerLogsPage(props: {
             />
           </div>
           <h1 className="text-zinc-300 text-sm font-medium">
-            Logs: {containerName}
+            {t.logs.title}{containerName}
           </h1>
         </div>
 
@@ -136,7 +139,7 @@ export default function ContainerLogsPage(props: {
             onClick={() => setLogs("")}
           >
             <RefreshCw className="w-3 h-3 mr-1.5" />
-            Clear
+            {t.logs.clear}
           </Button>
           <Button
             variant="ghost"
@@ -145,7 +148,7 @@ export default function ContainerLogsPage(props: {
             onClick={downloadLogs}
           >
             <Download className="w-3 h-3 mr-1.5" />
-            Download
+            {t.logs.download}
           </Button>
           <div className="w-px h-4 bg-zinc-700 mx-1"></div>
           <Button
@@ -174,7 +177,7 @@ export default function ContainerLogsPage(props: {
       >
         <ScrollArea className="flex-1 w-full h-full p-4 [&>div>div]:min-h-full">
           <pre className="whitespace-pre-wrap word-break-all font-mono text-sm leading-tight text-green-400">
-            {logs || "Warte auf Logs..."}
+            {logs || t.logs.waiting}
           </pre>
         </ScrollArea>
       </div>

@@ -30,7 +30,8 @@
     "containers": "コンテナ",
     "images": "イメージ",
     "networks": "ネットワーク",
-    "stacks": "スタック"
+    "stacks": "スタック",
+    "fetchError": "統計の読み込みエラー"
   },
   "containers": {
     "title": "コンテナ一覧",
@@ -46,7 +47,23 @@
     "pause": "一時停止",
     "resume": "再開",
     "logs": "ログ",
-    "noContainers": "コンテナが見つかりません。"
+    "noContainers": "コンテナが見つかりません。",
+    "pageSubtitle": "ローカルのDockerコンテナを管理します。",
+    "detailsGeneral": "一般",
+    "detailsId": "ID",
+    "detailsImage": "イメージ",
+    "detailsCreated": "作成日時",
+    "detailsEntrypoint": "エントリポイント",
+    "detailsNetworks": "ネットワーク",
+    "detailsIpAddress": "IPアドレス",
+    "detailsGateway": "ゲートウェイ",
+    "detailsMacAddress": "MACアドレス",
+    "detailsViews": "ビュー",
+    "detailsViewLogs": "ログを表示",
+    "detailsInteractiveTerminal": "対話型ターミナル",
+    "detailsControl": "制御",
+    "detailsMounts": "マウント",
+    "detailsEnvFilter": "環境フィルター (ENV)"
   },
   "images": {
     "title": "Docker イメージ",
@@ -61,7 +78,8 @@
     "unusedImage": "未使用イメージ",
     "danglingImage": "ダングリングイメージ (タグなし)",
     "remove": "削除",
-    "noImages": "イメージが見つかりません。"
+    "noImages": "イメージが見つかりません。",
+    "pageSubtitle": "ローカルのDockerイメージを管理し、未使用のイメージを削除したり、プルーニング（整理）を実行します。"
   },
   "networks": {
     "title": "Docker ネットワーク",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "システムネットワークは削除できません",
     "remove": "削除",
-    "noNetworks": "ネットワークが見つかりません。"
+    "noNetworks": "ネットワークが見つかりません。",
+    "pageSubtitle": "Dockerネットワークを管理し、新しいネットワークを作成したり、未使用のものを削除します。"
   },
   "stacks": {
     "title": "ローカルスタック",
@@ -88,7 +107,8 @@
     "deploy": "デプロイ (Up)",
     "stop": "停止 (Down)",
     "noStacks": "スタックがまだありません",
-    "emptyStateDesc": "最初の Docker Compose スタックを作成してください。"
+    "emptyStateDesc": "最初の Docker Compose スタックを作成してください。",
+    "pageSubtitle": "Docker Composeのスタックを使用して、複雑なアプリケーションを作成および管理します。"
   },
   "settings": {
     "title": "設定",
@@ -106,5 +126,16 @@
     "password": "パスワード",
     "button": "ログイン",
     "defaultText": "デフォルトログイン："
+  },
+  "logs": {
+    "title": "ログ: ",
+    "clear": "クリア",
+    "download": "ダウンロード",
+    "waiting": "ログを待機中..."
+  },
+  "terminal": {
+    "connecting": "接続中: ",
+    "connected": "[接続されました]",
+    "disconnected": "[サーバーから切断されました]"
   }
 }

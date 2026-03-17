@@ -30,7 +30,8 @@
     "containers": "Conteneurs",
     "images": "Images",
     "networks": "Réseaux",
-    "stacks": "Piles"
+    "stacks": "Piles",
+    "fetchError": "Erreur lors du chargement des statistiques"
   },
   "containers": {
     "title": "Aperçu des Conteneurs",
@@ -46,7 +47,23 @@
     "pause": "Mettre en pause",
     "resume": "Reprendre",
     "logs": "Journaux",
-    "noContainers": "Aucun conteneur trouvé."
+    "noContainers": "Aucun conteneur trouvé.",
+    "pageSubtitle": "Gérez vos conteneurs Docker locaux.",
+    "detailsGeneral": "Général",
+    "detailsId": "ID",
+    "detailsImage": "Image",
+    "detailsCreated": "Créé le",
+    "detailsEntrypoint": "Point d'entrée",
+    "detailsNetworks": "Réseaux",
+    "detailsIpAddress": "Adresse IP",
+    "detailsGateway": "Passerelle",
+    "detailsMacAddress": "Adresse MAC",
+    "detailsViews": "Vues",
+    "detailsViewLogs": "voir les journaux",
+    "detailsInteractiveTerminal": "Terminal interactif",
+    "detailsControl": "Contrôle",
+    "detailsMounts": "Montages",
+    "detailsEnvFilter": "Filtre d'environnement (ENV)"
   },
   "images": {
     "title": "Images Docker",
@@ -61,7 +78,8 @@
     "unusedImage": "Image inutilisée",
     "danglingImage": "Image orpheline (Sans balise)",
     "remove": "Supprimer",
-    "noImages": "Aucune image trouvée."
+    "noImages": "Aucune image trouvée.",
+    "pageSubtitle": "Gérez vos images Docker locales, supprimez les images inutilisées ou effectuez un nettoyage (prune)."
   },
   "networks": {
     "title": "Réseaux Docker",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "Le réseau système ne peut pas être supprimé",
     "remove": "Supprimer",
-    "noNetworks": "Aucun réseau trouvé."
+    "noNetworks": "Aucun réseau trouvé.",
+    "pageSubtitle": "Gérez vos réseaux Docker, créez-en de nouveaux ou supprimez les réseaux inutilisés."
   },
   "stacks": {
     "title": "Piles locales",
@@ -88,7 +107,8 @@
     "deploy": "Déployer (Up)",
     "stop": "Arrêter (Down)",
     "noStacks": "Aucune pile disponible pour l'instant",
-    "emptyStateDesc": "Créez votre première pile Docker Compose."
+    "emptyStateDesc": "Créez votre première pile Docker Compose.",
+    "pageSubtitle": "Créez et gérez des applications complexes en utilisant les piles Docker Compose."
   },
   "settings": {
     "title": "Paramètres",
@@ -106,5 +126,16 @@
     "password": "Mot de passe",
     "button": "Connexion",
     "defaultText": "Accès par défaut :"
+  },
+  "logs": {
+    "title": "Journaux: ",
+    "clear": "Effacer",
+    "download": "Télécharger",
+    "waiting": "En attente des journaux..."
+  },
+  "terminal": {
+    "connecting": "Connexion à ",
+    "connected": "[Connecté]",
+    "disconnected": "[Déconnecté du serveur]"
   }
 }

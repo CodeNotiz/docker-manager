@@ -30,7 +30,8 @@
     "containers": "容器",
     "images": "镜像",
     "networks": "网络",
-    "stacks": "堆栈"
+    "stacks": "堆栈",
+    "fetchError": "加载统计信息时出错"
   },
   "containers": {
     "title": "容器概览",
@@ -46,7 +47,23 @@
     "pause": "暂停",
     "resume": "恢复",
     "logs": "日志",
-    "noContainers": "未找到容器。"
+    "noContainers": "未找到容器。",
+    "pageSubtitle": "管理您的本地 Docker 容器。",
+    "detailsGeneral": "常规",
+    "detailsId": "ID",
+    "detailsImage": "镜像",
+    "detailsCreated": "创建时间",
+    "detailsEntrypoint": "入口点",
+    "detailsNetworks": "网络",
+    "detailsIpAddress": "IP 地址",
+    "detailsGateway": "网关",
+    "detailsMacAddress": "MAC 地址",
+    "detailsViews": "视图",
+    "detailsViewLogs": "查看日志",
+    "detailsInteractiveTerminal": "交互式终端",
+    "detailsControl": "控制",
+    "detailsMounts": "挂载点",
+    "detailsEnvFilter": "环境变量过滤器 (ENV)"
   },
   "images": {
     "title": "Docker 镜像",
@@ -61,7 +78,8 @@
     "unusedImage": "未使用镜像",
     "danglingImage": "悬空镜像（无标签）",
     "remove": "删除",
-    "noImages": "未找到镜像。"
+    "noImages": "未找到镜像。",
+    "pageSubtitle": "管理您的本地 Docker 镜像，删除未使用的镜像或执行清理 (prune)。"
   },
   "networks": {
     "title": "Docker 网络",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "系统网络不可删除",
     "remove": "删除",
-    "noNetworks": "未找到网络。"
+    "noNetworks": "未找到网络。",
+    "pageSubtitle": "管理您的 Docker 网络，创建新网络或删除未使用的网络。"
   },
   "stacks": {
     "title": "本地堆栈",
@@ -88,7 +107,8 @@
     "deploy": "部署 (Up)",
     "stop": "停止 (Down)",
     "noStacks": "暂无堆栈",
-    "emptyStateDesc": "创建您的第一个 Docker Compose 堆栈。"
+    "emptyStateDesc": "创建您的第一个 Docker Compose 堆栈。",
+    "pageSubtitle": "使用 Docker Compose 堆栈创建和管理复杂的应用程序。"
   },
   "settings": {
     "title": "设置",
@@ -106,5 +126,16 @@
     "password": "密码",
     "button": "登录",
     "defaultText": "默认登录："
+  },
+  "logs": {
+    "title": "日志: ",
+    "clear": "清除",
+    "download": "下载",
+    "waiting": "等待日志..."
+  },
+  "terminal": {
+    "connecting": "正在连接至 ",
+    "connected": "[已连接]",
+    "disconnected": "[已断开与服务器的连接]"
   }
 }

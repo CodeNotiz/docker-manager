@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Trash2, HardDrive, AlertCircle } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
-import { de, enUS, es, fr } from "date-fns/locale";
+import { de, enUS, es, fr, ja, ru, uk, zhCN } from "date-fns/locale";
 import { useLanguage } from "@/i18n/LanguageContext";
 import {
     Tooltip,
@@ -40,7 +40,7 @@ export function ImageList() {
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
-    const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+    const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };
     const dateLocale = dateLocales[locale] || de;
 
     const fetchImages = async () => {

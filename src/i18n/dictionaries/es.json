@@ -30,7 +30,8 @@
     "containers": "Contenedores",
     "images": "Imágenes",
     "networks": "Redes",
-    "stacks": "Pilas"
+    "stacks": "Pilas",
+    "fetchError": "Error al cargar las estadísticas"
   },
   "containers": {
     "title": "Vista general de Contenedores",
@@ -46,7 +47,23 @@
     "pause": "Pausar",
     "resume": "Reanudar",
     "logs": "Registros",
-    "noContainers": "No se encontraron contenedores."
+    "noContainers": "No se encontraron contenedores.",
+    "pageSubtitle": "Gestiona tus contenedores locales de Docker.",
+    "detailsGeneral": "General",
+    "detailsId": "ID",
+    "detailsImage": "Imagen",
+    "detailsCreated": "Creado en",
+    "detailsEntrypoint": "Punto de entrada (Entrypoint)",
+    "detailsNetworks": "Redes",
+    "detailsIpAddress": "Dirección IP",
+    "detailsGateway": "Puerta de enlace",
+    "detailsMacAddress": "Dirección MAC",
+    "detailsViews": "Vistas",
+    "detailsViewLogs": "ver registros",
+    "detailsInteractiveTerminal": "Terminal Interactivo",
+    "detailsControl": "Control",
+    "detailsMounts": "Montajes (Mounts)",
+    "detailsEnvFilter": "Filtro de entorno (ENV)"
   },
   "images": {
     "title": "Imágenes Docker",
@@ -61,7 +78,8 @@
     "unusedImage": "Imagen no usada",
     "danglingImage": "Imagen huérfana (Sin etiqueta)",
     "remove": "Eliminar",
-    "noImages": "No se encontraron imágenes."
+    "noImages": "No se encontraron imágenes.",
+    "pageSubtitle": "Gestiona tus imágenes locales de Docker, elimina las que no uses o realiza una limpieza (prune)."
   },
   "networks": {
     "title": "Redes Docker",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "La red del sistema no se puede eliminar",
     "remove": "Eliminar",
-    "noNetworks": "No se encontraron redes."
+    "noNetworks": "No se encontraron redes.",
+    "pageSubtitle": "Gestiona tus redes de Docker, crea otras nuevas o elimina las que no uses."
   },
   "stacks": {
     "title": "Pilas Locales",
@@ -88,7 +107,8 @@
     "deploy": "Desplegar (Up)",
     "stop": "Detener (Down)",
     "noStacks": "No hay pilas disponibles aún",
-    "emptyStateDesc": "Crea tu primera pila (Stack) con Docker Compose."
+    "emptyStateDesc": "Crea tu primera pila (Stack) con Docker Compose.",
+    "pageSubtitle": "Crea y gestiona aplicaciones complejas usando Pilas (Stacks) de Docker Compose."
   },
   "settings": {
     "title": "Ajustes",
@@ -106,5 +126,16 @@
     "password": "Contraseña",
     "button": "Iniciar sesión",
     "defaultText": "Acceso por defecto:"
+  },
+  "logs": {
+    "title": "Registros: ",
+    "clear": "Limpiar",
+    "download": "Descargar",
+    "waiting": "Esperando registros..."
+  },
+  "terminal": {
+    "connecting": "Conectando a ",
+    "connected": "[Conectado]",
+    "disconnected": "[Desconectado del servidor]"
   }
 }

@@ -1,5 +1,5 @@
 import { formatDistanceToNow } from "date-fns";
-import { de, enUS, es, fr } from "date-fns/locale";
+import { de, enUS, es, fr, ja, ru, uk, zhCN } from "date-fns/locale";
 import { getDictionary } from "@/i18n/config";
 import { cookies } from "next/headers";
 import { Badge } from "@/components/ui/badge";
@@ -27,7 +27,7 @@ export default async function ContainerDetailsPage(props: {
   const locale = cookieStore.get("NEXT_LOCALE")?.value || "de";
   const t = getDictionary(locale);
 
-  const dateLocales: Record<string, any> = { de, en: enUS, es, fr };
+  const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };
   const dateLocale = dateLocales[locale] || de;
 
   let details;
@@ -66,10 +66,10 @@ export default async function ContainerDetailsPage(props: {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">
           <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg">
-            <h3 className="text-lg font-medium mb-4">Allgemein</h3>
+            <h3 className="text-lg font-medium mb-4">{t.containers.detailsGeneral}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <span className="text-sm text-zinc-500 block">ID</span>
+                <span className="text-sm text-zinc-500 block">{t.containers.detailsId}</span>
                 <span
                   className="font-mono text-sm truncate block"
                   title={details.Id}
@@ -78,7 +78,7 @@ export default async function ContainerDetailsPage(props: {
                 </span>
               </div>
               <div>
-                <span className="text-sm text-zinc-500 block">Image</span>
+                <span className="text-sm text-zinc-500 block">{t.containers.detailsImage}</span>
                 <span
                   className="font-mono text-sm truncate block"
                   title={details.Config.Image}
@@ -87,7 +87,7 @@ export default async function ContainerDetailsPage(props: {
                 </span>
               </div>
               <div>
-                <span className="text-sm text-zinc-500 block">Erstellt am</span>
+                <span className="text-sm text-zinc-500 block">{t.containers.detailsCreated}</span>
                 <span className="text-sm">
                   {formatDistanceToNow(new Date(details.Created), {
                     addSuffix: true,
@@ -96,7 +96,7 @@ export default async function ContainerDetailsPage(props: {
                 </span>
               </div>
               <div>
-                <span className="text-sm text-zinc-500 block">Entrypoint</span>
+                <span className="text-sm text-zinc-500 block">{t.containers.detailsEntrypoint}</span>
                 <span className="font-mono text-sm truncate block">
                   {Array.isArray(details.Config.Entrypoint)
                     ? details.Config.Entrypoint.join(" ")
@@ -108,7 +108,7 @@ export default async function ContainerDetailsPage(props: {
 
           {Object.keys(details.NetworkSettings.Networks).length > 0 && (
             <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg">
-              <h3 className="text-lg font-medium mb-4">Netzwerke</h3>
+              <h3 className="text-lg font-medium mb-4">{t.containers.detailsNetworks}</h3>
               <div className="space-y-3">
                 {Object.entries(details.NetworkSettings.Networks).map(
                   ([netName, netData]: [string, any]) => (
@@ -122,7 +122,7 @@ export default async function ContainerDetailsPage(props: {
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
                         <div>
                           <span className="text-zinc-500 block mb-0.5">
-                            IP-Adresse
+                            {t.containers.detailsIpAddress}
                           </span>
                           <span className="font-mono text-zinc-700 dark:text-zinc-300">
                             {netData.IPAddress || "-"}
@@ -130,7 +130,7 @@ export default async function ContainerDetailsPage(props: {
                         </div>
                         <div>
                           <span className="text-zinc-500 block mb-0.5">
-                            Gateway
+                            {t.containers.detailsGateway}
                           </span>
                           <span className="font-mono text-zinc-700 dark:text-zinc-300">
                             {netData.Gateway || "-"}
@@ -138,7 +138,7 @@ export default async function ContainerDetailsPage(props: {
                         </div>
                         <div>
                           <span className="text-zinc-500 block mb-0.5">
-                            Mac Address
+                            {t.containers.detailsMacAddress}
                           </span>
                           <span className="font-mono text-zinc-700 dark:text-zinc-300">
                             {netData.MacAddress || "-"}
@@ -155,11 +155,11 @@ export default async function ContainerDetailsPage(props: {
 
         <div className="space-y-6">
           <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg flex flex-col gap-2">
-            <h3 className="text-lg font-medium mb-2">Ansichten</h3>
+            <h3 className="text-lg font-medium mb-2">{t.containers.detailsViews}</h3>
             <Link href={`/containers/${id}/logs`} passHref>
               <Button variant="outline" className="w-full justify-start">
                 <Terminal className="w-4 h-4 mr-2" />
-                {t.containers.logs} ansehen
+                {t.containers.logs} {t.containers.detailsViewLogs}
               </Button>
             </Link>
             <Link
@@ -173,13 +173,13 @@ export default async function ContainerDetailsPage(props: {
                 disabled={!isRunning}
               >
                 <Terminal className="w-4 h-4 mr-2" />
-                Interactive Terminal
+                {t.containers.detailsInteractiveTerminal}
               </Button>
             </Link>
           </div>
 
           <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg flex flex-col gap-2">
-            <h3 className="text-lg font-medium mb-2">Steuerung</h3>
+            <h3 className="text-lg font-medium mb-2">{t.containers.detailsControl}</h3>
             <ContainerActions
               id={id}
               isRunning={isRunning}
@@ -190,7 +190,7 @@ export default async function ContainerDetailsPage(props: {
           {details.Mounts && details.Mounts.length > 0 && (
             <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg">
               <h3 className="text-lg font-medium mb-4">
-                Mounts ({details.Mounts.length})
+                {t.containers.detailsMounts} ({details.Mounts.length})
               </h3>
               <ul className="space-y-3">
                 {details.Mounts.map((mount: any, idx: number) => (
@@ -231,7 +231,7 @@ export default async function ContainerDetailsPage(props: {
 
       {details.Config.Env && details.Config.Env.length > 0 && (
         <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg">
-          <h3 className="text-lg font-medium mb-4">Environment Filter (ENV)</h3>
+          <h3 className="text-lg font-medium mb-4">{t.containers.detailsEnvFilter}</h3>
           <div className="bg-zinc-100/50 dark:bg-zinc-900/50 rounded-lg p-4 font-mono text-sm max-h-96 overflow-y-auto">
             <ul className="space-y-1.5 break-all">
               {details.Config.Env.map((env: string, idx: number) => {

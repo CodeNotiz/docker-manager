@@ -30,7 +30,8 @@
     "containers": "Container",
     "images": "Images",
     "networks": "Netzwerke",
-    "stacks": "Stacks"
+    "stacks": "Stacks",
+    "fetchError": "Fehler beim Laden der Statistiken"
   },
   "containers": {
     "title": "Container Übersicht",
@@ -46,7 +47,23 @@
     "pause": "Pausieren",
     "resume": "Fortsetzen",
     "logs": "Protokolle",
-    "noContainers": "Keine Container gefunden."
+    "noContainers": "Keine Container gefunden.",
+    "pageSubtitle": "Verwalte deine lokalen Docker-Container.",
+    "detailsGeneral": "Allgemein",
+    "detailsId": "ID",
+    "detailsImage": "Image",
+    "detailsCreated": "Erstellt am",
+    "detailsEntrypoint": "Entrypoint",
+    "detailsNetworks": "Netzwerke",
+    "detailsIpAddress": "IP-Adresse",
+    "detailsGateway": "Gateway",
+    "detailsMacAddress": "Mac Address",
+    "detailsViews": "Ansichten",
+    "detailsViewLogs": "ansehen",
+    "detailsInteractiveTerminal": "Interactive Terminal",
+    "detailsControl": "Steuerung",
+    "detailsMounts": "Mounts",
+    "detailsEnvFilter": "Environment Filter (ENV)"
   },
   "images": {
     "title": "Docker Images",
@@ -61,7 +78,8 @@
     "unusedImage": "Unbenutztes Image",
     "danglingImage": "Dangling Image (Ohne Tag)",
     "remove": "Löschen",
-    "noImages": "Keine Images gefunden."
+    "noImages": "Keine Images gefunden.",
+    "pageSubtitle": "Verwalten Sie Ihre lokalen Docker-Images, löschen Sie ungenutzte Images oder führen Sie ein Prune durch."
   },
   "networks": {
     "title": "Docker Netzwerke",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "System-Netzwerk kann nicht gelöscht werden",
     "remove": "Löschen",
-    "noNetworks": "Keine Netzwerke gefunden."
+    "noNetworks": "Keine Netzwerke gefunden.",
+    "pageSubtitle": "Verwalten Sie Ihre Docker-Netzwerke, legen Sie neue an oder löschen Sie ungenutzte Netzwerke."
   },
   "stacks": {
     "title": "Lokale Stacks",
@@ -88,7 +107,8 @@
     "deploy": "Deploy (Up)",
     "stop": "Stop (Down)",
     "noStacks": "Noch keine Stacks vorhanden",
-    "emptyStateDesc": "Erstelle deinen ersten Docker Compose Stack."
+    "emptyStateDesc": "Erstelle deinen ersten Docker Compose Stack.",
+    "pageSubtitle": "Erstellen und verwalten Sie komplexe Anwendungen mit Docker Compose Stacks."
   },
   "settings": {
     "title": "Einstellungen",
@@ -106,5 +126,16 @@
     "password": "Passwort",
     "button": "Login",
     "defaultText": "Standard-Login:"
+  },
+  "logs": {
+    "title": "Logs: ",
+    "clear": "Löschen",
+    "download": "Herunterladen",
+    "waiting": "Warte auf Logs..."
+  },
+  "terminal": {
+    "connecting": "Verbinde mit ",
+    "connected": "[Verbunden]",
+    "disconnected": "[Vom Server getrennt]"
   }
 }

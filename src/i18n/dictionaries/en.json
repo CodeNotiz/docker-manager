@@ -30,7 +30,8 @@
     "containers": "Containers",
     "images": "Images",
     "networks": "Networks",
-    "stacks": "Stacks"
+    "stacks": "Stacks",
+    "fetchError": "Error loading statistics"
   },
   "containers": {
     "title": "Container Overview",
@@ -46,7 +47,23 @@
     "pause": "Pause",
     "resume": "Resume",
     "logs": "Logs",
-    "noContainers": "No containers found."
+    "noContainers": "No containers found.",
+    "pageSubtitle": "Manage your local Docker containers.",
+    "detailsGeneral": "General",
+    "detailsId": "ID",
+    "detailsImage": "Image",
+    "detailsCreated": "Created At",
+    "detailsEntrypoint": "Entrypoint",
+    "detailsNetworks": "Networks",
+    "detailsIpAddress": "IP Address",
+    "detailsGateway": "Gateway",
+    "detailsMacAddress": "Mac Address",
+    "detailsViews": "Views",
+    "detailsViewLogs": "view logs",
+    "detailsInteractiveTerminal": "Interactive Terminal",
+    "detailsControl": "Control",
+    "detailsMounts": "Mounts",
+    "detailsEnvFilter": "Environment Filter (ENV)"
   },
   "images": {
     "title": "Docker Images",
@@ -61,7 +78,8 @@
     "unusedImage": "Unused Image",
     "danglingImage": "Dangling Image (No Tag)",
     "remove": "Delete",
-    "noImages": "No images found."
+    "noImages": "No images found.",
+    "pageSubtitle": "Manage your local Docker images, delete unused images, or perform a prune."
   },
   "networks": {
     "title": "Docker Networks",
@@ -79,7 +97,8 @@
     },
     "systemNetworkDesc": "System network cannot be deleted",
     "remove": "Delete",
-    "noNetworks": "No networks found."
+    "noNetworks": "No networks found.",
+    "pageSubtitle": "Manage your Docker networks, create new ones, or delete unused networks."
   },
   "stacks": {
     "title": "Local Stacks",
@@ -88,7 +107,8 @@
     "deploy": "Deploy (Up)",
     "stop": "Stop (Down)",
     "noStacks": "No stacks available yet",
-    "emptyStateDesc": "Create your first Docker Compose Stack."
+    "emptyStateDesc": "Create your first Docker Compose Stack.",
+    "pageSubtitle": "Create and manage complex applications using Docker Compose Stacks."
   },
   "settings": {
     "title": "Settings",
@@ -106,5 +126,16 @@
     "password": "Password",
     "button": "Login",
     "defaultText": "Default Login:"
+  },
+  "logs": {
+    "title": "Logs: ",
+    "clear": "Clear",
+    "download": "Download",
+    "waiting": "Waiting for logs..."
+  },
+  "terminal": {
+    "connecting": "Connecting to ",
+    "connected": "[Connected]",
+    "disconnected": "[Disconnected from server]"
   }
 }

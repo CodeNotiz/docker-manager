@@ -1,13 +1,18 @@
+import { cookies } from "next/headers";
+import { getDictionary } from "@/i18n/config";
 import { ImageList } from "./components/image-list";
 
-export default function ImagesPage() {
+export default async function ImagesPage() {
+  const cookieStore = await cookies();
+  const locale = cookieStore.get("NEXT_LOCALE")?.value || "de";
+  const t = getDictionary(locale);
+
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Images</h1>
+        <h1 className="text-3xl font-bold tracking-tight">{t.images.title}</h1>
         <p className="text-zinc-500">
-          Verwalten Sie Ihre lokalen Docker-Images, löschen Sie ungenutzte
-          Images oder führen Sie ein Prune durch.
+          {t.images.pageSubtitle}
         </p>
       </div>
 
