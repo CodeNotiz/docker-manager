@@ -212,7 +212,7 @@ export function StackList() {
                         <DialogHeader>
                             <DialogTitle>{editorMode === 'create' ? t.stacks.createStack : t.common.edit}</DialogTitle>
                             <DialogDescription>
-                                Schreibe oder paste hier deine <code>docker-compose.yml</code> Konfiguration.
+                                {t.stacks.createNew.description}
                             </DialogDescription>
                         </DialogHeader>
 
@@ -225,7 +225,7 @@ export function StackList() {
                                     id="name"
                                     value={currentStackName}
                                     onChange={(e) => setCurrentStackName(e.target.value)}
-                                    placeholder="e.g. my-wordpress-stack"
+                                    placeholder={t.common.eg + " my-wordpress-stack"}
                                     disabled={editorMode === 'edit'}
                                     className="flex-1"
                                     required

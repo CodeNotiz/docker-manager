@@ -135,8 +135,8 @@ export function NetworkList() {
                 const data = await res.json();
                 throw new Error(data.error || t.networks.createError);
             }
-			const successMsg = t.networks.createSuccess
-			    .replace("{netname}", newNetworkName);
+            const successMsg = t.networks.createSuccess
+                .replace("{netname}", newNetworkName);
             toast.success(successMsg);
             setIsCreateOpen(false);
             setNewNetworkName("");
@@ -186,7 +186,7 @@ export function NetworkList() {
                                         value={newNetworkName}
                                         onChange={(e) => setNewNetworkName(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. my-app-network"
+                                        placeholder={t.common.eg + " my-app-network"}
                                         required
                                     />
                                 </div>
@@ -200,7 +200,7 @@ export function NetworkList() {
                                             onValueChange={(val) => setNewNetworkDriver(val || "bridge")}
                                         >
                                             <SelectTrigger id="driver">
-                                                <SelectValue placeholder="Wähle einen Treiber" />
+                                                <SelectValue placeholder={t.networks.createDialog.selectDriver} />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectItem value="bridge">bridge</SelectItem>
@@ -217,44 +217,44 @@ export function NetworkList() {
                                         <div className="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
                                     </div>
                                     <div className="relative flex justify-center">
-                                        <span className="bg-white dark:bg-zinc-950 px-2 text-xs text-zinc-500 uppercase tracking-wider">IPv4 Konfiguration (Optional)</span>
+                                        <span className="bg-white dark:bg-zinc-950 px-2 text-xs text-zinc-500 uppercase tracking-wider">{t.networks.createDialog.ipv4Titel}</span>
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-4 items-center gap-4 mt-2">
                                     <Label htmlFor="subnet" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        Subnet
+                                        {t.networks.createDialog.subnet}
                                     </Label>
                                     <Input
                                         id="subnet"
                                         value={newNetworkSubnet}
                                         onChange={(e) => setNewNetworkSubnet(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. 172.20.0.0/16"
+                                        placeholder={t.common.eg + " 172.20.0.0/16"}
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="gateway" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        Gateway
+                                        {t.networks.createDialog.gateway}
                                     </Label>
                                     <Input
                                         id="gateway"
                                         value={newNetworkGateway}
                                         onChange={(e) => setNewNetworkGateway(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. 172.20.0.1"
+                                        placeholder={t.common.eg + " 172.20.0.1"}
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="iprange" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        IP Range
+                                        {t.networks.createDialog.ipRange}
                                     </Label>
                                     <Input
                                         id="iprange"
                                         value={newNetworkIPRange}
                                         onChange={(e) => setNewNetworkIPRange(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. 172.20.10.0/24"
+                                        placeholder={t.common.eg + " 172.20.10.0/24"}
                                     />
                                 </div>
 
@@ -263,13 +263,13 @@ export function NetworkList() {
                                         <div className="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
                                     </div>
                                     <div className="relative flex justify-center">
-                                        <span className="bg-white dark:bg-zinc-950 px-2 text-xs text-zinc-500 uppercase tracking-wider">IPv6 Konfiguration (Optional)</span>
+                                        <span className="bg-white dark:bg-zinc-950 px-2 text-xs text-zinc-500 uppercase tracking-wider">{t.networks.createDialog.ipv6Titel}</span>
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-4 items-center gap-4 mt-2">
                                     <Label htmlFor="enable-ipv6" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        Enable IPv6
+                                        {t.networks.createDialog.enableIPv6}
                                     </Label>
                                     <div className="col-span-3 flex items-center space-x-2">
                                         <Switch
@@ -277,31 +277,31 @@ export function NetworkList() {
                                             checked={newNetworkEnableIPv6}
                                             onCheckedChange={setNewNetworkEnableIPv6}
                                         />
-                                        <Label htmlFor="enable-ipv6" className="font-normal text-sm text-zinc-500">IPv6 für dieses Netzwerk aktivieren</Label>
+                                        <Label htmlFor="enable-ipv6" className="font-normal text-sm text-zinc-500">{t.networks.createDialog.enableIPv6}</Label>
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="ipv6-subnet" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        IPv6 Subnet
+                                        {t.networks.createDialog.ipv6Subnet}
                                     </Label>
                                     <Input
                                         id="ipv6-subnet"
                                         value={newNetworkIPv6Subnet}
                                         onChange={(e) => setNewNetworkIPv6Subnet(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. 2001:db8:1::/64"
+                                        placeholder={t.common.eg + " 2001:db8:1::/64"}
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="ipv6-gateway" className="text-right text-zinc-500 dark:text-zinc-400">
-                                        IPv6 Gateway
+                                        {t.networks.createDialog.ipv6Gateway}
                                     </Label>
                                     <Input
                                         id="ipv6-gateway"
                                         value={newNetworkIPv6Gateway}
                                         onChange={(e) => setNewNetworkIPv6Gateway(e.target.value)}
                                         className="col-span-3"
-                                        placeholder="z.B. 2001:db8:1::1"
+                                        placeholder={t.common.eg + " 2001:db8:1::1"}
                                     />
                                 </div>
                             </div>

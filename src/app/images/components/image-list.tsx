@@ -69,7 +69,8 @@ export function ImageList() {
     };
 
     const handleDelete = async (id: string, name: string) => {
-        if (!confirm(`Möchtest du das Image ${name} wirklich löschen?`)) return;
+        const msg = t.images.deleteAsk.replace("{name}", name);
+        if (!confirm(msg)) return;
 
         setActionLoading(id);
         try {
@@ -79,10 +80,10 @@ export function ImageList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || "Löschen fehlgeschlagen");
+                throw new Error(data.error || t.images.deleteError);
             }
 
-            toast.success("Image gelöscht");
+            toast.success(t.images.deleteSuccess);
             await fetchImages();
         } catch (error: any) {
             toast.error(`${t.images.error} ${error.message}`);
@@ -108,11 +109,11 @@ export function ImageList() {
             if (!res.ok) throw new Error(t.images.pruneError);
 
             const data = await res.json();
-			const successMsg = t.images.pruneSuccess
-				.replace("{count}", data.deletedImages.length.toString())
-				.replace("{size}", formatSize(data.spaceReclaimed));
+            const successMsg = t.images.pruneSuccess
+                .replace("{count}", data.deletedImages.length.toString())
+                .replace("{size}", formatSize(data.spaceReclaimed));
 
-			toast.success(successMsg);
+            toast.success(successMsg);
             await fetchImages();
         } catch (error: any) {
             toast.error(`${t.images.pruneError}: ${error.message}`);

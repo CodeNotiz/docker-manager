@@ -13,7 +13,16 @@
     "status": "Статус",
     "search": "Поиск...",
     "welcome": "Добро пожаловать, {name}",
-    "pleaseLogin": "Пожалуйста, войдите"
+    "pleaseLogin": "Пожалуйста, войдите",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "Текущие контейнеры",
+    "currentStacks": "Текущие стеки",
+    "os": "Операционная система",
+    "dockerVersion": "Версия Docker",
+    "dockerApiVersion": "Версия API Docker",
+    "loadingSystemInfo": "Загрузка информации о системе...",
+    "notReachable": "Недоступно",
+    "eg": "например"
   },
   "sidebar": {
     "dashboard": "Панель",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "Вы уверены, что хотите удалить ВСЕ неиспользуемые образы (включая именованные)?",
     "pruneDanglingAsk": "Вы уверены, что хотите удалить все повисшие образы (образы без тегов/имен)?",
     "pruneError": "Очистка не удалась",
-    "pruneSuccess": "Очистка успешно завершена. Удалено {count} образов, освобождено {size}."
+    "pruneSuccess": "Очистка успешно завершена. Удалено {count} образов, освобождено {size}.",
+    "deleteAsk": "Вы уверены, что хотите удалить образ {name}?",
+    "deleteError": "Удаление не удалось",
+    "deleteSuccess": "Образ удален"
   },
   "networks": {
     "title": "Docker Сети",
@@ -102,7 +114,18 @@
     "createNetwork": "Новая сеть",
     "createDialog": {
       "title": "Создать новую сеть",
-      "desc": "Создайте новую Docker-сеть. При необходимости можно задать подробные настройки IPv4."
+      "desc": "Создайте новую Docker-сеть. При необходимости можно задать подробные настройки IPv4.",
+      "ipv4Titel": "Настройка IPv4 (Опционально)",
+      "ipv6Titel": "Настройка IPv6 (Опционально)",
+      "enableIPv6": "Включить IPv6",
+      "subnet": "Подсеть",
+      "gateway": "Шлюз",
+      "ipRange": "Диапазон IP",
+      "ipv6Subnet": "Подсеть IPv6",
+      "ipv6Gateway": "Шлюз IPv6",
+      "create": "Создать сеть",
+      "cancel": "Отмена",
+      "selectDriver": "Выберите драйвер"
     },
     "systemNetworkDesc": "Системную сеть нельзя удалить",
     "remove": "Удалить",
@@ -133,7 +156,8 @@
       "nameEmpty": "Имя стека не может быть пустым.",
       "ymlEmpty": "Файл docker-compose.yml не может быть пустым.",
       "saveError": "Не удалось сохранить стек",
-      "saveSuccess": "Стек \"{newStackName}\" сохранен."
+      "saveSuccess": "Стек \"{newStackName}\" сохранен.",
+      "description": "Напишите или вставьте сюда вашу конфигурацию <code>docker-compose.yml</code>."
     },
     "error": "Ошибка",
     "remove": {

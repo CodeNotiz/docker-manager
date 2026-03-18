@@ -13,7 +13,16 @@
     "status": "Status",
     "search": "Search...",
     "welcome": "Welcome, {name}",
-    "pleaseLogin": "Please sign in"
+    "pleaseLogin": "Please sign in",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "Current Containers",
+    "currentStacks": "Current Stacks",
+    "os": "Operating System",
+    "dockerVersion": "Docker Version",
+    "dockerApiVersion": "Docker API Version",
+    "loadingSystemInfo": "Loading system info...",
+    "notReachable": "Not reachable",
+    "eg": "e.g."
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "Are you sure you want to delete ALL unused images (including named ones)?",
     "pruneDanglingAsk": "Are you sure you want to delete all dangling images (images without tags/names)?",
     "pruneError": "Prune failed",
-    "pruneSuccess": "Prune successful. {count} images deleted, {size} freed."
+    "pruneSuccess": "Prune successful. {count} images deleted, {size} freed.",
+    "deleteAsk": "Are you sure you want to delete the image {name}?",
+    "deleteError": "Deletion failed",
+    "deleteSuccess": "Image deleted"
   },
   "networks": {
     "title": "Docker Networks",
@@ -102,7 +114,18 @@
     "createNetwork": "Create Network",
     "createDialog": {
       "title": "Create New Network",
-      "desc": "Create a new Docker network. Optionally, you can configure detailed IPv4 settings."
+      "desc": "Create a new Docker network. Optionally, you can configure detailed IPv4 settings.",
+      "ipv4Titel": "IPv4 Configuration (Optional)",
+      "ipv6Titel": "IPv6 Configuration (Optional)",
+      "enableIPv6": "Enable IPv6",
+      "subnet": "Subnet",
+      "gateway": "Gateway",
+      "ipRange": "IP Range",
+      "ipv6Subnet": "IPv6 Subnet",
+      "ipv6Gateway": "IPv6 Gateway",
+      "create": "Create Network",
+      "cancel": "Cancel",
+      "selectDriver": "Select Driver"
     },
     "systemNetworkDesc": "System network cannot be deleted",
     "remove": "Delete",
@@ -133,7 +156,8 @@
       "nameEmpty": "The stack name cannot be empty.",
       "ymlEmpty": "The docker-compose.yml cannot be empty.",
       "saveError": "Stack could not be saved",
-      "saveSuccess": "Stack \"{newStackName}\" saved."
+      "saveSuccess": "Stack \"{newStackName}\" saved.",
+      "description": "Write or paste your <code>docker-compose.yml</code> configuration here."
     },
     "error": "Error",
     "remove": {

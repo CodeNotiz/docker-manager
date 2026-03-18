@@ -13,7 +13,16 @@
     "status": "ステータス",
     "search": "検索...",
     "welcome": "ようこそ、{name}",
-    "pleaseLogin": "ログインしてください"
+    "pleaseLogin": "ログインしてください",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "現在のコンテナ",
+    "currentStacks": "現在のスタック",
+    "os": "オペレーティングシステム",
+    "dockerVersion": "Docker バージョン",
+    "dockerApiVersion": "Docker API バージョン",
+    "loadingSystemInfo": "システム情報を読み込み中...",
+    "notReachable": "到達不可",
+    "eg": "例"
   },
   "sidebar": {
     "dashboard": "ダッシュボード",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "すべての未使用のイメージ（名前付きのものを含む）を削除してもよろしいですか？",
     "pruneDanglingAsk": "すべてのダングリングイメージ（タグや名前のないイメージ）を削除してもよろしいですか？",
     "pruneError": "プルーニングに失敗しました",
-    "pruneSuccess": "プルーニングが成功しました。{count} 個のイメージを削除し、{size} を解放しました。"
+    "pruneSuccess": "プルーニングが成功しました。{count} 個のイメージを削除し、{size} を解放しました。",
+    "deleteAsk": "イメージ {name} を削除してもよろしいですか？",
+    "deleteError": "削除に失敗しました",
+    "deleteSuccess": "イメージを削除しました"
   },
   "networks": {
     "title": "Docker ネットワーク",
@@ -102,7 +114,18 @@
     "createNetwork": "新しいネットワーク",
     "createDialog": {
       "title": "新しいネットワークを作成",
-      "desc": "新しい Docker ネットワークを作成します。オプションで詳細な IPv4 設定を行うことができます。"
+      "desc": "新しい Docker ネットワークを作成します。オプションで詳細な IPv4 設定を行うことができます。",
+      "ipv4Titel": "IPv4設定 (オプション)",
+      "ipv6Titel": "IPv6設定 (オプション)",
+      "enableIPv6": "IPv6を有効にする",
+      "subnet": "サブネット",
+      "gateway": "ゲートウェイ",
+      "ipRange": "IP範囲",
+      "ipv6Subnet": "IPv6サブネット",
+      "ipv6Gateway": "IPv6ゲートウェイ",
+      "create": "ネットワークを作成",
+      "cancel": "キャンセル",
+      "selectDriver": "ドライバを選択"
     },
     "systemNetworkDesc": "システムネットワークは削除できません",
     "remove": "削除",
@@ -133,7 +156,8 @@
       "nameEmpty": "スタック名は空にできません。",
       "ymlEmpty": "docker-compose.ymlは空にできません。",
       "saveError": "スタックを保存できませんでした",
-      "saveSuccess": "スタック \"{newStackName}\" が保存されました。"
+      "saveSuccess": "スタック \"{newStackName}\" が保存されました。",
+      "description": "ここに <code>docker-compose.yml</code> の設定を記述または貼り付けてください。"
     },
     "error": "エラー",
     "remove": {

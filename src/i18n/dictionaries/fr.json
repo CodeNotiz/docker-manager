@@ -13,7 +13,16 @@
     "status": "Statut",
     "search": "Rechercher...",
     "welcome": "Bienvenue, {name}",
-    "pleaseLogin": "Veuillez vous connecter"
+    "pleaseLogin": "Veuillez vous connecter",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "Conteneurs actuels",
+    "currentStacks": "Stacks actuels",
+    "os": "Système d'exploitation",
+    "dockerVersion": "Version de Docker",
+    "dockerApiVersion": "Version de l'API Docker",
+    "loadingSystemInfo": "Chargement des informations système...",
+    "notReachable": "Inaccessible",
+    "eg": "p. ex."
   },
   "sidebar": {
     "dashboard": "Tableau de bord",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "Êtes-vous sûr de vouloir supprimer TOUTES les images inutilisées (y compris celles nommées) ?",
     "pruneDanglingAsk": "Êtes-vous sûr de vouloir supprimer toutes les images en suspens (images sans balises/noms) ?",
     "pruneError": "Le nettoyage a échoué",
-    "pruneSuccess": "Nettoyage réussi. {count} images supprimées, {size} libérés."
+    "pruneSuccess": "Nettoyage réussi. {count} images supprimées, {size} libérés.",
+    "deleteAsk": "Êtes-vous sûr de vouloir supprimer l'image {name} ?",
+    "deleteError": "La suppression a échoué",
+    "deleteSuccess": "Image supprimée"
   },
   "networks": {
     "title": "Réseaux Docker",
@@ -102,7 +114,18 @@
     "createNetwork": "Créer un réseau",
     "createDialog": {
       "title": "Créer un Nouveau Réseau",
-      "desc": "Créez un nouveau réseau Docker. En option, vous pouvez configurer les paramètres IPv4."
+      "desc": "Créez un nouveau réseau Docker. En option, vous pouvez configurer les paramètres IPv4.",
+      "ipv4Titel": "Configuration IPv4 (Optionnel)",
+      "ipv6Titel": "Configuration IPv6 (Optionnel)",
+      "enableIPv6": "Activer IPv6",
+      "subnet": "Sous-réseau",
+      "gateway": "Passerelle",
+      "ipRange": "Plage d'IP",
+      "ipv6Subnet": "Sous-réseau IPv6",
+      "ipv6Gateway": "Passerelle IPv6",
+      "create": "Créer un réseau",
+      "cancel": "Annuler",
+      "selectDriver": "Sélectionner un pilote"
     },
     "systemNetworkDesc": "Le réseau système ne peut pas être supprimé",
     "remove": "Supprimer",
@@ -133,7 +156,8 @@
       "nameEmpty": "Le nom du stack ne peut pas être vide.",
       "ymlEmpty": "Le fichier docker-compose.yml ne peut pas être vide.",
       "saveError": "Le stack n'a pas pu être enregistré",
-      "saveSuccess": "Stack \"{newStackName}\" enregistré."
+      "saveSuccess": "Stack \"{newStackName}\" enregistré.",
+      "description": "Écrivez ou collez ici votre configuration <code>docker-compose.yml</code>."
     },
     "error": "Erreur",
     "remove": {

@@ -13,7 +13,16 @@
     "status": "状态",
     "search": "搜索...",
     "welcome": "欢迎，{name}",
-    "pleaseLogin": "请登录"
+    "pleaseLogin": "请登录",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "当前容器",
+    "currentStacks": "当前堆栈",
+    "os": "操作系统",
+    "dockerVersion": "Docker 版本",
+    "dockerApiVersion": "Docker API 版本",
+    "loadingSystemInfo": "正在加载系统信息...",
+    "notReachable": "不可达",
+    "eg": "例如"
   },
   "sidebar": {
     "dashboard": "仪表板",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "确定要删除所有未使用的镜像（包括有名称的）吗？",
     "pruneDanglingAsk": "确定要删除所有悬空镜像（没有标签/名称的镜像）吗？",
     "pruneError": "清理失败",
-    "pruneSuccess": "清理成功。删除了 {count} 个镜像，释放了 {size}。"
+    "pruneSuccess": "清理成功。删除了 {count} 个镜像，释放了 {size}。",
+    "deleteAsk": "确定要删除镜像 {name} 吗？",
+    "deleteError": "删除失败",
+    "deleteSuccess": "镜像已删除"
   },
   "networks": {
     "title": "Docker 网络",
@@ -102,7 +114,18 @@
     "createNetwork": "新建网络",
     "createDialog": {
       "title": "创建新网络",
-      "desc": "创建一个新的 Docker 网络。您可以选择配置详细的 IPv4 设置。"
+      "desc": "创建一个新的 Docker 网络。您可以选择配置详细的 IPv4 设置。",
+      "ipv4Titel": "IPv4配置 (可选)",
+      "ipv6Titel": "IPv6配置 (可选)",
+      "enableIPv6": "启用IPv6",
+      "subnet": "子网",
+      "gateway": "网关",
+      "ipRange": "IP范围",
+      "ipv6Subnet": "IPv6子网",
+      "ipv6Gateway": "IPv6网关",
+      "create": "创建网络",
+      "cancel": "取消",
+      "selectDriver": "选择驱动"
     },
     "systemNetworkDesc": "系统网络不可删除",
     "remove": "删除",
@@ -133,7 +156,8 @@
       "nameEmpty": "堆栈名称不能为空。",
       "ymlEmpty": "docker-compose.yml 不能为空。",
       "saveError": "无法保存堆栈",
-      "saveSuccess": "堆栈 \"{newStackName}\" 已保存。"
+      "saveSuccess": "堆栈 \"{newStackName}\" 已保存。",
+      "description": "在此处编写或粘贴您的 <code>docker-compose.yml</code> 配置。"
     },
     "error": "错误",
     "remove": {

@@ -13,7 +13,16 @@
     "status": "Статус",
     "search": "Пошук...",
     "welcome": "Ласкаво просимо, {name}",
-    "pleaseLogin": "Будь ласка, увійдіть"
+    "pleaseLogin": "Будь ласка, увійдіть",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "Поточні контейнери",
+    "currentStacks": "Поточні стеки",
+    "os": "Операційна система",
+    "dockerVersion": "Версія Docker",
+    "dockerApiVersion": "Версія API Docker",
+    "loadingSystemInfo": "Завантаження інформації про систему...",
+    "notReachable": "Недоступно",
+    "eg": "наприклад"
   },
   "sidebar": {
     "dashboard": "Панель",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "Ви впевнені, що хочете видалити ВСІ невикористані образи (включаючи іменовані)?",
     "pruneDanglingAsk": "Ви впевнені, що хочете видалити всі завислі образи (образи без тегів/імен)?",
     "pruneError": "Очищення не вдалося",
-    "pruneSuccess": "Очищення успішно завершено. Видалено {count} образів, звільнено {size}."
+    "pruneSuccess": "Очищення успішно завершено. Видалено {count} образів, звільнено {size}.",
+    "deleteAsk": "Ви впевнені, що хочете видалити образ {name}?",
+    "deleteError": "Видалення не вдалося",
+    "deleteSuccess": "Образ видалено"
   },
   "networks": {
     "title": "Docker Мережі",
@@ -102,7 +114,18 @@
     "createNetwork": "Нова мережа",
     "createDialog": {
       "title": "Створити нову мережу",
-      "desc": "Створіть нову Docker-мережу. За бажанням можна вказати детальні налаштування IPv4."
+      "desc": "Створіть нову Docker-мережу. За бажанням можна вказати детальні налаштування IPv4.",
+      "ipv4Titel": "Налаштування IPv4 (Опціонально)",
+      "ipv6Titel": "Налаштування IPv6 (Опціонально)",
+      "enableIPv6": "Включити IPv6",
+      "subnet": "Підмережа",
+      "gateway": "Шлюз",
+      "ipRange": "Діапазон IP",
+      "ipv6Subnet": "Підмережа IPv6",
+      "ipv6Gateway": "Шлюз IPv6",
+      "create": "Створити мережу",
+      "cancel": "Скасувати",
+      "selectDriver": "Виберіть драйвер"
     },
     "systemNetworkDesc": "Системну мережу не можна видалити",
     "remove": "Видалити",
@@ -133,7 +156,8 @@
       "nameEmpty": "Ім'я стека не може бути порожнім.",
       "ymlEmpty": "Файл docker-compose.yml не може бути порожнім.",
       "saveError": "Не вдалося зберегти стек",
-      "saveSuccess": "Стек \"{newStackName}\" збережено."
+      "saveSuccess": "Стек \"{newStackName}\" збережено.",
+      "description": "Напишіть або вставте сюди вашу конфігурацію <code>docker-compose.yml</code>."
     },
     "error": "Помилка",
     "remove": {

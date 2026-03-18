@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Sidebar } from "@/components/layout/sidebar";
 import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { Locale } from "@/i18n/config";
@@ -57,6 +58,7 @@ export default async function RootLayout({
               <main className="flex-1 overflow-auto p-4 lg:p-6 bg-transparent">
                 {children}
               </main>
+              <Footer />
             </div>
             <Toaster position="bottom-right" />
           </LanguageProvider>

@@ -13,7 +13,16 @@
     "status": "Status",
     "search": "Suchen...",
     "welcome": "Willkommen, {name}",
-    "pleaseLogin": "Bitte anmelden"
+    "pleaseLogin": "Bitte anmelden",
+    "dockerEngine": "Docker Engine",
+    "currentContainers": "Aktuelle Container",
+    "currentStacks": "Aktuelle Stacks",
+    "os": "Betriebssystem",
+    "dockerVersion": "Docker Version",
+    "dockerApiVersion": "Docker API Version",
+    "loadingSystemInfo": "Lade Systeminfos...",
+    "notReachable": "Nicht erreichbar",
+    "eg": "z.B."
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -88,7 +97,10 @@
     "pruneAllAsk": "Möchtest du wirklich ALLE unbenutzten Images (auch benannte) löschen?",
     "pruneDanglingAsk": "Möchtest du wirklich alle Dangling Images (Images ohne Tag/Namen) löschen?",
     "pruneError": "Prune fehlgeschlagen",
-    "pruneSuccess": "Prune erfolgreich. {count} Images gelöscht, {size} freigegeben."
+    "pruneSuccess": "Prune erfolgreich. {count} Images gelöscht, {size} freigegeben.",
+    "deleteAsk": "Möchtest du das Image {name} wirklich löschen?",
+    "deleteError": "Löschen fehlgeschlagen",
+    "deleteSuccess": "Image gelöscht"
   },
   "networks": {
     "title": "Docker Netzwerke",
@@ -102,7 +114,18 @@
     "createNetwork": "Neues Netzwerk",
     "createDialog": {
       "title": "Neues Netzwerk erstellen",
-      "desc": "Legen Sie ein neues Docker-Netzwerk an. Optional können Sie detaillierte IPv4-Einstellungen vornehmen."
+      "desc": "Legen Sie ein neues Docker-Netzwerk an. Optional können Sie detaillierte IPv4-Einstellungen vornehmen.",
+      "ipv4Titel": "IPv4 Konfiguration (Optional)",
+      "ipv6Titel": "IPv6 Konfiguration (Optional)",
+      "enableIPv6": "IPv6 Aktivieren",
+      "subnet": "Subnetz",
+      "gateway": "Gateway",
+      "ipRange": "IP-Bereich",
+      "ipv6Subnet": "IPv6 Subnetz",
+      "ipv6Gateway": "IPv6 Gateway",
+      "create": "Netzwerk erstellen",
+      "cancel": "Abbrechen",
+      "selectDriver": "Wähle einen Treiber"
     },
     "systemNetworkDesc": "System-Netzwerk kann nicht gelöscht werden",
     "remove": "Löschen",
@@ -133,7 +156,8 @@
       "nameEmpty": "Der Stack-Name darf nicht leer sein.",
       "ymlEmpty": "Die docker-compose.yml darf nicht leer sein.",
       "saveError": "Stack konnte nicht gespeichert werden",
-      "saveSuccess": "Stack \"{newStackName}\" gespeichert."
+      "saveSuccess": "Stack \"{newStackName}\" gespeichert.",
+      "description": "Schreibe oder paste hier deine <code>docker-compose.yml</code> Konfiguration."
     },
     "error": "Fehler",
     "remove": {

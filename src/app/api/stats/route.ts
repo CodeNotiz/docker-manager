@@ -29,11 +29,19 @@ export async function GET() {
       // Directory might not exist or be accessible, assume 0
     }
 
+    const versionInfo = await docker.version();
+
     return NextResponse.json({
       containers: containers.length,
       images: images.length,
       networks: networks.length,
       stacks: stackCount,
+      dockerInfo: {
+        version: versionInfo.Version,
+        api: versionInfo.ApiVersion,
+        os: versionInfo.Os,
+        arch: versionInfo.Arch,
+      },
     });
   } catch (error: any) {
     logger.error("Failed to fetch dashboard stats:", error.message);
