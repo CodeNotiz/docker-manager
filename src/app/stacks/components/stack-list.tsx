@@ -211,9 +211,7 @@ export function StackList() {
                     <DialogContent className="sm:max-w-[800px] h-[80vh] flex flex-col">
                         <DialogHeader>
                             <DialogTitle>{editorMode === 'create' ? t.stacks.createStack : t.common.edit}</DialogTitle>
-                            <DialogDescription>
-                                {t.stacks.createNew.description}
-                            </DialogDescription>
+                            <DialogDescription dangerouslySetInnerHTML={{ __html: t.stacks.createNew.description }} />
                         </DialogHeader>
 
                         <div className="flex flex-col gap-4 py-4 flex-1 min-h-0">
