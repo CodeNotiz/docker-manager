@@ -55,7 +55,7 @@ export function ContainerActions({
             title={t.containers.pause}
           >
             <Pause className="h-4 w-4 mr-2" />
-            Pausieren
+            {t.containers.pause}
           </Button>
           <Button
             variant="outline"
@@ -64,7 +64,7 @@ export function ContainerActions({
             title={t.containers.stop}
           >
             <Square className="h-4 w-4 mr-2" />
-            Stoppen
+            {t.containers.stop}
           </Button>
         </>
       ) : isPaused ? (
@@ -76,7 +76,7 @@ export function ContainerActions({
             title={t.containers.resume}
           >
             <Play className="h-4 w-4 mr-2" />
-            Fortsetzen
+            {t.containers.resume}
           </Button>
           <Button
             variant="outline"
@@ -85,7 +85,7 @@ export function ContainerActions({
             title={t.containers.stop}
           >
             <Square className="h-4 w-4 mr-2" />
-            Stoppen
+            {t.containers.stop}
           </Button>
         </>
       ) : (
@@ -96,7 +96,7 @@ export function ContainerActions({
           title={t.containers.start}
         >
           <Play className="h-4 w-4 mr-2" />
-          Starten
+          {t.containers.start}
         </Button>
       )}
       <Button
@@ -106,7 +106,7 @@ export function ContainerActions({
         title={t.containers.restart}
       >
         <RotateCcw className="h-4 w-4 mr-2" />
-        Neustart
+        {t.containers.restart}
       </Button>
       <Button
         variant="destructive"
@@ -115,7 +115,7 @@ export function ContainerActions({
         title={t.containers.remove}
       >
         <Trash2 className="h-4 w-4 mr-2" />
-        Löschen
+        {t.containers.remove}
       </Button>
     </div>
   );
