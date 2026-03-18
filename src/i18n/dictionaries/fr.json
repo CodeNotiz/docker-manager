@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "Terminal interactif",
     "detailsControl": "Contrôle",
     "detailsMounts": "Montages",
-    "detailsEnvFilter": "Filtre d'environnement (ENV)"
+    "detailsEnvFilter": "Filtre d'environnement (ENV)",
+    "fetchError": "Erreur lors de la récupération des conteneurs",
+    "actionFailed": "L'action a échoué"
   },
   "images": {
     "title": "Images Docker",
@@ -79,7 +81,14 @@
     "danglingImage": "Image orpheline (Sans balise)",
     "remove": "Supprimer",
     "noImages": "Aucune image trouvée.",
-    "pageSubtitle": "Gérez vos images Docker locales, supprimez les images inutilisées ou effectuez un nettoyage (prune)."
+    "pageSubtitle": "Gérez vos images Docker locales, supprimez les images inutilisées ou effectuez un nettoyage (prune).",
+    "fetchError": "Erreur lors de la récupération des images",
+    "toastError": "Les images n'ont pas pu être chargées.",
+    "error": "Erreur :",
+    "pruneAllAsk": "Êtes-vous sûr de vouloir supprimer TOUTES les images inutilisées (y compris celles nommées) ?",
+    "pruneDanglingAsk": "Êtes-vous sûr de vouloir supprimer toutes les images en suspens (images sans balises/noms) ?",
+    "pruneError": "Le nettoyage a échoué",
+    "pruneSuccess": "Nettoyage réussi. {count} images supprimées, {size} libérés."
   },
   "networks": {
     "title": "Réseaux Docker",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "Le réseau système ne peut pas être supprimé",
     "remove": "Supprimer",
     "noNetworks": "Aucun réseau trouvé.",
-    "pageSubtitle": "Gérez vos réseaux Docker, créez-en de nouveaux ou supprimez les réseaux inutilisés."
+    "pageSubtitle": "Gérez vos réseaux Docker, créez-en de nouveaux ou supprimez les réseaux inutilisés.",
+    "fetchError": "Erreur lors du chargement des réseaux",
+    "toastError": "Les réseaux n'ont pas pu être chargés.",
+    "removeAsk": "Êtes-vous sûr de vouloir supprimer le réseau ?",
+    "removeError": "La suppression a échoué",
+    "removeSuccess": "Réseau supprimé",
+    "error": "Erreur",
+    "createEmpty": "Le nom du réseau ne peut pas être vide.",
+    "createError": "Le réseau n'a pas pu être créé",
+    "createSuccess": "Réseau \"{netname}\" créé avec succès."
   },
   "stacks": {
     "title": "Piles locales",
@@ -108,7 +126,29 @@
     "stop": "Arrêter (Down)",
     "noStacks": "Aucune pile disponible pour l'instant",
     "emptyStateDesc": "Créez votre première pile Docker Compose.",
-    "pageSubtitle": "Créez et gérez des applications complexes en utilisant les piles Docker Compose."
+    "pageSubtitle": "Créez et gérez des applications complexes en utilisant les piles Docker Compose.",
+    "fetchError": "Erreur lors du chargement des stacks",
+    "toastError": "Les stacks n'ont pas pu être chargés.",
+    "createNew": {
+      "nameEmpty": "Le nom du stack ne peut pas être vide.",
+      "ymlEmpty": "Le fichier docker-compose.yml ne peut pas être vide.",
+      "saveError": "Le stack n'a pas pu être enregistré",
+      "saveSuccess": "Stack \"{newStackName}\" enregistré."
+    },
+    "error": "Erreur",
+    "remove": {
+      "question": "AVERTISSEMENT : Êtes-vous sûr de vouloir supprimer le stack \"{name}\" ? Cela arrêtera et supprimera tous les conteneurs associés.",
+      "error": "La suppression a échoué",
+      "success": "Stack \"{name}\" supprimé"
+    },
+    "doaction": {
+      "massage": "Exécution de \"docker compose {action}\" pour {name}. Cela peut prendre quelques secondes...",
+      "goesWrong": "L'action {action} a échoué",
+      "success": "Stack \"{name}\" {status} avec succès",
+      "started": "démarré",
+      "stopped": "arrêté",
+      "errorMsg": "Erreur dans Compose {action} :\n{error.message}"
+    }
   },
   "settings": {
     "title": "Paramètres",
@@ -117,7 +157,11 @@
     "newUsername": "Nouveau nom d'utilisateur",
     "newPassword": "Nouveau mot de passe",
     "currentPassword": "Mot de passe actuel (Requis)",
-    "saveChanges": "Enregistrer les modifications"
+    "saveChanges": "Enregistrer les modifications",
+    "changeRequired": "Le mot de passe actuel est requis pour confirmation.",
+    "changeSuccess": "Identifiants mis à jour avec succès !",
+    "changeError": "L'enregistrement a échoué.",
+    "error": "Une erreur inattendue s'est produite."
   },
   "login": {
     "title": "Gestionnaire Docker",
@@ -125,17 +169,22 @@
     "username": "Nom d'utilisateur",
     "password": "Mot de passe",
     "button": "Connexion",
-    "defaultText": "Accès par défaut :"
+    "defaultText": "Accès par défaut :",
+    "success": "Connexion réussie",
+    "fail": "Échec de la connexion. Veuillez vérifier vos identifiants.",
+    "error": "Une erreur inattendue s'est produite."
   },
   "logs": {
     "title": "Journaux: ",
     "clear": "Effacer",
     "download": "Télécharger",
-    "waiting": "En attente des journaux..."
+    "waiting": "En attente des journaux...",
+    "fetchError": "Non trouvé"
   },
   "terminal": {
     "connecting": "Connexion à ",
     "connected": "[Connecté]",
-    "disconnected": "[Déconnecté du serveur]"
+    "disconnected": "[Déconnecté du serveur]",
+    "fetchError": "Non trouvé"
   }
 }

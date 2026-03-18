@@ -19,7 +19,7 @@ export default function SettingsPage() {
         e.preventDefault();
 
         if (!currentPassword) {
-            toast.error("Das aktuelle Passwort wird zur Bestätigung benötigt.");
+            toast.error(t.settings.changeRequired);
             return;
         }
 
@@ -37,16 +37,16 @@ export default function SettingsPage() {
             });
 
             if (res.ok) {
-                toast.success("Zugangsdaten erfolgreich aktualisiert!");
+                toast.success(t.settings.changeSuccess);
                 setCurrentPassword("");
                 setNewPassword("");
                 setNewUsername("");
             } else {
                 const data = await res.json();
-                toast.error(data.error || "Speichern fehlgeschlagen.");
+                toast.error(data.error || t.settings.changeError);
             }
         } catch (error) {
-            toast.error("Ein unerwarteter Fehler ist aufgetreten.");
+            toast.error(t.settings.error);
         } finally {
             setLoading(false);
         }

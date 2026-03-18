@@ -30,7 +30,7 @@ export default function ContainerTerminalPage(props: {
     const fetchDetails = async () => {
       try {
         const res = await fetch(`/api/containers/${containerId}`);
-        if (!res.ok) throw new Error("Not found");
+        if (!res.ok) throw new Error(t.terminal.fetchError);
         const data = await res.json();
         setContainerName(data.Name.replace(/^\//, ""));
       } catch (e) {

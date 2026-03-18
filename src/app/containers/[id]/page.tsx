@@ -24,7 +24,7 @@ export default async function ContainerDetailsPage(props: {
   const { id } = await props.params;
 
   const cookieStore = await cookies();
-  const locale = cookieStore.get("NEXT_LOCALE")?.value || "de";
+  const locale = cookieStore.get("NEXT_LOCALE")?.value || "en: enUS";
   const t = getDictionary(locale);
 
   const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };

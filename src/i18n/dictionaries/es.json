@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "Terminal Interactivo",
     "detailsControl": "Control",
     "detailsMounts": "Montajes (Mounts)",
-    "detailsEnvFilter": "Filtro de entorno (ENV)"
+    "detailsEnvFilter": "Filtro de entorno (ENV)",
+    "fetchError": "Error al obtener contenedores",
+    "actionFailed": "La acción falló"
   },
   "images": {
     "title": "Imágenes Docker",
@@ -79,7 +81,14 @@
     "danglingImage": "Imagen huérfana (Sin etiqueta)",
     "remove": "Eliminar",
     "noImages": "No se encontraron imágenes.",
-    "pageSubtitle": "Gestiona tus imágenes locales de Docker, elimina las que no uses o realiza una limpieza (prune)."
+    "pageSubtitle": "Gestiona tus imágenes locales de Docker, elimina las que no uses o realiza una limpieza (prune).",
+    "fetchError": "Error al obtener imágenes",
+    "toastError": "No se pudieron cargar las imágenes.",
+    "error": "Error:",
+    "pruneAllAsk": "¿Estás seguro de que deseas eliminar TODAS las imágenes no utilizadas (incluidas las que tienen nombre)?",
+    "pruneDanglingAsk": "¿Estás seguro de que deseas eliminar todas las imágenes colgantes (imágenes sin etiquetas/nombres)?",
+    "pruneError": "La limpieza falló",
+    "pruneSuccess": "Limpieza exitosa. {count} imágenes eliminadas, {size} liberados."
   },
   "networks": {
     "title": "Redes Docker",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "La red del sistema no se puede eliminar",
     "remove": "Eliminar",
     "noNetworks": "No se encontraron redes.",
-    "pageSubtitle": "Gestiona tus redes de Docker, crea otras nuevas o elimina las que no uses."
+    "pageSubtitle": "Gestiona tus redes de Docker, crea otras nuevas o elimina las que no uses.",
+    "fetchError": "Error al cargar las redes",
+    "toastError": "No se pudieron cargar las redes.",
+    "removeAsk": "¿Estás seguro de que deseas eliminar la red?",
+    "removeError": "La eliminación falló",
+    "removeSuccess": "Red eliminada",
+    "error": "Error",
+    "createEmpty": "El nombre de la red no puede estar vacío.",
+    "createError": "No se pudo crear la red",
+    "createSuccess": "Red \"{netname}\" creada exitosamente."
   },
   "stacks": {
     "title": "Pilas Locales",
@@ -108,7 +126,29 @@
     "stop": "Detener (Down)",
     "noStacks": "No hay pilas disponibles aún",
     "emptyStateDesc": "Crea tu primera pila (Stack) con Docker Compose.",
-    "pageSubtitle": "Crea y gestiona aplicaciones complejas usando Pilas (Stacks) de Docker Compose."
+    "pageSubtitle": "Crea y gestiona aplicaciones complejas usando Pilas (Stacks) de Docker Compose.",
+    "fetchError": "Error al cargar los stacks",
+    "toastError": "No se pudieron cargar los stacks.",
+    "createNew": {
+      "nameEmpty": "El nombre del stack no puede estar vacío.",
+      "ymlEmpty": "El archivo docker-compose.yml no puede estar vacío.",
+      "saveError": "No se pudo guardar el stack",
+      "saveSuccess": "Stack \"{newStackName}\" guardado."
+    },
+    "error": "Error",
+    "remove": {
+      "question": "ADVERTENCIA: ¿Estás seguro de que deseas eliminar el stack \"{name}\"? Esto detendrá y eliminará todos los contenedores asociados.",
+      "error": "La eliminación falló",
+      "success": "Stack \"{name}\" eliminado"
+    },
+    "doaction": {
+      "massage": "Ejecutando \"docker compose {action}\" para {name}. Esto puede tardar unos segundos...",
+      "goesWrong": "La acción {action} falló",
+      "success": "Stack \"{name}\" {status} con éxito",
+      "started": "iniciado",
+      "stopped": "detenido",
+      "errorMsg": "Error en Compose {action}:\n{error.message}"
+    }
   },
   "settings": {
     "title": "Ajustes",
@@ -117,7 +157,11 @@
     "newUsername": "Nuevo usuario",
     "newPassword": "Nueva contraseña",
     "currentPassword": "Contraseña actual (Requerido)",
-    "saveChanges": "Guardar cambios"
+    "saveChanges": "Guardar cambios",
+    "changeRequired": "Se requiere la contraseña actual para la confirmación.",
+    "changeSuccess": "¡Credenciales actualizadas exitosamente!",
+    "changeError": "Error al guardar.",
+    "error": "Ocurrió un error inesperado."
   },
   "login": {
     "title": "Gestor Docker",
@@ -125,17 +169,22 @@
     "username": "Usuario",
     "password": "Contraseña",
     "button": "Iniciar sesión",
-    "defaultText": "Acceso por defecto:"
+    "defaultText": "Acceso por defecto:",
+    "success": "Inicio de sesión exitoso",
+    "fail": "Error al iniciar sesión. Por favor, comprueba tus credenciales.",
+    "error": "Ocurrió un error inesperado."
   },
   "logs": {
     "title": "Registros: ",
     "clear": "Limpiar",
     "download": "Descargar",
-    "waiting": "Esperando registros..."
+    "waiting": "Esperando registros...",
+    "fetchError": "No encontrado"
   },
   "terminal": {
     "connecting": "Conectando a ",
     "connected": "[Conectado]",
-    "disconnected": "[Desconectado del servidor]"
+    "disconnected": "[Desconectado del servidor]",
+    "fetchError": "No encontrado"
   }
 }

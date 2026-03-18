@@ -69,11 +69,11 @@ export function NetworkList() {
         setLoading(true);
         try {
             const res = await fetch("/api/networks");
-            if (!res.ok) throw new Error("Fehler beim Laden der Netzwerke");
+            if (!res.ok) throw new Error(t.networks.fetchError);
             const data = await res.json();
             setNetworks(data);
         } catch (error) {
-            toast.error("Netzwerke konnten nicht geladen werden.");
+            toast.error(t.networks.toastError);
             console.error(error);
         } finally {
             setLoading(false);
@@ -85,7 +85,7 @@ export function NetworkList() {
     }, []);
 
     const handleDelete = async (id: string, name: string) => {
-        if (!confirm(`Möchtest du das Netzwerk ${name} wirklich löschen?`)) return;
+        if (!confirm(`${t.networks.removeAsk} ${name}`)) return;
 
         setActionLoading(id);
         try {
@@ -95,13 +95,13 @@ export function NetworkList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || "Löschen fehlgeschlagen");
+                throw new Error(data.error || t.networks.removeError);
             }
 
-            toast.success("Netzwerk gelöscht");
+            toast.success(t.networks.removeSuccess);
             await fetchNetworks();
         } catch (error: any) {
-            toast.error(`Fehler: ${error.message}`);
+            toast.error(`${t.networks.error}: ${error.message}`);
         } finally {
             setActionLoading(null);
         }
@@ -110,7 +110,7 @@ export function NetworkList() {
     const handleCreateNetwork = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!newNetworkName.trim()) {
-            toast.error("Der Netzwerkname darf nicht leer sein.");
+            toast.error(t.networks.createEmpty);
             return;
         }
 
@@ -133,10 +133,11 @@ export function NetworkList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || "Netzwerk konnte nicht erstellt werden");
+                throw new Error(data.error || t.networks.createError);
             }
-
-            toast.success(`Netzwerk "${newNetworkName}" erfolgreich erstellt.`);
+			const successMsg = t.networks.createSuccess
+			    .replace("{netname}", newNetworkName);
+            toast.success(successMsg);
             setIsCreateOpen(false);
             setNewNetworkName("");
             setNewNetworkDriver("bridge");
@@ -148,7 +149,7 @@ export function NetworkList() {
             setNewNetworkIPv6Gateway("");
             await fetchNetworks();
         } catch (error: any) {
-            toast.error(`Fehler: ${error.message}`);
+            toast.error(`${t.networks.error}: ${error.message}`);
         } finally {
             setIsCreating(false);
         }

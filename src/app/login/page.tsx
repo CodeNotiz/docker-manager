@@ -36,17 +36,17 @@ export default function LoginPage() {
       });
 
       if (res.ok) {
-        toast.success("Erfolgreich eingeloggt");
+        toast.success(t.login.success);
         router.push("/");
-        router.refresh(); // Wichtig, um Middleware-State über das gesamte Layout zu updaten
+        router.refresh();
       } else {
         const data = await res.json();
         toast.error(
-          data.error || "Login fehlgeschlagen. Bitte Zugangsdaten prüfen.",
+          data.error || t.login.fail,
         );
       }
     } catch (error) {
-      toast.error("Ein unerwarteter Fehler ist aufgetreten.");
+      toast.error(t.login.error);
     } finally {
       setLoading(false);
     }

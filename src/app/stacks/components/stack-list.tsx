@@ -45,11 +45,11 @@ export function StackList() {
         setLoading(true);
         try {
             const res = await fetch("/api/stacks");
-            if (!res.ok) throw new Error("Fehler beim Laden der Stacks");
+            if (!res.ok) throw new Error(t.stacks.fetchError);
             const data = await res.json();
             setStacks(data);
         } catch (error) {
-            toast.error("Stacks konnten nicht geladen werden.");
+            toast.error(t.stacks.toastError);
             console.error(error);
         } finally {
             setLoading(false);
@@ -80,12 +80,12 @@ export function StackList() {
         if (e) e.preventDefault();
 
         if (!currentStackName.trim()) {
-            toast.error("Der Stack-Name darf nicht leer sein.");
+            toast.error(t.stacks.createNew.nameEmpty);
             return;
         }
 
         if (!currentComposeContent.trim()) {
-            toast.error("Die docker-compose.yml darf nicht leer sein.");
+            toast.error(t.stacks.createNew.ymlEmpty);
             return;
         }
 
@@ -103,10 +103,12 @@ export function StackList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || "Stack konnte nicht gespeichert werden");
+                throw new Error(data.error || t.stacks.createNew.saveError);
             }
 
-            toast.success(`Stack "${currentStackName}" gespeichert.`);
+            const successMsg = t.stacks.createNew.saveSuccess
+                .replace("{newStackName}", currentStackName);
+            toast.success(successMsg);
             setIsEditorOpen(false);
             await fetchStacks();
 
@@ -114,14 +116,16 @@ export function StackList() {
                 handleAction(currentStackName, 'up');
             }
         } catch (error: any) {
-            toast.error(`Fehler: ${error.message}`);
+            toast.error(`${t.stacks.error}: ${error.message}`);
         } finally {
             setIsSaving(false);
         }
     };
 
     const handleDelete = async (name: string) => {
-        if (!confirm(`WARNUNG: Möchtest du den Stack "${name}" wirklich löschen? Dies stoppt und entfernt alle zugehörigen Container.`)) return;
+        const removeQuestion = t.stacks.remove.question
+            .replace("{name}", name);
+        if (!confirm(removeQuestion)) return;
 
         setActionLoading(`delete-${name}`);
         try {
@@ -131,13 +135,14 @@ export function StackList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || "Löschen fehlgeschlagen");
+                throw new Error(data.error || t.stacks.remove.error);
             }
-
-            toast.success(`Stack "${name}" gelöscht`);
+            const successMsg = t.stacks.remove.success
+                .replace("{name}", name);
+            toast.success(successMsg);
             await fetchStacks();
         } catch (error: any) {
-            toast.error(`Fehler: ${error.message}`);
+            toast.error(`${t.stacks.error}: ${error.message}`);
         } finally {
             setActionLoading(null);
         }
@@ -145,7 +150,10 @@ export function StackList() {
 
     const handleAction = async (name: string, action: 'up' | 'down') => {
         setActionLoading(`${action}-${name}`);
-        toast.info(`Führe "docker compose ${action}" für ${name} aus. Das kann einige Sekunden dauern...`);
+        const actionMsg = t.stacks.doaction.massage
+            .replace("{action}", action)
+            .replace("{name}", name);
+        toast.info(actionMsg);
         try {
             const res = await fetch(`/api/stacks/${encodeURIComponent(name)}`, {
                 method: "POST",
@@ -155,13 +163,22 @@ export function StackList() {
 
             if (!res.ok) {
                 const data = await res.json();
-                throw new Error(data.error || `Aktion ${action} fehlgeschlagen`);
+                const errorMsg = t.stacks.doaction.goesWrong
+                    .replace("{action}", action);
+                throw new Error(data.error || errorMsg);
             }
 
-            toast.success(`Stack "${name}" erfolgreich ${action === 'up' ? 'gestartet' : 'gestoppt'}`);
+            const statusText = action === 'up' ? t.stacks.doaction.started : t.stacks.doaction.stopped;
+            const successMsg = t.stacks.doaction.success
+                .replace("{name}", name)
+                .replace("{status}", statusText);
+            toast.success(successMsg);
             await fetchStacks();
         } catch (error: any) {
-            toast.error(`Fehler bei Compose ${action}:\n${error.message}`);
+            const errorMassage = t.stacks.doaction.errorMsg
+                .replace("{action}", action)
+                .replace("{error.massage}", error.massage);
+            toast.error(errorMassage);
         } finally {
             setActionLoading(null);
         }

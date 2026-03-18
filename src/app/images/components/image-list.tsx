@@ -41,17 +41,17 @@ export function ImageList() {
     const [actionLoading, setActionLoading] = useState<string | null>(null);
 
     const dateLocales: Record<string, any> = { de, en: enUS, es, fr, ja, ru, uk, zh: zhCN };
-    const dateLocale = dateLocales[locale] || de;
+    const dateLocale = dateLocales[locale] || enUS;
 
     const fetchImages = async () => {
         setLoading(true);
         try {
             const res = await fetch("/api/images");
-            if (!res.ok) throw new Error("Fehler beim Laden der Images");
+            if (!res.ok) throw new Error(t.images.fetchError);
             const data = await res.json();
             setImages(data);
         } catch (error) {
-            toast.error("Images konnten nicht geladen werden.");
+            toast.error(t.images.toastError);
             console.error(error);
         } finally {
             setLoading(false);
@@ -85,7 +85,7 @@ export function ImageList() {
             toast.success("Image gelöscht");
             await fetchImages();
         } catch (error: any) {
-            toast.error(`Fehler: ${error.message}`);
+            toast.error(`${t.images.error} ${error.message}`);
         } finally {
             setActionLoading(null);
         }
@@ -93,8 +93,8 @@ export function ImageList() {
 
     const handlePrune = async (allUnused: boolean = false) => {
         const msg = allUnused
-            ? "Möchtest du wirklich ALLE unbenutzten Images (auch benannte) löschen?"
-            : "Möchtest du wirklich alle Dangling Images (Images ohne Tag/Namen) löschen?";
+            ? t.images.pruneAllAsk
+            : t.images.pruneDanglingAsk;
 
         if (!confirm(msg)) return;
 
@@ -105,13 +105,17 @@ export function ImageList() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ all: allUnused }),
             });
-            if (!res.ok) throw new Error("Prune fehlgeschlagen");
+            if (!res.ok) throw new Error(t.images.pruneError);
 
             const data = await res.json();
-            toast.success(`Prune erfolgreich. ${data.deletedImages.length} Images gelöscht, ${formatSize(data.spaceReclaimed)} freigegeben.`);
+			const successMsg = t.images.pruneSuccess
+				.replace("{count}", data.deletedImages.length.toString())
+				.replace("{size}", formatSize(data.spaceReclaimed));
+
+			toast.success(successMsg);
             await fetchImages();
         } catch (error: any) {
-            toast.error(`Prune fehlgeschlagen: ${error.message}`);
+            toast.error(`${t.images.pruneError}: ${error.message}`);
         } finally {
             setActionLoading(null);
         }

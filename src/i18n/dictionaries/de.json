@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "Interactive Terminal",
     "detailsControl": "Steuerung",
     "detailsMounts": "Mounts",
-    "detailsEnvFilter": "Environment Filter (ENV)"
+    "detailsEnvFilter": "Environment Filter (ENV)",
+    "fetchError": "Fehler beim Abrufen der Container",
+    "actionFailed": "Aktion fehlgeschlagen"
   },
   "images": {
     "title": "Docker Images",
@@ -79,7 +81,14 @@
     "danglingImage": "Dangling Image (Ohne Tag)",
     "remove": "Löschen",
     "noImages": "Keine Images gefunden.",
-    "pageSubtitle": "Verwalten Sie Ihre lokalen Docker-Images, löschen Sie ungenutzte Images oder führen Sie ein Prune durch."
+    "pageSubtitle": "Verwalten Sie Ihre lokalen Docker-Images, löschen Sie ungenutzte Images oder führen Sie ein Prune durch.",
+    "fetchError": "Fehler beim Abrufen der Images",
+    "toastError": "Images konnten nicht geladen werden.",
+    "error": "Fehler:",
+    "pruneAllAsk": "Möchtest du wirklich ALLE unbenutzten Images (auch benannte) löschen?",
+    "pruneDanglingAsk": "Möchtest du wirklich alle Dangling Images (Images ohne Tag/Namen) löschen?",
+    "pruneError": "Prune fehlgeschlagen",
+    "pruneSuccess": "Prune erfolgreich. {count} Images gelöscht, {size} freigegeben."
   },
   "networks": {
     "title": "Docker Netzwerke",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "System-Netzwerk kann nicht gelöscht werden",
     "remove": "Löschen",
     "noNetworks": "Keine Netzwerke gefunden.",
-    "pageSubtitle": "Verwalten Sie Ihre Docker-Netzwerke, legen Sie neue an oder löschen Sie ungenutzte Netzwerke."
+    "pageSubtitle": "Verwalten Sie Ihre Docker-Netzwerke, legen Sie neue an oder löschen Sie ungenutzte Netzwerke.",
+    "fetchError": "Fehler beim Laden der Netzwerke",
+    "toastError": "Netzwerke konnten nicht geladen werden.",
+    "removeAsk": "Möchtest du das Netzwerk wirklich löschen?",
+    "removeError": "Löschen fehlgeschlagen",
+    "removeSuccess": "Netzwerk gelöscht",
+    "error": "Fehler",
+    "createEmpty": "Der Netzwerkname darf nicht leer sein.",
+    "createError": "Netzwerk konnte nicht erstellt werden",
+    "createSuccess": "Netzwerk \"{netname}\" erfolgreich erstellt."
   },
   "stacks": {
     "title": "Lokale Stacks",
@@ -108,7 +126,29 @@
     "stop": "Stop (Down)",
     "noStacks": "Noch keine Stacks vorhanden",
     "emptyStateDesc": "Erstelle deinen ersten Docker Compose Stack.",
-    "pageSubtitle": "Erstellen und verwalten Sie komplexe Anwendungen mit Docker Compose Stacks."
+    "pageSubtitle": "Erstellen und verwalten Sie komplexe Anwendungen mit Docker Compose Stacks.",
+    "fetchError": "Fehler beim Laden der Stacks",
+    "toastError": "Stacks konnten nicht geladen werden.",
+    "createNew": {
+      "nameEmpty": "Der Stack-Name darf nicht leer sein.",
+      "ymlEmpty": "Die docker-compose.yml darf nicht leer sein.",
+      "saveError": "Stack konnte nicht gespeichert werden",
+      "saveSuccess": "Stack \"{newStackName}\" gespeichert."
+    },
+    "error": "Fehler",
+    "remove": {
+      "question": "WARNUNG: Möchtest du den Stack \"{name}\" wirklich löschen? Dies stoppt und entfernt alle zugehörigen Container.",
+      "error": "Löschen fehlgeschlagen",
+      "success": "Stack \"{name}\" gelöscht"
+    },
+    "doaction": {
+      "massage": "Führe \"docker compose {action}\" für {name} aus. Das kann einige Sekunden dauern...",
+      "goesWrong": "Aktion {action} fehlgeschlagen",
+      "success": "Stack \"{name}\" erfolgreich {status}",
+      "started": "gestartet",
+      "stopped": "gestoppt",
+      "errorMsg": "Fehler bei Compose {action}:\n{error.message}"
+    }
   },
   "settings": {
     "title": "Einstellungen",
@@ -117,7 +157,11 @@
     "newUsername": "Neuer Benutzername",
     "newPassword": "Neues Passwort",
     "currentPassword": "Aktuelles Passwort (Pflichtfeld)",
-    "saveChanges": "Änderungen speichern"
+    "saveChanges": "Änderungen speichern",
+    "changeRequired": "Das aktuelle Passwort wird zur Bestätigung benötigt.",
+    "changeSuccess": "Zugangsdaten erfolgreich aktualisiert!",
+    "changeError": "Speichern fehlgeschlagen.",
+    "error": "Ein unerwarteter Fehler ist aufgetreten."
   },
   "login": {
     "title": "Docker Manager",
@@ -125,17 +169,22 @@
     "username": "Benutzername",
     "password": "Passwort",
     "button": "Login",
-    "defaultText": "Standard-Login:"
+    "defaultText": "Standard-Login:",
+    "success": "Erfolgreich eingeloggt",
+    "fail": "Login fehlgeschlagen. Bitte Zugangsdaten prüfen.",
+    "error": "Ein unerwarteter Fehler ist aufgetreten."
   },
   "logs": {
     "title": "Logs: ",
     "clear": "Löschen",
     "download": "Herunterladen",
-    "waiting": "Warte auf Logs..."
+    "waiting": "Warte auf Logs...",
+    "fetchError": "nicht gefunden"
   },
   "terminal": {
     "connecting": "Verbinde mit ",
     "connected": "[Verbunden]",
-    "disconnected": "[Vom Server getrennt]"
+    "disconnected": "[Vom Server getrennt]",
+    "fetchError": "nicht gefunden"
   }
 }

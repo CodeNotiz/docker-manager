@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "交互式终端",
     "detailsControl": "控制",
     "detailsMounts": "挂载点",
-    "detailsEnvFilter": "环境变量过滤器 (ENV)"
+    "detailsEnvFilter": "环境变量过滤器 (ENV)",
+    "fetchError": "获取容器错误",
+    "actionFailed": "操作失败"
   },
   "images": {
     "title": "Docker 镜像",
@@ -79,7 +81,14 @@
     "danglingImage": "悬空镜像（无标签）",
     "remove": "删除",
     "noImages": "未找到镜像。",
-    "pageSubtitle": "管理您的本地 Docker 镜像，删除未使用的镜像或执行清理 (prune)。"
+    "pageSubtitle": "管理您的本地 Docker 镜像，删除未使用的镜像或执行清理 (prune)。",
+    "fetchError": "获取镜像错误",
+    "toastError": "无法加载镜像。",
+    "error": "错误：",
+    "pruneAllAsk": "确定要删除所有未使用的镜像（包括有名称的）吗？",
+    "pruneDanglingAsk": "确定要删除所有悬空镜像（没有标签/名称的镜像）吗？",
+    "pruneError": "清理失败",
+    "pruneSuccess": "清理成功。删除了 {count} 个镜像，释放了 {size}。"
   },
   "networks": {
     "title": "Docker 网络",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "系统网络不可删除",
     "remove": "删除",
     "noNetworks": "未找到网络。",
-    "pageSubtitle": "管理您的 Docker 网络，创建新网络或删除未使用的网络。"
+    "pageSubtitle": "管理您的 Docker 网络，创建新网络或删除未使用的网络。",
+    "fetchError": "加载网络错误",
+    "toastError": "无法加载网络。",
+    "removeAsk": "确定要删除该网络吗？",
+    "removeError": "删除失败",
+    "removeSuccess": "网络已删除",
+    "error": "错误",
+    "createEmpty": "网络名称不能为空。",
+    "createError": "无法创建网络",
+    "createSuccess": "网络 \"{netname}\" 成功创建。"
   },
   "stacks": {
     "title": "本地堆栈",
@@ -108,7 +126,29 @@
     "stop": "停止 (Down)",
     "noStacks": "暂无堆栈",
     "emptyStateDesc": "创建您的第一个 Docker Compose 堆栈。",
-    "pageSubtitle": "使用 Docker Compose 堆栈创建和管理复杂的应用程序。"
+    "pageSubtitle": "使用 Docker Compose 堆栈创建和管理复杂的应用程序。",
+    "fetchError": "加载堆栈错误",
+    "toastError": "无法加载堆栈。",
+    "createNew": {
+      "nameEmpty": "堆栈名称不能为空。",
+      "ymlEmpty": "docker-compose.yml 不能为空。",
+      "saveError": "无法保存堆栈",
+      "saveSuccess": "堆栈 \"{newStackName}\" 已保存。"
+    },
+    "error": "错误",
+    "remove": {
+      "question": "警告：确定要删除堆栈 \"{name}\" 吗？这将停止并删除所有关联的容器。",
+      "error": "删除失败",
+      "success": "堆栈 \"{name}\" 已删除"
+    },
+    "doaction": {
+      "massage": "正在为 {name} 执行 \"docker compose {action}\"。这可能需要几秒钟...",
+      "goesWrong": "操作 {action} 失败",
+      "success": "堆栈 \"{name}\" 成功 {status}",
+      "started": "启动",
+      "stopped": "停止",
+      "errorMsg": "Compose {action} 中出错：\n{error.message}"
+    }
   },
   "settings": {
     "title": "设置",
@@ -117,7 +157,11 @@
     "newUsername": "新用户名",
     "newPassword": "新密码",
     "currentPassword": "当前密码（必填）",
-    "saveChanges": "保存更改"
+    "saveChanges": "保存更改",
+    "changeRequired": "需要当前密码以进行确认。",
+    "changeSuccess": "凭据更新成功！",
+    "changeError": "保存失败。",
+    "error": "发生意外错误。"
   },
   "login": {
     "title": "Docker Manager",
@@ -125,17 +169,22 @@
     "username": "用户名",
     "password": "密码",
     "button": "登录",
-    "defaultText": "默认登录："
+    "defaultText": "默认登录：",
+    "success": "登录成功",
+    "fail": "登录失败。请检查您的凭据。",
+    "error": "发生意外错误。"
   },
   "logs": {
     "title": "日志: ",
     "clear": "清除",
     "download": "下载",
-    "waiting": "等待日志..."
+    "waiting": "等待日志...",
+    "fetchError": "未找到"
   },
   "terminal": {
     "connecting": "正在连接至 ",
     "connected": "[已连接]",
-    "disconnected": "[已断开与服务器的连接]"
+    "disconnected": "[已断开与服务器的连接]",
+    "fetchError": "未找到"
   }
 }

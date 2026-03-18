@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "Interactive Terminal",
     "detailsControl": "Control",
     "detailsMounts": "Mounts",
-    "detailsEnvFilter": "Environment Filter (ENV)"
+    "detailsEnvFilter": "Environment Filter (ENV)",
+    "fetchError": "Error fetching containers",
+    "actionFailed": "Action failed"
   },
   "images": {
     "title": "Docker Images",
@@ -79,7 +81,14 @@
     "danglingImage": "Dangling Image (No Tag)",
     "remove": "Delete",
     "noImages": "No images found.",
-    "pageSubtitle": "Manage your local Docker images, delete unused images, or perform a prune."
+    "pageSubtitle": "Manage your local Docker images, delete unused images, or perform a prune.",
+    "fetchError": "Error fetching images",
+    "toastError": "Images could not be loaded.",
+    "error": "Error:",
+    "pruneAllAsk": "Are you sure you want to delete ALL unused images (including named ones)?",
+    "pruneDanglingAsk": "Are you sure you want to delete all dangling images (images without tags/names)?",
+    "pruneError": "Prune failed",
+    "pruneSuccess": "Prune successful. {count} images deleted, {size} freed."
   },
   "networks": {
     "title": "Docker Networks",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "System network cannot be deleted",
     "remove": "Delete",
     "noNetworks": "No networks found.",
-    "pageSubtitle": "Manage your Docker networks, create new ones, or delete unused networks."
+    "pageSubtitle": "Manage your Docker networks, create new ones, or delete unused networks.",
+    "fetchError": "Error loading networks",
+    "toastError": "Networks could not be loaded.",
+    "removeAsk": "Are you sure you want to delete the network?",
+    "removeError": "Deletion failed",
+    "removeSuccess": "Network deleted",
+    "error": "Error",
+    "createEmpty": "The network name cannot be empty.",
+    "createError": "Network could not be created",
+    "createSuccess": "Network \"{netname}\" successfully created."
   },
   "stacks": {
     "title": "Local Stacks",
@@ -108,7 +126,29 @@
     "stop": "Stop (Down)",
     "noStacks": "No stacks available yet",
     "emptyStateDesc": "Create your first Docker Compose Stack.",
-    "pageSubtitle": "Create and manage complex applications using Docker Compose Stacks."
+    "pageSubtitle": "Create and manage complex applications using Docker Compose Stacks.",
+    "fetchError": "Error loading stacks",
+    "toastError": "Stacks could not be loaded.",
+    "createNew": {
+      "nameEmpty": "The stack name cannot be empty.",
+      "ymlEmpty": "The docker-compose.yml cannot be empty.",
+      "saveError": "Stack could not be saved",
+      "saveSuccess": "Stack \"{newStackName}\" saved."
+    },
+    "error": "Error",
+    "remove": {
+      "question": "WARNING: Are you sure you want to delete the stack \"{name}\"? This will stop and remove all associated containers.",
+      "error": "Deletion failed",
+      "success": "Stack \"{name}\" deleted"
+    },
+    "doaction": {
+      "massage": "Executing \"docker compose {action}\" for {name}. This may take a few seconds...",
+      "goesWrong": "Action {action} failed",
+      "success": "Stack \"{name}\" successfully {status}",
+      "started": "started",
+      "stopped": "stopped",
+      "errorMsg": "Error in Compose {action}:\n{error.message}"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -117,7 +157,11 @@
     "newUsername": "New Username",
     "newPassword": "New Password",
     "currentPassword": "Current Password (Required)",
-    "saveChanges": "Save Changes"
+    "saveChanges": "Save Changes",
+    "changeRequired": "The current password is required for confirmation.",
+    "changeSuccess": "Credentials successfully updated!",
+    "changeError": "Saving failed.",
+    "error": "An unexpected error occurred."
   },
   "login": {
     "title": "Docker Manager",
@@ -125,17 +169,22 @@
     "username": "Username",
     "password": "Password",
     "button": "Login",
-    "defaultText": "Default Login:"
+    "defaultText": "Default Login:",
+    "success": "Successfully logged in",
+    "fail": "Login failed. Please check your credentials.",
+    "error": "An unexpected error occurred."
   },
   "logs": {
     "title": "Logs: ",
     "clear": "Clear",
     "download": "Download",
-    "waiting": "Waiting for logs..."
+    "waiting": "Waiting for logs...",
+    "fetchError": "Not found"
   },
   "terminal": {
     "connecting": "Connecting to ",
     "connected": "[Connected]",
-    "disconnected": "[Disconnected from server]"
+    "disconnected": "[Disconnected from server]",
+    "fetchError": "Not found"
   }
 }

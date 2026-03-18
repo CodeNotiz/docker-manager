@@ -26,7 +26,7 @@ export default function ContainerLogsPage(props: {
     const fetchDetails = async () => {
       try {
         const res = await fetch(`/api/containers/${containerId}`);
-        if (!res.ok) throw new Error("Not found");
+        if (!res.ok) throw new Error(t.logs.fetchError);
         const data = await res.json();
         setContainerName(data.Name.replace(/^\//, ""));
       } catch (e) {

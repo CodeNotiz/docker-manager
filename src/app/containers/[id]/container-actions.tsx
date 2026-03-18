@@ -24,7 +24,7 @@ export function ContainerActions({
         async (res) => {
           if (!res.ok) {
             const err = await res.json();
-            throw new Error(err.error || `Aktion ${action} fehlgeschlagen`);
+            throw new Error(err.error || `${t.containers.actionFailed} (${action})`);
           }
           return res.json();
         },

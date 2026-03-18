@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/src/i18n/dictionaries/*.mjs
 
 # debug
 npm-debug.log*

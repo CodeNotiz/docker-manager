@@ -28,7 +28,7 @@ export function ContainerList() {
     const fetchContainers = async () => {
         try {
             const res = await fetch("/api/containers");
-            if (!res.ok) throw new Error("Fehler beim Abrufen der Container");
+            if (!res.ok) throw new Error(t.containers.fetchError);
             const data = await res.json();
             setContainers(data);
         } catch (error: any) {
@@ -49,7 +49,7 @@ export function ContainerList() {
             fetch(`/api/containers/${id}/${action}`, { method: 'POST' }).then(async (res) => {
                 if (!res.ok) {
                     const err = await res.json();
-                    throw new Error(err.error || `Aktion ${action} fehlgeschlagen`);
+                    throw new Error(err.error || `${t.containers.actionFailed} (${action})`);
                 }
                 return res.json();
             }),

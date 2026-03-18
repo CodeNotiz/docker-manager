@@ -63,7 +63,9 @@
     "detailsInteractiveTerminal": "対話型ターミナル",
     "detailsControl": "制御",
     "detailsMounts": "マウント",
-    "detailsEnvFilter": "環境フィルター (ENV)"
+    "detailsEnvFilter": "環境フィルター (ENV)",
+    "fetchError": "コンテナの取得エラー",
+    "actionFailed": "アクションに失敗しました"
   },
   "images": {
     "title": "Docker イメージ",
@@ -79,7 +81,14 @@
     "danglingImage": "ダングリングイメージ (タグなし)",
     "remove": "削除",
     "noImages": "イメージが見つかりません。",
-    "pageSubtitle": "ローカルのDockerイメージを管理し、未使用のイメージを削除したり、プルーニング（整理）を実行します。"
+    "pageSubtitle": "ローカルのDockerイメージを管理し、未使用のイメージを削除したり、プルーニング（整理）を実行します。",
+    "fetchError": "イメージの取得エラー",
+    "toastError": "イメージを読み込めませんでした。",
+    "error": "エラー:",
+    "pruneAllAsk": "すべての未使用のイメージ（名前付きのものを含む）を削除してもよろしいですか？",
+    "pruneDanglingAsk": "すべてのダングリングイメージ（タグや名前のないイメージ）を削除してもよろしいですか？",
+    "pruneError": "プルーニングに失敗しました",
+    "pruneSuccess": "プルーニングが成功しました。{count} 個のイメージを削除し、{size} を解放しました。"
   },
   "networks": {
     "title": "Docker ネットワーク",
@@ -98,7 +107,16 @@
     "systemNetworkDesc": "システムネットワークは削除できません",
     "remove": "削除",
     "noNetworks": "ネットワークが見つかりません。",
-    "pageSubtitle": "Dockerネットワークを管理し、新しいネットワークを作成したり、未使用のものを削除します。"
+    "pageSubtitle": "Dockerネットワークを管理し、新しいネットワークを作成したり、未使用のものを削除します。",
+    "fetchError": "ネットワークの読み込みエラー",
+    "toastError": "ネットワークを読み込めませんでした。",
+    "removeAsk": "ネットワークを削除してもよろしいですか？",
+    "removeError": "削除に失敗しました",
+    "removeSuccess": "ネットワークが削除されました",
+    "error": "エラー",
+    "createEmpty": "ネットワーク名は空にできません。",
+    "createError": "ネットワークを作成できませんでした",
+    "createSuccess": "ネットワーク \"{netname}\" が正常に作成されました。"
   },
   "stacks": {
     "title": "ローカルスタック",
@@ -108,7 +126,29 @@
     "stop": "停止 (Down)",
     "noStacks": "スタックがまだありません",
     "emptyStateDesc": "最初の Docker Compose スタックを作成してください。",
-    "pageSubtitle": "Docker Composeのスタックを使用して、複雑なアプリケーションを作成および管理します。"
+    "pageSubtitle": "Docker Composeのスタックを使用して、複雑なアプリケーションを作成および管理します。",
+    "fetchError": "スタックの読み込みエラー",
+    "toastError": "スタックを読み込めませんでした。",
+    "createNew": {
+      "nameEmpty": "スタック名は空にできません。",
+      "ymlEmpty": "docker-compose.ymlは空にできません。",
+      "saveError": "スタックを保存できませんでした",
+      "saveSuccess": "スタック \"{newStackName}\" が保存されました。"
+    },
+    "error": "エラー",
+    "remove": {
+      "question": "警告：スタック \"{name}\" を削除してもよろしいですか？ これにより、関連するすべてのコンテナが停止し、削除されます。",
+      "error": "削除に失敗しました",
+      "success": "スタック \"{name}\" が削除されました"
+    },
+    "doaction": {
+      "massage": "{name} に対して \"docker compose {action}\" を実行しています。これには数秒かかる場合があります...",
+      "goesWrong": "アクション {action} に失敗しました",
+      "success": "スタック \"{name}\" は正常に {status} されました",
+      "started": "開始",
+      "stopped": "停止",
+      "errorMsg": "Compose {action} のエラー:\n{error.message}"
+    }
   },
   "settings": {
     "title": "設定",
@@ -117,7 +157,11 @@
     "newUsername": "新しいユーザー名",
     "newPassword": "新しいパスワード",
     "currentPassword": "現在のパスワード (必須)",
-    "saveChanges": "変更を保存"
+    "saveChanges": "変更を保存",
+    "changeRequired": "確認のために現在のパスワードが必要です。",
+    "changeSuccess": "認証情報が正常に更新されました！",
+    "changeError": "保存に失敗しました。",
+    "error": "予期しないエラーが発生しました。"
   },
   "login": {
     "title": "Docker Manager",
@@ -125,17 +169,22 @@
     "username": "ユーザー名",
     "password": "パスワード",
     "button": "ログイン",
-    "defaultText": "デフォルトログイン："
+    "defaultText": "デフォルトログイン：",
+    "success": "ログインに成功しました",
+    "fail": "ログインに失敗しました。認証情報を確認してください。",
+    "error": "予期しないエラーが発生しました。"
   },
   "logs": {
     "title": "ログ: ",
     "clear": "クリア",
     "download": "ダウンロード",
-    "waiting": "ログを待機中..."
+    "waiting": "ログを待機中...",
+    "fetchError": "見つかりません"
   },
   "terminal": {
     "connecting": "接続中: ",
     "connected": "[接続されました]",
-    "disconnected": "[サーバーから切断されました]"
+    "disconnected": "[サーバーから切断されました]",
+    "fetchError": "見つかりません"
   }
 }
