@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,7 +14,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [isDefaultLoginActive, setIsDefaultLoginActive] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     fetch("/api/auth/status")
@@ -37,8 +35,7 @@ export default function LoginPage() {
 
       if (res.ok) {
         toast.success(t.login.success);
-        router.push("/");
-        router.refresh();
+        window.location.href = "/";
       } else {
         const data = await res.json();
         toast.error(
