@@ -74,7 +74,11 @@
     "detailsMounts": "Монтирования",
     "detailsEnvFilter": "Фильтр среды (ENV)",
     "fetchError": "Ошибка при получении контейнеров",
-    "actionFailed": "Действие не удалось"
+    "actionFailed": "Действие не удалось",
+    "detailsResources": "Ресурсы",
+    "detailsCpuUsage": "Использование CPU",
+    "detailsMemoryUsage": "Память",
+    "detailsLoadingResources": "Загрузка ресурсов в реальном времени..."
   },
   "images": {
     "title": "Docker Образы",

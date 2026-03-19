@@ -74,7 +74,11 @@
     "detailsMounts": "マウント",
     "detailsEnvFilter": "環境フィルター (ENV)",
     "fetchError": "コンテナの取得エラー",
-    "actionFailed": "アクションに失敗しました"
+    "actionFailed": "アクションに失敗しました",
+    "detailsResources": "リソース",
+    "detailsCpuUsage": "CPU使用率",
+    "detailsMemoryUsage": "メモリ",
+    "detailsLoadingResources": "ライブリソースを読み込み中..."
   },
   "images": {
     "title": "Docker イメージ",

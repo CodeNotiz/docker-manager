@@ -74,7 +74,11 @@
     "detailsMounts": "Montajes (Mounts)",
     "detailsEnvFilter": "Filtro de entorno (ENV)",
     "fetchError": "Error al obtener contenedores",
-    "actionFailed": "La acción falló"
+    "actionFailed": "La acción falló",
+    "detailsResources": "Recursos",
+    "detailsCpuUsage": "Uso de CPU",
+    "detailsMemoryUsage": "Memoria",
+    "detailsLoadingResources": "Cargando recursos en vivo..."
   },
   "images": {
     "title": "Imágenes Docker",

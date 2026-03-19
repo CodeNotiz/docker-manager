@@ -102,7 +102,7 @@ export function ContainerList() {
                                         {container.Image}
                                     </TableCell>
                                     <TableCell>
-                                        {Array.from(new Set(container.Ports.filter(p => p.PublicPort).map(p => p.PublicPort))).map((port, i, arr) => (
+                                        {Array.from(new Set((container.Ports || []).filter(p => p.PublicPort).map(p => p.PublicPort))).map((port, i, arr) => (
                                             <span key={port}>
                                                 <a
                                                     href={`http://${window.location.hostname}:${port}`}
@@ -110,12 +110,12 @@ export function ContainerList() {
                                                     rel="noopener noreferrer"
                                                     className="text-blue-500 hover:text-blue-600 hover:underline hover:underline-offset-2 transition-colors"
                                                 >
-                                                    {port}:{container.Ports.find(p => p.PublicPort === port)?.PrivatePort}
+                                                    {port}:{(container.Ports || []).find(p => p.PublicPort === port)?.PrivatePort}
                                                 </a>
                                                 {i < arr.length - 1 ? ", " : ""}
                                             </span>
                                         ))}
-                                        {container.Ports.filter(p => p.PublicPort).length === 0 && "-"}
+                                        {(container.Ports || []).filter(p => p.PublicPort).length === 0 && "-"}
                                     </TableCell>
                                     <TableCell>
                                         {formatDistanceToNow(new Date(container.Created * 1000), { addSuffix: true, locale: dateLocale })}

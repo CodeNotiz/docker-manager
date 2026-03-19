@@ -74,7 +74,11 @@
     "detailsMounts": "Mounts",
     "detailsEnvFilter": "Environment Filter (ENV)",
     "fetchError": "Fehler beim Abrufen der Container",
-    "actionFailed": "Aktion fehlgeschlagen"
+    "actionFailed": "Aktion fehlgeschlagen",
+    "detailsResources": "Ressourcen",
+    "detailsCpuUsage": "CPU Auslastung",
+    "detailsMemoryUsage": "Arbeitsspeicher",
+    "detailsLoadingResources": "Lade Live-Ressourcen..."
   },
   "images": {
     "title": "Docker Images",

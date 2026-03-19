@@ -74,7 +74,11 @@
     "detailsMounts": "Montages",
     "detailsEnvFilter": "Filtre d'environnement (ENV)",
     "fetchError": "Erreur lors de la récupération des conteneurs",
-    "actionFailed": "L'action a échoué"
+    "actionFailed": "L'action a échoué",
+    "detailsResources": "Ressources",
+    "detailsCpuUsage": "Utilisation du CPU",
+    "detailsMemoryUsage": "Mémoire",
+    "detailsLoadingResources": "Chargement des ressources en direct..."
   },
   "images": {
     "title": "Images Docker",

@@ -74,7 +74,11 @@
     "detailsMounts": "挂载点",
     "detailsEnvFilter": "环境变量过滤器 (ENV)",
     "fetchError": "获取容器错误",
-    "actionFailed": "操作失败"
+    "actionFailed": "操作失败",
+    "detailsResources": "资源",
+    "detailsCpuUsage": "CPU 使用率",
+    "detailsMemoryUsage": "内存",
+    "detailsLoadingResources": "正在加载实时资源..."
   },
   "images": {
     "title": "Docker 镜像",

@@ -74,7 +74,11 @@
     "detailsMounts": "Mounts",
     "detailsEnvFilter": "Environment Filter (ENV)",
     "fetchError": "Error fetching containers",
-    "actionFailed": "Action failed"
+    "actionFailed": "Action failed",
+    "detailsResources": "Resources",
+    "detailsCpuUsage": "CPU Usage",
+    "detailsMemoryUsage": "Memory",
+    "detailsLoadingResources": "Loading live resources..."
   },
   "images": {
     "title": "Docker Images",

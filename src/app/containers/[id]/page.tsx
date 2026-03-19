@@ -17,6 +17,7 @@ import {
 import docker from "@/lib/docker";
 import { notFound } from "next/navigation";
 import { ContainerActions } from "./container-actions";
+import { ContainerStats } from "@/app/containers/components/container-stats";
 
 export default async function ContainerDetailsPage(props: {
   params: Promise<{ id: string }>;
@@ -105,6 +106,8 @@ export default async function ContainerDetailsPage(props: {
               </div>
             </div>
           </div>
+
+          {isRunning && <ContainerStats id={id} />}
 
           {Object.keys(details.NetworkSettings.Networks).length > 0 && (
             <div className="bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl p-5 rounded-2xl border border-white/20 dark:border-zinc-800/50 shadow-lg">
