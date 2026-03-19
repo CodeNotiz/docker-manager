@@ -84,10 +84,10 @@ El servidor de desarrollo iniciará en el puerto 3000. *Sugerencia: Al iniciar p
 
 | Variable | Valor predeterminado | Descripción |
 |---|---|---|
-| `JWT_SECRET` | *(fallback inseguro)* | Clave secreta para firmar los tokens JWT. **¡Siempre establécela en producción!** |
 | `LOG_LEVEL` | `INFO` | Controla el nivel de detalle de los registros del servidor. |
 | `PORT` | `3000` | Puerto en el que escucha el servidor Node.js. |
 | `HOST` | `0.0.0.0` | Interfaz de red a la que se enlaza el servidor. |
+| `COOKIE_SECURE` | `false` | Establecer en `true` solo si se ejecuta detrás de HTTPS/proxy inverso. |
 
 ### Niveles de registro (`LOG_LEVEL`)
 

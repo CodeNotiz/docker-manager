@@ -84,10 +84,10 @@ Der Entwicklungsserver startet auf Port 3000. *Tipp: Beim ersten Start wird im H
 
 | Variable | Standard | Beschreibung |
 |---|---|---|
-| `JWT_SECRET` | *(unsicherer Fallback)* | Geheimschlüssel zum Signieren der JWT-Tokens. **Immer in Produktion setzen!** |
 | `LOG_LEVEL` | `INFO` | Steuert die Ausführlichkeit der serverseitigen Logs. |
 | `PORT` | `3000` | Port, auf dem der Node.js-Server lauscht. |
 | `HOST` | `0.0.0.0` | Netzwerkinterface, an das der Server gebunden wird. |
+| `COOKIE_SECURE` | `false` | Setze auf `true`, wenn der Server hinter HTTPS/Reverse Proxy läuft. |
 
 ### Log-Level (`LOG_LEVEL`)
 

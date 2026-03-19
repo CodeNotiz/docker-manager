@@ -84,10 +84,10 @@ Le serveur de développement démarrera sur le port 3000. *Astuce : lors du prem
 
 | Variable | Défaut | Description |
 |---|---|---|
-| `JWT_SECRET` | *(fallback non sécurisé)* | Clé secrète pour signer les tokens JWT. **À définir impérativement en production !** |
 | `LOG_LEVEL` | `INFO` | Contrôle le niveau de verbosité des journaux côté serveur. |
 | `PORT` | `3000` | Port sur lequel le serveur Node.js écoute. |
 | `HOST` | `0.0.0.0` | Interface réseau sur laquelle le serveur est lié. |
+| `COOKIE_SECURE` | `false` | Définir sur `true` uniquement si le serveur est derrière HTTPS/proxy inverse. |
 
 ### Niveaux de journalisation (`LOG_LEVEL`)
 

@@ -84,10 +84,10 @@ The development server starts on port 3000. *Tip: Upon first start, the `/data` 
 
 | Variable | Default | Description |
 |---|---|---|
-| `JWT_SECRET` | *(insecure fallback)* | Secret key used to sign JWT tokens. **Always set this in production!** |
 | `LOG_LEVEL` | `INFO` | Controls the verbosity of server-side log output. |
 | `PORT` | `3000` | Port the Node.js server listens on. |
 | `HOST` | `0.0.0.0` | Network interface the server binds to. |
+| `COOKIE_SECURE` | `false` | Set to `true` only if running behind HTTPS/reverse proxy. |
 
 ### Log Levels (`LOG_LEVEL`)
 
