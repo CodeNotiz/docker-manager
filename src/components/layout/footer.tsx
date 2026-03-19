@@ -40,7 +40,7 @@ export function Footer() {
             })
             .catch((err) => console.error("Fehler beim Laden der Footer-Daten:", err))
             .finally(() => setLoading(false));
-    }, []);
+    }, [pathname]);
 
     return (
         <footer className="flex h-10 shrink-0 items-center justify-between border-t border-white/20 dark:border-white/10 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl px-4 lg:px-6 text-xs text-zinc-600 dark:text-zinc-400 z-20">
