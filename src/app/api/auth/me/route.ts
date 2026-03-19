@@ -2,14 +2,13 @@ import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
-const JWT_SECRET =
-  process.env.JWT_SECRET ||
-  "fallback_secret_for_docker_manager_only_change_in_prod";
-const secretKey = new TextEncoder().encode(JWT_SECRET);
-
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+
+  const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_for_docker_manager_only_change_in_prod";
+  const secretKey = new TextEncoder().encode(JWT_SECRET);
+
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get("auth_token")?.value;

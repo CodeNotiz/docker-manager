@@ -4,12 +4,11 @@ import bcrypt from "bcrypt";
 import { SignJWT } from "jose";
 import logger from "@/lib/logger";
 
-const JWT_SECRET =
-  process.env.JWT_SECRET ||
-  "fallback_secret_for_docker_manager_only_change_in_prod";
-const secretKey = new TextEncoder().encode(JWT_SECRET);
-
 export async function POST(request: Request) {
+
+  const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_for_docker_manager_only_change_in_prod";
+  const secretKey = new TextEncoder().encode(JWT_SECRET);
+
   try {
     const body = await request.json();
     const { username, password } = body;

@@ -3,12 +3,11 @@ import type { NextRequest } from "next/server";
 import { jwtVerify } from "jose";
 import logger from "@/lib/logger";
 
-const JWT_SECRET =
-  process.env.JWT_SECRET ||
-  "fallback_secret_for_docker_manager_only_change_in_prod";
-const secretKey = new TextEncoder().encode(JWT_SECRET);
-
 export default async function proxy(request: NextRequest) {
+
+  const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_for_docker_manager_only_change_in_prod";
+  const secretKey = new TextEncoder().encode(JWT_SECRET);
+
   const { pathname } = request.nextUrl;
 
   // Erlaube statische Assets und den Login-Bereich
@@ -44,9 +43,9 @@ export default async function proxy(request: NextRequest) {
     logger.warn(`[Proxy] Invalid or expired token for: ${pathname}`);
     const response = pathname.startsWith("/api/")
       ? NextResponse.json(
-          { error: "Token invalid or expired" },
-          { status: 401 },
-        )
+        { error: "Token invalid or expired" },
+        { status: 401 },
+      )
       : NextResponse.redirect(new URL("/login", request.url));
 
     // Clean up invalid cookie
