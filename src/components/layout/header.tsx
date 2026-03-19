@@ -12,6 +12,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { usePathname } from "next/navigation";
 
 export function Header() {
     const { theme, setTheme } = useTheme();
@@ -19,9 +20,15 @@ export function Header() {
     const { locale, setLanguage, t } = useLanguage();
     const [user, setUser] = useState<{ username: string } | null>(null);
     const [authLoading, setAuthLoading] = useState(true);
+    const pathname = usePathname();
 
     useEffect(() => {
         setMounted(true);
+
+        if (pathname === "/login") {
+            setAuthLoading(false);
+            return;
+        }
 
         fetch("/api/auth/me")
             .then(res => res.json())
@@ -32,7 +39,7 @@ export function Header() {
             })
             .catch(console.error)
             .finally(() => setAuthLoading(false));
-    }, []);
+    }, [pathname]);
 
     return (
         <header className="flex h-14 items-center gap-4 border-b border-white/20 dark:border-white/10 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl px-4 lg:h-[60px] lg:px-6 z-20">

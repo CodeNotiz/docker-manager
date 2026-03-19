@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Server, Box, Layers } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
     const { t } = useLanguage();
@@ -15,8 +16,14 @@ export function Footer() {
         stacks?: number;
     } | null>(null);
     const [loading, setLoading] = useState(true);
+    const pathname = usePathname();
 
     useEffect(() => {
+        if (pathname === "/login") {
+            setLoading(false);
+            return;
+        }
+
         fetch("/api/stats")
             .then((res) => res.json())
             .then((json) => {
