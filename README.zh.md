@@ -4,7 +4,8 @@
 
 一款强大、现代且具有未来感的网页界面，用于管理您的本地 Docker 环境。基于 Next.js、Tailwind CSS（毛玻璃拟态设计）和 Shadcn UI 构建。
 
-![Dashboard Preview](docs/dashboard.png)
+![Dashboard Preview](docs/docker-manager.dashboard.png)
+(更多图片在 [docs](docs/))
 
 ## ✨ 功能特性
 

@@ -4,7 +4,8 @@
 
 ローカルの Docker 環境を管理するための、パワフルでモダン、かつ未来志向のウェブインターフェース。Next.js、Tailwind CSS（Glassmorphism デザイン）、Shadcn UI を使用して構築されています。
 
-![Dashboard Preview](docs/dashboard.png)
+![Dashboard Preview](docs/docker-manager.dashboard.png)
+(他の画像は [docs](docs/) にあります)
 
 ## ✨ 機能
 

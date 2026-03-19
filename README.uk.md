@@ -4,7 +4,8 @@
 
 Потужний, сучасний та футуристичний веб-інтерфейс для управління вашим локальним середовищем Docker. Побудований на Next.js, Tailwind CSS (дизайн Glassmorphism) та Shadcn UI.
 
-![Dashboard Preview](docs/dashboard.png)
+![Dashboard Preview](docs/docker-manager.dashboard.png)
+(більше зображень у [docs](docs/))
 
 ## ✨ Можливості
 
