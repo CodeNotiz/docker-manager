@@ -16,7 +16,6 @@ services:
     # Optionale Umgebungsvariablen
     environment:
       - NODE_ENV=production
-      # - JWT_SECRET=your_super_secret_jwt_key_here
       # - LOG_LEVEL=INFO   # DEBUG | INFO | WARN | ERROR | SILENT (default: INFO)
       # - COOKIE_SECURE=false  # Set to 'true' only if running behind HTTPS/reverse proxy
 

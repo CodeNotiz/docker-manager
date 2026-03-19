@@ -25,18 +25,24 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Installiere Docker CLI & Compose im Container 
-# (damit der Docker Manager über das Socket-Mounting Befehle aufrufen kann)
+# Install Docker CLI & Compose in the container 
+# (so that the Docker Manager can execute commands via socket-mounting)
 RUN apk add --no-cache docker-cli docker-cli-compose
 
-# Installiere nur Production-Abhängigkeiten (wichtig für socket.io & dockerode im Custom Server)
+# Install only production dependencies (important for socket.io & dockerode in the custom server)
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
-# Kopiere gebaute Next.js Anwendung
+# Copy built Next.js application
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/server.mjs ./
+
+# Copy the entrypoint script and make it executable
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
 
 EXPOSE 3000
 
