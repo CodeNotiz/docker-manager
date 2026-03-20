@@ -104,7 +104,23 @@
     "pruneSuccess": "Nettoyage réussi. {count} images supprimées, {size} libérés.",
     "deleteAsk": "Êtes-vous sûr de vouloir supprimer l'image {name} ?",
     "deleteError": "La suppression a échoué",
-    "deleteSuccess": "Image supprimée"
+    "deleteSuccess": "Image supprimée",
+    "detail": {
+      "title": "Détails de l'image",
+      "loading": "Chargement des détails de l'image...",
+      "notFound": "Image non trouvée.",
+      "general": "Général",
+      "repositoryTags": "Tags du Dépôt",
+      "size": "Taille",
+      "created": "Créé le",
+      "architecture": "Architecture",
+      "networkPorts": "Réseau & Ports",
+      "exposedPorts": "Ports Exposés",
+      "workingDir": "Répertoire de Travail",
+      "entrypoint": "Point d'Entrée",
+      "environmentVariables": "Variables d'Environnement (ENV)",
+      "rootFSLayers": "Couches RootFS"
+    }
   },
   "networks": {
     "title": "Réseaux Docker",

@@ -104,7 +104,23 @@
     "pruneSuccess": "清理成功。删除了 {count} 个镜像，释放了 {size}。",
     "deleteAsk": "确定要删除镜像 {name} 吗？",
     "deleteError": "删除失败",
-    "deleteSuccess": "镜像已删除"
+    "deleteSuccess": "镜像已删除",
+    "detail": {
+      "title": "镜像详情",
+      "loading": "加载镜像详情...",
+      "notFound": "未找到镜像。",
+      "general": "常规",
+      "repositoryTags": "仓库标签",
+      "size": "大小",
+      "created": "创建时间",
+      "architecture": "架构",
+      "networkPorts": "网络和端口",
+      "exposedPorts": "公开端口",
+      "workingDir": "工作目录",
+      "entrypoint": "入口点",
+      "environmentVariables": "环境变量 (ENV)",
+      "rootFSLayers": "RootFS 层"
+    }
   },
   "networks": {
     "title": "Docker 网络",

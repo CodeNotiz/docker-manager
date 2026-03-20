@@ -28,15 +28,15 @@ export default function ImageDetailPage() {
             });
     }, [id]);
 
-    if (loading) return <div className="p-8">Lade Image-Details...</div>;
-    if (!data) return <div className="p-8">Image nicht gefunden.</div>;
+    if (loading) return <div className="p-8">{t.images.detail.loading}</div>;
+    if (!data) return <div className="p-8">{t.images.detail.notFound}</div>;
 
     const formatSize = (bytes: number) => (bytes / (1024 * 1024)).toFixed(2) + " MB";
 
     return (
         <div className="p-6 space-y-6">
             <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-bold tracking-tight">Image Details</h1>
+                <h1 className="text-3xl font-bold tracking-tight">{t.images.detail.title}</h1>
                 <Badge variant="outline" className="font-mono">{data.Id}</Badge>
             </div>
 
@@ -46,25 +46,25 @@ export default function ImageDetailPage() {
                 <Card>
                     <CardHeader className="flex flex-row items-center space-x-2">
                         <HardDrive className="h-5 w-5" />
-                        <CardTitle>Allgemein</CardTitle>
+                        <CardTitle>{t.images.detail.general}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Table>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell className="font-medium">Repository Tags</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.repositoryTags}</TableCell>
                                     <TableCell>{data.RepoTags?.join(", ") || "<none>"}</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell className="font-medium">Größe</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.size}</TableCell>
                                     <TableCell>{formatSize(data.Size)}</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell className="font-medium">Erstellt am</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.created}</TableCell>
                                     <TableCell>{new Date(data.Created).toLocaleString()}</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell className="font-medium">Architektur</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.architecture}</TableCell>
                                     <TableCell><Badge variant="secondary">{data.Architecture} / {data.Os}</Badge></TableCell>
                                 </TableRow>
                             </TableBody>
@@ -76,13 +76,13 @@ export default function ImageDetailPage() {
                 <Card>
                     <CardHeader className="flex flex-row items-center space-x-2">
                         <Globe className="h-5 w-5" />
-                        <CardTitle>Netzwerk & Ports</CardTitle>
+                        <CardTitle>{t.images.detail.networkPorts}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <Table>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell className="font-medium">Exponierte Ports</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.exposedPorts}</TableCell>
                                     <TableCell>
                                         {data.Config.ExposedPorts
                                             ? Object.keys(data.Config.ExposedPorts).map(port => (
@@ -92,11 +92,11 @@ export default function ImageDetailPage() {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell className="font-medium">Arbeitsverzeichnis</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.workingDir}</TableCell>
                                     <TableCell className="font-mono text-xs">{data.Config.WorkingDir}</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell className="font-medium">Entrypoint</TableCell>
+                                    <TableCell className="font-medium">{t.images.detail.entrypoint}</TableCell>
                                     <TableCell className="font-mono text-xs italic">
                                         {data.Config.Entrypoint?.join(" ") || "N/A"}
                                     </TableCell>
@@ -110,7 +110,7 @@ export default function ImageDetailPage() {
                 <Card className="md:col-span-2">
                     <CardHeader className="flex flex-row items-center space-x-2">
                         <Terminal className="h-5 w-5" />
-                        <CardTitle>Umgebungsvariablen (ENV)</CardTitle>
+                        <CardTitle>{t.images.detail.environmentVariables}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -131,7 +131,7 @@ export default function ImageDetailPage() {
                 <Card className="md:col-span-2">
                     <CardHeader className="flex flex-row items-center space-x-2">
                         <Layers className="h-5 w-5" />
-                        <CardTitle>RootFS Layers</CardTitle>
+                        <CardTitle>{t.images.detail.rootFSLayers}</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-1">

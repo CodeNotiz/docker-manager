@@ -104,7 +104,23 @@
     "pruneSuccess": "Очищення успішно завершено. Видалено {count} образів, звільнено {size}.",
     "deleteAsk": "Ви впевнені, що хочете видалити образ {name}?",
     "deleteError": "Видалення не вдалося",
-    "deleteSuccess": "Образ видалено"
+    "deleteSuccess": "Образ видалено",
+    "detail": {
+      "title": "Деталі образу",
+      "loading": "Завантаження деталей образу...",
+      "notFound": "Образ не знайдено.",
+      "general": "Загальні",
+      "repositoryTags": "Теги репозиторію",
+      "size": "Розмір",
+      "created": "Створено",
+      "architecture": "Архітектура",
+      "networkPorts": "Мережа і порти",
+      "exposedPorts": "Відкриті порти",
+      "workingDir": "Робоча директорія",
+      "entrypoint": "Точка входу",
+      "environmentVariables": "Змінні середовища (ENV)",
+      "rootFSLayers": "Шари RootFS"
+    }
   },
   "networks": {
     "title": "Docker Мережі",

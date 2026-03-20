@@ -104,7 +104,23 @@
     "pruneSuccess": "Очистка успешно завершена. Удалено {count} образов, освобождено {size}.",
     "deleteAsk": "Вы уверены, что хотите удалить образ {name}?",
     "deleteError": "Удаление не удалось",
-    "deleteSuccess": "Образ удален"
+    "deleteSuccess": "Образ удален",
+    "detail": {
+      "title": "Детали образа",
+      "loading": "Загрузка деталей образа...",
+      "notFound": "Образ не найден.",
+      "general": "Общие",
+      "repositoryTags": "Теги репозитория",
+      "size": "Размер",
+      "created": "Создан",
+      "architecture": "Архитектура",
+      "networkPorts": "Сеть и порты",
+      "exposedPorts": "Открытые порты",
+      "workingDir": "Рабочая директория",
+      "entrypoint": "Точка входа",
+      "environmentVariables": "Переменные окружения (ENV)",
+      "rootFSLayers": "Слои RootFS"
+    }
   },
   "networks": {
     "title": "Docker Сети",

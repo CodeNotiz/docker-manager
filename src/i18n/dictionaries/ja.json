@@ -104,7 +104,23 @@
     "pruneSuccess": "プルーニングが成功しました。{count} 個のイメージを削除し、{size} を解放しました。",
     "deleteAsk": "イメージ {name} を削除してもよろしいですか？",
     "deleteError": "削除に失敗しました",
-    "deleteSuccess": "イメージを削除しました"
+    "deleteSuccess": "イメージを削除しました",
+    "detail": {
+      "title": "イメージ詳細",
+      "loading": "イメージ詳細を読み込み中...",
+      "notFound": "イメージが見つかりません。",
+      "general": "一般",
+      "repositoryTags": "リポジトリタグ",
+      "size": "サイズ",
+      "created": "作成日時",
+      "architecture": "アーキテクチャ",
+      "networkPorts": "ネットワークとポート",
+      "exposedPorts": "公開ポート",
+      "workingDir": "作業ディレクトリ",
+      "entrypoint": "エントリポイント",
+      "environmentVariables": "環境変数 (ENV)",
+      "rootFSLayers": "RootFSレイヤー"
+    }
   },
   "networks": {
     "title": "Docker ネットワーク",

@@ -104,7 +104,23 @@
     "pruneSuccess": "Prune successful. {count} images deleted, {size} freed.",
     "deleteAsk": "Are you sure you want to delete the image {name}?",
     "deleteError": "Deletion failed",
-    "deleteSuccess": "Image deleted"
+    "deleteSuccess": "Image deleted",
+    "detail": {
+      "title": "Image Details",
+      "loading": "Loading image details...",
+      "notFound": "Image not found.",
+      "general": "General",
+      "repositoryTags": "Repository Tags",
+      "size": "Size",
+      "created": "Created At",
+      "architecture": "Architecture",
+      "networkPorts": "Network & Ports",
+      "exposedPorts": "Exposed Ports",
+      "workingDir": "Working Directory",
+      "entrypoint": "Entrypoint",
+      "environmentVariables": "Environment Variables (ENV)",
+      "rootFSLayers": "RootFS Layers"
+    }
   },
   "networks": {
     "title": "Docker Networks",

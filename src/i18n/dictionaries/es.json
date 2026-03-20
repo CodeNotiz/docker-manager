@@ -104,7 +104,23 @@
     "pruneSuccess": "Limpieza exitosa. {count} imágenes eliminadas, {size} liberados.",
     "deleteAsk": "¿Estás seguro de que deseas eliminar la imagen {name}?",
     "deleteError": "La eliminación falló",
-    "deleteSuccess": "Imagen eliminada"
+    "deleteSuccess": "Imagen eliminada",
+    "detail": {
+      "title": "Detalles de la Imagen",
+      "loading": "Cargando detalles de la imagen...",
+      "notFound": "Imagen no encontrada.",
+      "general": "General",
+      "repositoryTags": "Etiquetas del Repositorio",
+      "size": "Tamaño",
+      "created": "Creado en",
+      "architecture": "Arquitectura",
+      "networkPorts": "Red y Puertos",
+      "exposedPorts": "Puertos Expuestos",
+      "workingDir": "Directorio de Trabajo",
+      "entrypoint": "Punto de Entrada",
+      "environmentVariables": "Variables de Entorno (ENV)",
+      "rootFSLayers": "Capas RootFS"
+    }
   },
   "networks": {
     "title": "Redes Docker",
