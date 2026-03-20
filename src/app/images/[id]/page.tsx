@@ -12,6 +12,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HardDrive, Cpu, Globe, Terminal, Layers } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function ImageDetailPage() {
     const { id } = useParams();
@@ -36,8 +39,15 @@ export default function ImageDetailPage() {
     return (
         <div className="p-6 space-y-6">
             <div className="flex items-center justify-between">
-                <h1 className="text-3xl font-bold tracking-tight">{t.images.detail.title}</h1>
-                <Badge variant="outline" className="font-mono">{data.Id}</Badge>
+                <Link href="/images" passHref>
+                    <Button variant="ghost" size="icon" className="shrink-0">
+                        <ArrowLeft className="w-5 h-5" />
+                    </Button>
+                </Link>
+                <div className="flex items-center gap-2">
+                    <h1 className="text-3xl font-bold tracking-tight">{t.images.detail.title}</h1>
+                    <Badge variant="outline" className="font-mono">{data.Id}</Badge>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
