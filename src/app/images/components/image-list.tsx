@@ -21,6 +21,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { toast } from "sonner";
+import Link from "next/link";
 
 interface DockerImage {
     Id: string;
@@ -210,7 +211,9 @@ export function ImageList() {
                                         </span>
                                     </TableCell>
                                     <TableCell className="text-zinc-500 font-mono text-xs">
-                                        {img.Id.split(":")[1]?.substring(0, 12) || img.Id.substring(0, 12)}
+                                        <Link href={`/images/${img.Id}`}>
+                                            {img.Id.split(":")[1]?.substring(0, 12) || img.Id.substring(0, 12)}
+                                        </Link>
                                     </TableCell>
                                     <TableCell className="text-zinc-500">
                                         {formatDistanceToNow(new Date(img.Created * 1000), {
