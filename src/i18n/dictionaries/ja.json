@@ -119,7 +119,8 @@
       "workingDir": "作業ディレクトリ",
       "entrypoint": "エントリポイント",
       "environmentVariables": "環境変数 (ENV)",
-      "rootFSLayers": "RootFSレイヤー"
+      "rootFSLayers": "RootFSレイヤー",
+      "id": "ID"
     }
   },
   "networks": {

@@ -119,7 +119,8 @@
       "workingDir": "Directorio de Trabajo",
       "entrypoint": "Punto de Entrada",
       "environmentVariables": "Variables de Entorno (ENV)",
-      "rootFSLayers": "Capas RootFS"
+      "rootFSLayers": "Capas RootFS",
+      "id": "ID"
     }
   },
   "networks": {

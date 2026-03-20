@@ -119,7 +119,8 @@
       "workingDir": "Робоча директорія",
       "entrypoint": "Точка входу",
       "environmentVariables": "Змінні середовища (ENV)",
-      "rootFSLayers": "Шари RootFS"
+      "rootFSLayers": "Шари RootFS",
+      "id": "ID"
     }
   },
   "networks": {

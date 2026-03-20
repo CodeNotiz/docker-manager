@@ -119,7 +119,8 @@
       "workingDir": "工作目录",
       "entrypoint": "入口点",
       "environmentVariables": "环境变量 (ENV)",
-      "rootFSLayers": "RootFS 层"
+      "rootFSLayers": "RootFS 层",
+      "id": "ID"
     }
   },
   "networks": {

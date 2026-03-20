@@ -119,7 +119,8 @@
       "workingDir": "Arbeitsverzeichnis",
       "entrypoint": "Entrypoint",
       "environmentVariables": "Umgebungsvariablen (ENV)",
-      "rootFSLayers": "RootFS Layers"
+      "rootFSLayers": "RootFS Layers",
+      "id": "ID"
     }
   },
   "networks": {

@@ -37,16 +37,15 @@ export default function ImageDetailPage() {
     const formatSize = (bytes: number) => (bytes / (1024 * 1024)).toFixed(2) + " MB";
 
     return (
-        <div className="p-6 space-y-6">
-            <div className="flex items-center justify-between">
+        <div className="space-y-6">
+            <div className="flex items-center gap-4">
                 <Link href="/images" passHref>
                     <Button variant="ghost" size="icon" className="shrink-0">
                         <ArrowLeft className="w-5 h-5" />
                     </Button>
                 </Link>
-                <div className="flex items-center gap-2">
+                <div>
                     <h1 className="text-3xl font-bold tracking-tight">{t.images.detail.title}</h1>
-                    <Badge variant="outline" className="font-mono">{data.Id}</Badge>
                 </div>
             </div>
 
@@ -61,6 +60,10 @@ export default function ImageDetailPage() {
                     <CardContent>
                         <Table>
                             <TableBody>
+                                <TableRow>
+                                    <TableCell className="font-medium">{t.images.detail.id}</TableCell>
+                                    <TableCell>{data.Id}</TableCell>
+                                </TableRow>
                                 <TableRow>
                                     <TableCell className="font-medium">{t.images.detail.repositoryTags}</TableCell>
                                     <TableCell>{data.RepoTags?.join(", ") || "<none>"}</TableCell>

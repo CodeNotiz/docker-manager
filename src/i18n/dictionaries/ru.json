@@ -119,7 +119,8 @@
       "workingDir": "Рабочая директория",
       "entrypoint": "Точка входа",
       "environmentVariables": "Переменные окружения (ENV)",
-      "rootFSLayers": "Слои RootFS"
+      "rootFSLayers": "Слои RootFS",
+      "id": "ID"
     }
   },
   "networks": {

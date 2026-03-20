@@ -119,7 +119,8 @@
       "workingDir": "Répertoire de Travail",
       "entrypoint": "Point d'Entrée",
       "environmentVariables": "Variables d'Environnement (ENV)",
-      "rootFSLayers": "Couches RootFS"
+      "rootFSLayers": "Couches RootFS",
+      "id": "ID"
     }
   },
   "networks": {
