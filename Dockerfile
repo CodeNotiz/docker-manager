@@ -37,6 +37,7 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/server.mjs ./
+COPY --from=builder /app/data/templates.json ./default_templates.json
 
 # Copy the entrypoint script and make it executable
 COPY entrypoint.sh /usr/local/bin/
