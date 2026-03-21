@@ -3,7 +3,6 @@ npm-debug.log
 .next
 .git
 .env*
-data/
 stacks_data/
 README.md
 Dockerfile
