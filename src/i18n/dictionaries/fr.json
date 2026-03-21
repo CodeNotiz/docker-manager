@@ -30,6 +30,7 @@
     "images": "Images",
     "networks": "Réseaux",
     "stacks": "Piles (Stacks)",
+    "templates": "Templates",
     "settings": "Paramètres",
     "logout": "Déconnexion"
   },
@@ -231,5 +232,14 @@
     "connected": "[Connecté]",
     "disconnected": "[Déconnecté du serveur]",
     "fetchError": "Non trouvé"
+  },
+  "templates": {
+    "title": "Templates d'Apps",
+    "subtitle": "Déploiement rapide d'applications Docker préconfigurées.",
+    "deploy": "Déployer",
+    "deployTitle": "Déployer un Template",
+    "deployDesc": "Entrez un nom pour ce stack afin de déployer l'application.",
+    "stackName": "Nom du Stack",
+    "success": "Template déployé avec succès en tant que stack !"
   }
 }

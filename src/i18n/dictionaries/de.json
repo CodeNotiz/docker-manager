@@ -30,6 +30,7 @@
     "images": "Images",
     "networks": "Netzwerke",
     "stacks": "Stacks",
+    "templates": "Templates",
     "settings": "Einstellungen",
     "logout": "Abmelden"
   },
@@ -231,5 +232,14 @@
     "connected": "[Verbunden]",
     "disconnected": "[Vom Server getrennt]",
     "fetchError": "nicht gefunden"
+  },
+  "templates": {
+    "title": "App Templates",
+    "subtitle": "Schnelle Bereitstellung von vorgefertigten Docker-Anwendungen.",
+    "deploy": "Deploy",
+    "deployTitle": "Template bereitstellen",
+    "deployDesc": "Gib einen Namen für diesen Stack ein, um die Anwendung bereitzustellen.",
+    "stackName": "Stack Name",
+    "success": "Template erfolgreich als Stack bereitgestellt!"
   }
 }

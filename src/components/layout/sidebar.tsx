@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Box, Layers, Network, Server, HardDrive, Settings, LogOut } from "lucide-react";
+import { Box, Layers, Network, Server, HardDrive, Settings, LogOut, LayoutTemplate } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -18,6 +18,7 @@ export function Sidebar() {
         { name: t.sidebar.images, href: '/images', icon: HardDrive },
         { name: t.sidebar.networks, href: '/networks', icon: Network },
         { name: t.sidebar.stacks, href: '/stacks', icon: Layers },
+        { name: t.templates?.title || "Templates", href: '/templates', icon: LayoutTemplate },
     ];
 
     const handleLogout = async () => {

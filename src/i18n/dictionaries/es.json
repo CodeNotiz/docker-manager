@@ -30,6 +30,7 @@
     "images": "Imágenes",
     "networks": "Redes",
     "stacks": "Pilas (Stacks)",
+    "templates": "Plantillas",
     "settings": "Ajustes",
     "logout": "Cerrar sesión"
   },
@@ -231,5 +232,14 @@
     "connected": "[Conectado]",
     "disconnected": "[Desconectado del servidor]",
     "fetchError": "No encontrado"
+  },
+  "templates": {
+    "title": "Plantillas de Apps",
+    "subtitle": "Despliegue rápido de aplicaciones Docker preconfiguradas.",
+    "deploy": "Desplegar",
+    "deployTitle": "Desplegar Plantilla",
+    "deployDesc": "Introduce un nombre para este stack para desplegar la aplicación.",
+    "stackName": "Nombre del Stack",
+    "success": "¡Plantilla desplegada exitosamente como stack!"
   }
 }

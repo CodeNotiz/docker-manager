@@ -42,5 +42,5 @@ yarn-error.log*
 next-env.d.ts
 
 # Docker Manager Application Data
-/data/
+/data/docker-manager.db
 /stacks_data/

@@ -30,6 +30,7 @@
     "images": "Images",
     "networks": "Networks",
     "stacks": "Stacks",
+    "templates": "Templates",
     "settings": "Settings",
     "logout": "Logout"
   },
@@ -231,5 +232,14 @@
     "connected": "[Connected]",
     "disconnected": "[Disconnected from server]",
     "fetchError": "Not found"
+  },
+  "templates": {
+    "title": "App Templates",
+    "subtitle": "Quick deployment of pre-configured Docker applications.",
+    "deploy": "Deploy",
+    "deployTitle": "Deploy Template",
+    "deployDesc": "Enter a name for this stack to deploy the application.",
+    "stackName": "Stack Name",
+    "success": "Template successfully deployed as a stack!"
   }
 }

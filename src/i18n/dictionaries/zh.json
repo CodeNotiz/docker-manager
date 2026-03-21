@@ -30,6 +30,7 @@
     "images": "镜像",
     "networks": "网络",
     "stacks": "堆栈",
+    "templates": "模板",
     "settings": "设置",
     "logout": "退出登录"
   },
@@ -231,5 +232,14 @@
     "connected": "[已连接]",
     "disconnected": "[已断开与服务器的连接]",
     "fetchError": "未找到"
+  },
+  "templates": {
+    "title": "应用模板",
+    "subtitle": "快速部署预配置的 Docker 应用程序。",
+    "deploy": "部署",
+    "deployTitle": "部署模板",
+    "deployDesc": "输入此堆栈的名称以部署应用程序。",
+    "stackName": "堆栈名称",
+    "success": "模板已成功部署为堆栈！"
   }
 }

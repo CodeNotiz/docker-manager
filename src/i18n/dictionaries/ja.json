@@ -30,6 +30,7 @@
     "images": "イメージ",
     "networks": "ネットワーク",
     "stacks": "スタック",
+    "templates": "テンプレート",
     "settings": "設定",
     "logout": "ログアウト"
   },
@@ -231,5 +232,14 @@
     "connected": "[接続されました]",
     "disconnected": "[サーバーから切断されました]",
     "fetchError": "見つかりません"
+  },
+  "templates": {
+    "title": "アプリテンプレート",
+    "subtitle": "事前設定されたDockerアプリケーションを素早くデプロイします。",
+    "deploy": "デプロイ",
+    "deployTitle": "テンプレートのデプロイ",
+    "deployDesc": "アプリケーションをデプロイするために、このスタックの名前を入力してください。",
+    "stackName": "スタック名",
+    "success": "テンプレートがスタックとして正常にデプロイされました！"
   }
 }
