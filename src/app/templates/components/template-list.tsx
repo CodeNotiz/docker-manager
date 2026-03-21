@@ -28,6 +28,7 @@ export function TemplateList() {
     // Deployment Dialog State
     const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
     const [stackName, setStackName] = useState("");
+    const [customCompose, setCustomCompose] = useState(""); // NEU: State für die bearbeitbare Compose-Datei
     const [isDeploying, setIsDeploying] = useState(false);
 
     useEffect(() => {
@@ -45,24 +46,26 @@ export function TemplateList() {
 
     const handleDeploy = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!stackName.trim() || !selectedTemplate) return;
+        if (!stackName.trim() || !selectedTemplate || !customCompose.trim()) return;
 
         setIsDeploying(true);
         try {
-            // 1. Stack erstellen (Wiederverwendung deiner bestehenden Stacks-API)
+            const formattedName = stackName.toLowerCase().replace(/\s+/g, '-');
+
+            // 1. Stack erstellen (mit der BEARBEITETEN Compose-Datei)
             const res = await fetch("/api/stacks", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: stackName.toLowerCase().replace(/\s+/g, '-'),
-                    composeFile: selectedTemplate.compose,
+                    name: formattedName,
+                    composeFile: customCompose, // Hier senden wir den bearbeiteten Text!
                 }),
             });
 
             if (!res.ok) throw new Error("Fehler beim Speichern des Stacks");
 
-            // 2. Stack starten (docker compose up)
-            const upRes = await fetch(`/api/stacks/${encodeURIComponent(stackName.toLowerCase().replace(/\s+/g, '-'))}`, {
+            // 2. Stack starten
+            const upRes = await fetch(`/api/stacks/${encodeURIComponent(formattedName)}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ action: "up" }),
@@ -72,7 +75,7 @@ export function TemplateList() {
 
             toast.success(t.templates?.success || "Template erfolgreich bereitgestellt!");
             setSelectedTemplate(null);
-            router.push("/stacks"); // Leite den User zu den Stacks weiter
+            router.push("/stacks");
 
         } catch (error: any) {
             toast.error(error.message);
@@ -107,6 +110,7 @@ export function TemplateList() {
                             onClick={() => {
                                 setSelectedTemplate(template);
                                 setStackName(template.id);
+                                setCustomCompose(template.compose); // Beim Öffnen den Original-Code in den State laden
                             }}
                         >
                             <LayoutTemplate className="w-4 h-4 mr-2" />
@@ -116,29 +120,44 @@ export function TemplateList() {
                 </Card>
             ))}
 
+            {/* Dialog ist jetzt breiter (max-w-3xl), damit der Code gut reinpasst */}
             <Dialog open={!!selectedTemplate} onOpenChange={(open) => !open && setSelectedTemplate(null)}>
-                <DialogContent>
-                    <form onSubmit={handleDeploy}>
+                <DialogContent className="sm:max-w-[800px] max-h-[90vh] flex flex-col">
+                    <form onSubmit={handleDeploy} className="flex flex-col h-full gap-4">
                         <DialogHeader>
-                            <DialogTitle>{t.templates?.deployTitle || "Template bereitstellen"}: {selectedTemplate?.name}</DialogTitle>
+                            <DialogTitle>{t.templates?.deployTitle || "Template anpassen & bereitstellen"}: {selectedTemplate?.name}</DialogTitle>
                             <DialogDescription>
-                                {t.templates?.deployDesc || "Gib einen Namen für diesen Stack ein."}
+                                {t.templates?.deployDescription}
                             </DialogDescription>
                         </DialogHeader>
 
-                        <div className="py-6">
-                            <Label htmlFor="stackName">{t.templates?.stackName || "Stack Name"}</Label>
-                            <Input
-                                id="stackName"
-                                value={stackName}
-                                onChange={(e) => setStackName(e.target.value)}
-                                className="mt-2"
-                                placeholder="z.B. my-nginx"
-                                required
-                            />
+                        <div className="flex flex-col gap-4 py-4 flex-1 overflow-hidden">
+                            <div>
+                                <Label htmlFor="stackName">{t.templates?.stackName || "Stack Name"}</Label>
+                                <Input
+                                    id="stackName"
+                                    value={stackName}
+                                    onChange={(e) => setStackName(e.target.value)}
+                                    className="mt-2"
+                                    required
+                                />
+                            </div>
+
+                            <div className="flex flex-col flex-1 gap-2">
+                                <Label htmlFor="composeContent">{t.templates?.composeTitle}</Label>
+                                {/* Native Textarea mit Tailwind-Styling passend zu Shadcn UI */}
+                                <textarea
+                                    id="composeContent"
+                                    value={customCompose}
+                                    onChange={(e) => setCustomCompose(e.target.value)}
+                                    className="flex-1 min-h-[300px] w-full rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 px-3 py-2 text-sm font-mono shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-blue-500 resize-y"
+                                    required
+                                    spellCheck={false}
+                                />
+                            </div>
                         </div>
 
-                        <DialogFooter>
+                        <DialogFooter className="mt-auto">
                             <Button type="button" variant="outline" onClick={() => setSelectedTemplate(null)}>
                                 {t.common.cancel}
                             </Button>

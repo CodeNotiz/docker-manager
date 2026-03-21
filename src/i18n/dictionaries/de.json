@@ -240,6 +240,8 @@
     "deployTitle": "Template bereitstellen",
     "deployDesc": "Gib einen Namen für diesen Stack ein, um die Anwendung bereitzustellen.",
     "stackName": "Stack Name",
-    "success": "Template erfolgreich als Stack bereitgestellt!"
+    "success": "Template erfolgreich als Stack bereitgestellt!",
+    "composeTitle": "Docker Compose Konfiguration",
+    "deployDescription": "Passe die Konfiguration (Ports, Passwörter, Volumes) an deine Bedürfnisse an."
   }
 }

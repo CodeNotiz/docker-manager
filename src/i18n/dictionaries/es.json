@@ -240,6 +240,8 @@
     "deployTitle": "Desplegar Plantilla",
     "deployDesc": "Introduce un nombre para este stack para desplegar la aplicación.",
     "stackName": "Nombre del Stack",
-    "success": "¡Plantilla desplegada exitosamente como stack!"
+    "success": "¡Plantilla desplegada exitosamente como stack!",
+    "composeTitle": "Configuración de Docker Compose",
+    "deployDescription": "Personaliza la configuración (puertos, contraseñas, volúmenes) según tus necesidades."
   }
 }

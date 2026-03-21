@@ -240,6 +240,8 @@
     "deployTitle": "部署模板",
     "deployDesc": "输入此堆栈的名称以部署应用程序。",
     "stackName": "堆栈名称",
-    "success": "模板已成功部署为堆栈！"
+    "success": "模板已成功部署为堆栈！",
+    "composeTitle": "Docker Compose 配置",
+    "deployDescription": "根据您的需求自定义配置（端口、密码、卷）。"
   }
 }

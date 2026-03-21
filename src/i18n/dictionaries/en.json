@@ -240,6 +240,8 @@
     "deployTitle": "Deploy Template",
     "deployDesc": "Enter a name for this stack to deploy the application.",
     "stackName": "Stack Name",
-    "success": "Template successfully deployed as a stack!"
+    "success": "Template successfully deployed as a stack!",
+    "composeTitle": "Docker Compose Configuration",
+    "deployDescription": "Customize the configuration (ports, passwords, volumes) to your needs."
   }
 }
