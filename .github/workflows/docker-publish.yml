@@ -2,7 +2,8 @@ name: Docker Image CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ] # Trigger bei Push auf den main-Branch
+    tags: [ "v*.*.*" ]   # Trigger bei Push von Tags wie v1.0.0, v1.0.0-beta, etc.
   pull_request:
     branches: [ "main" ]
 
@@ -44,9 +45,12 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=ref,event=branch
-            type=sha,format=short
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}         # Extrahiert die vollständige semantische Version (z.B. 1.0.0 von v1.0.0)
+            type=semver,pattern={{major}}           # Extrahiert die Hauptversion (z.B. 1 von v1.0.0)
+            type=semver,pattern={{major}}.{{minor}} # Extrahiert Haupt- und Nebenversion (z.B. 1.0 von v1.0.0)
+            type=ref,event=branch                   # Taggt mit dem Branch-Namen (z.B. main)
+            type=sha,format=short                   # Taggt mit dem kurzen Commit-SHA (z.B. sha-abcdefg)
+            type=raw,value=latest,enable={{is_default_branch}} # Taggt als latest für den Standard-Branch
 
       - name: Build and push Docker image
         id: push
