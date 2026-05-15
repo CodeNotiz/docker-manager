@@ -8,3 +8,5 @@ README.md
 Dockerfile
 docker-compose.yml
 .dockerignore
+CLAUDE.md
+.claude

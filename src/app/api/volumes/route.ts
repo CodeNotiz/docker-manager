@@ -13,7 +13,6 @@ export async function GET() {
       Driver: vol.Driver,
       Mountpoint: vol.Mountpoint,
       Scope: vol.Scope,
-      CreatedAt: vol.CreatedAt || "",
       Labels: vol.Labels || {},
       Options: vol.Options || {},
     }));
@@ -37,7 +36,7 @@ export async function POST(request: Request) {
     }
 
     const volume = await docker.createVolume({ Name, Driver: Driver || "local" });
-    return NextResponse.json({ success: true, name: volume.name });
+    return NextResponse.json({ success: true, name: volume.Name });
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
     logger.error("Failed to create volume:", errorMessage);
