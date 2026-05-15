@@ -29,6 +29,7 @@
     "containers": "Container",
     "images": "Images",
     "networks": "Netzwerke",
+    "volumes": "Volumes",
     "stacks": "Stacks",
     "templates": "Templates",
     "settings": "Einstellungen",
@@ -162,6 +163,33 @@
     "createEmpty": "Der Netzwerkname darf nicht leer sein.",
     "createError": "Netzwerk konnte nicht erstellt werden",
     "createSuccess": "Netzwerk \"{netname}\" erfolgreich erstellt."
+  },
+  "volumes": {
+    "title": "Docker Volumes",
+    "subtitle": "Verwalte deine persistenten Daten-Volumes.",
+    "driver": "Treiber",
+    "scope": "Scope",
+    "mountpoint": "Mountpoint",
+    "created": "Erstellt",
+    "create": "Volume erstellen",
+    "createVolume": "Neues Volume",
+    "createDialog": {
+      "title": "Neues Volume erstellen",
+      "desc": "Legen Sie ein neues Docker-Volume an. Ein Volume wird standardmäßig mit dem Treiber \"local\" erstellt.",
+      "selectDriver": "Wähle einen Treiber"
+    },
+    "remove": "Löschen",
+    "noVolumes": "Keine Volumes gefunden.",
+    "pageSubtitle": "Verwalten Sie Ihre Docker-Volumes und löschen Sie ungenutzte Volumes.",
+    "fetchError": "Fehler beim Laden der Volumes",
+    "toastError": "Volumes konnten nicht geladen werden.",
+    "removeAsk": "Möchtest du das Volume wirklich löschen?",
+    "removeError": "Löschen fehlgeschlagen",
+    "removeSuccess": "Volume gelöscht",
+    "error": "Fehler",
+    "createEmpty": "Der Volume-Name darf nicht leer sein.",
+    "createError": "Volume konnte nicht erstellt werden",
+    "createSuccess": "Volume \"{volname}\" erfolgreich erstellt."
   },
   "stacks": {
     "title": "Lokale Stacks",

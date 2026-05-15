@@ -29,6 +29,7 @@
     "containers": "容器",
     "images": "镜像",
     "networks": "网络",
+    "volumes": "卷",
     "stacks": "堆栈",
     "templates": "模板",
     "settings": "设置",
@@ -162,6 +163,33 @@
     "createEmpty": "网络名称不能为空。",
     "createError": "无法创建网络",
     "createSuccess": "网络 \"{netname}\" 成功创建。"
+  },
+  "volumes": {
+    "title": "Docker 卷",
+    "subtitle": "管理您的持久化数据卷。",
+    "driver": "驱动",
+    "scope": "范围",
+    "mountpoint": "挂载点",
+    "created": "创建时间",
+    "create": "创建卷",
+    "createVolume": "新建卷",
+    "createDialog": {
+      "title": "创建新卷",
+      "desc": "创建一个新的 Docker 卷。默认情况下，卷使用 \"local\" 驱动创建。",
+      "selectDriver": "选择驱动"
+    },
+    "remove": "删除",
+    "noVolumes": "未找到卷。",
+    "pageSubtitle": "管理您的 Docker 卷并删除未使用的卷。",
+    "fetchError": "加载卷错误",
+    "toastError": "无法加载卷。",
+    "removeAsk": "确定要删除该卷吗？",
+    "removeError": "删除失败",
+    "removeSuccess": "卷已删除",
+    "error": "错误",
+    "createEmpty": "卷名称不能为空。",
+    "createError": "无法创建卷",
+    "createSuccess": "卷 \"{volname}\" 成功创建。"
   },
   "stacks": {
     "title": "本地堆栈",

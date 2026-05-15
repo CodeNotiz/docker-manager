@@ -29,6 +29,7 @@
     "containers": "Contenedores",
     "images": "Imágenes",
     "networks": "Redes",
+    "volumes": "Volúmenes",
     "stacks": "Pilas (Stacks)",
     "templates": "Plantillas",
     "settings": "Ajustes",
@@ -162,6 +163,33 @@
     "createEmpty": "El nombre de la red no puede estar vacío.",
     "createError": "No se pudo crear la red",
     "createSuccess": "Red \"{netname}\" creada exitosamente."
+  },
+  "volumes": {
+    "title": "Volúmenes Docker",
+    "subtitle": "Gestiona tus volúmenes de datos persistentes.",
+    "driver": "Controlador",
+    "scope": "Ámbito",
+    "mountpoint": "Punto de montaje",
+    "created": "Creado",
+    "create": "Crear Volumen",
+    "createVolume": "Nuevo Volumen",
+    "createDialog": {
+      "title": "Crear Nuevo Volumen",
+      "desc": "Crea un nuevo volumen de Docker. Un volumen se crea con el controlador \"local\" por defecto.",
+      "selectDriver": "Seleccionar controlador"
+    },
+    "remove": "Eliminar",
+    "noVolumes": "No se encontraron volúmenes.",
+    "pageSubtitle": "Gestiona tus volúmenes de Docker y elimina los que no uses.",
+    "fetchError": "Error al cargar los volúmenes",
+    "toastError": "No se pudieron cargar los volúmenes.",
+    "removeAsk": "¿Estás seguro de que deseas eliminar el volumen?",
+    "removeError": "La eliminación falló",
+    "removeSuccess": "Volumen eliminado",
+    "error": "Error",
+    "createEmpty": "El nombre del volumen no puede estar vacío.",
+    "createError": "No se pudo crear el volumen",
+    "createSuccess": "Volumen \"{volname}\" creado exitosamente."
   },
   "stacks": {
     "title": "Pilas Locales",

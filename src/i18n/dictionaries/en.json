@@ -29,6 +29,7 @@
     "containers": "Containers",
     "images": "Images",
     "networks": "Networks",
+    "volumes": "Volumes",
     "stacks": "Stacks",
     "templates": "Templates",
     "settings": "Settings",
@@ -162,6 +163,33 @@
     "createEmpty": "The network name cannot be empty.",
     "createError": "Network could not be created",
     "createSuccess": "Network \"{netname}\" successfully created."
+  },
+  "volumes": {
+    "title": "Docker Volumes",
+    "subtitle": "Manage your persistent data volumes.",
+    "driver": "Driver",
+    "scope": "Scope",
+    "mountpoint": "Mountpoint",
+    "created": "Created",
+    "create": "Create Volume",
+    "createVolume": "New Volume",
+    "createDialog": {
+      "title": "Create New Volume",
+      "desc": "Create a new Docker volume. A volume is created with the \"local\" driver by default.",
+      "selectDriver": "Select Driver"
+    },
+    "remove": "Delete",
+    "noVolumes": "No volumes found.",
+    "pageSubtitle": "Manage your Docker volumes and delete unused volumes.",
+    "fetchError": "Error loading volumes",
+    "toastError": "Volumes could not be loaded.",
+    "removeAsk": "Are you sure you want to delete the volume?",
+    "removeError": "Deletion failed",
+    "removeSuccess": "Volume deleted",
+    "error": "Error",
+    "createEmpty": "The volume name cannot be empty.",
+    "createError": "Volume could not be created",
+    "createSuccess": "Volume \"{volname}\" successfully created."
   },
   "stacks": {
     "title": "Local Stacks",

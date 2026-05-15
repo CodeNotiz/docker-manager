@@ -29,6 +29,7 @@
     "containers": "Conteneurs",
     "images": "Images",
     "networks": "Réseaux",
+    "volumes": "Volumes",
     "stacks": "Piles (Stacks)",
     "templates": "Templates",
     "settings": "Paramètres",
@@ -162,6 +163,33 @@
     "createEmpty": "Le nom du réseau ne peut pas être vide.",
     "createError": "Le réseau n'a pas pu être créé",
     "createSuccess": "Réseau \"{netname}\" créé avec succès."
+  },
+  "volumes": {
+    "title": "Volumes Docker",
+    "subtitle": "Gérez vos volumes de données persistantes.",
+    "driver": "Pilote",
+    "scope": "Portée",
+    "mountpoint": "Point de montage",
+    "created": "Créé",
+    "create": "Créer un Volume",
+    "createVolume": "Nouveau Volume",
+    "createDialog": {
+      "title": "Créer un Nouveau Volume",
+      "desc": "Créez un nouveau volume Docker. Un volume est créé avec le pilote \"local\" par défaut.",
+      "selectDriver": "Sélectionner un pilote"
+    },
+    "remove": "Supprimer",
+    "noVolumes": "Aucun volume trouvé.",
+    "pageSubtitle": "Gérez vos volumes Docker et supprimez les volumes inutilisés.",
+    "fetchError": "Erreur lors du chargement des volumes",
+    "toastError": "Les volumes n'ont pas pu être chargés.",
+    "removeAsk": "Êtes-vous sûr de vouloir supprimer le volume ?",
+    "removeError": "La suppression a échoué",
+    "removeSuccess": "Volume supprimé",
+    "error": "Erreur",
+    "createEmpty": "Le nom du volume ne peut pas être vide.",
+    "createError": "Le volume n'a pas pu être créé",
+    "createSuccess": "Volume \"{volname}\" créé avec succès."
   },
   "stacks": {
     "title": "Piles locales",

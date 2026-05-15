@@ -29,6 +29,7 @@
     "containers": "コンテナ",
     "images": "イメージ",
     "networks": "ネットワーク",
+    "volumes": "ボリューム",
     "stacks": "スタック",
     "templates": "テンプレート",
     "settings": "設定",
@@ -162,6 +163,33 @@
     "createEmpty": "ネットワーク名は空にできません。",
     "createError": "ネットワークを作成できませんでした",
     "createSuccess": "ネットワーク \"{netname}\" が正常に作成されました。"
+  },
+  "volumes": {
+    "title": "Docker ボリューム",
+    "subtitle": "永続的なデータボリュームを管理します。",
+    "driver": "ドライバ",
+    "scope": "スコープ",
+    "mountpoint": "マウントポイント",
+    "created": "作成日",
+    "create": "ボリュームを作成",
+    "createVolume": "新しいボリューム",
+    "createDialog": {
+      "title": "新しいボリュームを作成",
+      "desc": "新しい Docker ボリュームを作成します。ボリュームはデフォルトで \"local\" ドライバで作成されます。",
+      "selectDriver": "ドライバを選択"
+    },
+    "remove": "削除",
+    "noVolumes": "ボリュームが見つかりません。",
+    "pageSubtitle": "Docker ボリュームを管理し、未使用のボリュームを削除します。",
+    "fetchError": "ボリュームの読み込みエラー",
+    "toastError": "ボリュームを読み込めませんでした。",
+    "removeAsk": "ボリュームを削除してもよろしいですか？",
+    "removeError": "削除に失敗しました",
+    "removeSuccess": "ボリュームが削除されました",
+    "error": "エラー",
+    "createEmpty": "ボリューム名は空にできません。",
+    "createError": "ボリュームを作成できませんでした",
+    "createSuccess": "ボリューム \"{volname}\" が正常に作成されました。"
   },
   "stacks": {
     "title": "ローカルスタック",
