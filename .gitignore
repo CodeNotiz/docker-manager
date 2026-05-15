@@ -44,4 +44,5 @@ next-env.d.ts
 # Docker Manager Application Data
 /data/docker-manager.db
 /stacks_data/
-/.claude/skills
+/.claude
+./CLAUDE.md
